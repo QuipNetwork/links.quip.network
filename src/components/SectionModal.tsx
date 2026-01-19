@@ -60,9 +60,10 @@ export function SectionModal({ isOpen, onClose, onSave, section, mode }: Section
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder="e.g., Community"
-            className="w-full bg-surface-elevated border border-border rounded-lg px-3 py-2 text-text-primary placeholder:text-text-muted focus:border-primary outline-none"
+            className="admin-input"
+            style={error ? { borderColor: 'var(--error)' } : {}}
           />
-          {error && <span className="text-caption text-red-400 mt-1 block">{error}</span>}
+          {error && <span className="text-caption text-error mt-1 block">{error}</span>}
         </div>
 
         <div>
@@ -70,7 +71,7 @@ export function SectionModal({ isOpen, onClose, onSave, section, mode }: Section
           <select
             value={icon}
             onChange={(e) => setIcon(e.target.value)}
-            className="w-full bg-surface-elevated border border-border rounded-lg px-3 py-2 text-text-primary focus:border-primary outline-none"
+            className="admin-select"
           >
             <option value="">No icon</option>
             {iconOptions.map((opt) => (
@@ -93,7 +94,8 @@ export function SectionModal({ isOpen, onClose, onSave, section, mode }: Section
               type="checkbox"
               checked={isCollapsible}
               onChange={(e) => setIsCollapsible(e.target.checked)}
-              className="w-4 h-4 rounded border-border bg-surface-elevated text-primary focus:ring-primary"
+              className="w-4 h-4 rounded border-border text-primary focus:ring-primary"
+              style={{ backgroundColor: 'rgba(35, 16, 48, 0.7)' }}
             />
             <span className="text-link-description text-text-secondary">
               Make section collapsible
@@ -105,11 +107,11 @@ export function SectionModal({ isOpen, onClose, onSave, section, mode }: Section
           <button
             type="button"
             onClick={onClose}
-            className="flex-1 btn-secondary"
+            className="flex-1 admin-btn-secondary"
           >
             Cancel
           </button>
-          <button type="submit" className="flex-1 btn-primary">
+          <button type="submit" className="flex-1 admin-btn-primary">
             {mode === 'add' ? 'Add Section' : 'Save Changes'}
           </button>
         </div>

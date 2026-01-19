@@ -31,12 +31,12 @@ export function ConfirmModal({
       <div className="space-y-4">
         <p className="text-link-description text-text-secondary">{message}</p>
         <div className="flex gap-3">
-          <button onClick={onClose} className="flex-1 btn-secondary">
+          <button onClick={onClose} className="flex-1 admin-btn-secondary">
             {cancelText}
           </button>
           <button
             onClick={handleConfirm}
-            className="flex-1 bg-red-500 hover:bg-red-600 text-white font-medium px-4 py-2 rounded-lg transition-colors"
+            className="flex-1 admin-btn-danger"
           >
             {confirmText}
           </button>

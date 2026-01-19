@@ -78,14 +78,14 @@ export function LinkModal({ isOpen, onClose, onSave, link, mode }: LinkModalProp
           <label className="block text-sm font-medium text-text-secondary mb-2">Icon</label>
           <div className="flex items-center gap-3">
             {icon && (
-              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center border border-primary/20">
+              <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{ backgroundColor: 'rgba(100, 200, 255, 0.15)', border: '1px solid rgba(100, 200, 255, 0.2)' }}>
                 <Icon name={icon} size={20} className="text-primary" />
               </div>
             )}
             <select
               value={icon}
               onChange={(e) => setIcon(e.target.value)}
-              className="flex-1 bg-surface-elevated border border-border rounded-xl px-4 py-3 text-text-primary focus:border-primary focus:ring-1 focus:ring-primary/20 outline-none transition-all"
+              className="flex-1 admin-select"
             >
               <option value="">No icon</option>
               {iconOptions.map((opt) => (
@@ -107,9 +107,8 @@ export function LinkModal({ isOpen, onClose, onSave, link, mode }: LinkModalProp
             onChange={(e) => setTitle(e.target.value)}
             maxLength={60}
             placeholder="e.g., Follow us on Twitter"
-            className={`w-full bg-surface-elevated border rounded-xl px-4 py-3 text-text-primary placeholder:text-text-dim focus:ring-1 outline-none transition-all ${
-              errors.title ? 'border-error focus:border-error focus:ring-error/20' : 'border-border focus:border-primary focus:ring-primary/20'
-            }`}
+            className="admin-input"
+            style={errors.title ? { borderColor: 'var(--error)' } : {}}
           />
           <div className="flex justify-between mt-2">
             {errors.title ? (
@@ -130,9 +129,8 @@ export function LinkModal({ isOpen, onClose, onSave, link, mode }: LinkModalProp
             value={url}
             onChange={(e) => setUrl(e.target.value)}
             placeholder="https://example.com"
-            className={`w-full bg-surface-elevated border rounded-xl px-4 py-3 text-text-primary placeholder:text-text-dim focus:ring-1 outline-none transition-all ${
-              errors.url ? 'border-error focus:border-error focus:ring-error/20' : 'border-border focus:border-primary focus:ring-primary/20'
-            }`}
+            className="admin-input"
+            style={errors.url ? { borderColor: 'var(--error)' } : {}}
           />
           {errors.url && <span className="text-xs text-error mt-2 block">{errors.url}</span>}
         </div>
@@ -145,7 +143,7 @@ export function LinkModal({ isOpen, onClose, onSave, link, mode }: LinkModalProp
             onChange={(e) => setDescription(e.target.value)}
             maxLength={120}
             placeholder="Optional short description"
-            className="w-full bg-surface-elevated border border-border rounded-xl px-4 py-3 text-text-primary placeholder:text-text-dim focus:border-primary focus:ring-1 focus:ring-primary/20 outline-none transition-all"
+            className="admin-input"
           />
           <div className="flex justify-between mt-2">
             <span className="text-xs text-text-dim">Optional</span>
@@ -157,11 +155,11 @@ export function LinkModal({ isOpen, onClose, onSave, link, mode }: LinkModalProp
           <button
             type="button"
             onClick={onClose}
-            className="flex-1 btn-secondary py-3"
+            className="flex-1 admin-btn-secondary py-3"
           >
             Cancel
           </button>
-          <button type="submit" className="flex-1 btn-primary py-3">
+          <button type="submit" className="flex-1 admin-btn-primary py-3">
             {mode === 'add' ? 'Add Link' : 'Save Changes'}
           </button>
         </div>

@@ -174,18 +174,18 @@ function AdminContent() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="sticky top-0 z-40 bg-surface/95 backdrop-blur-md border-b border-border">
+      <header className="sticky top-0 z-40 border-b border-border" style={{ backgroundColor: '#1a0c25' }}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary via-secondary to-accent-pink flex items-center justify-center">
-              <Icon name="edit" size={18} className="text-white" />
+            <div className="w-9 h-9 rounded-xl flex items-center justify-center" style={{ backgroundColor: 'rgba(35, 16, 48, 0.7)' }}>
+              <Icon name="edit" size={18} className="text-primary" />
             </div>
             <h1 className="text-admin-title text-text-primary">Admin</h1>
           </div>
           <Link
             href="/"
             target="_blank"
-            className="btn-secondary flex items-center gap-2 text-sm"
+            className="admin-btn-secondary"
           >
             <Icon name="eye" size={16} />
             <span className="hidden sm:inline">Preview Site</span>
@@ -196,7 +196,7 @@ function AdminContent() {
 
       <main className="max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
         {/* Site Settings */}
-        <div className="bg-surface border border-border rounded-2xl p-5 sm:p-6 mb-6">
+        <div className="admin-card p-5 sm:p-6 mb-6">
           <h2 className="text-base font-semibold text-text-primary mb-4 flex items-center gap-2">
             <Icon name="settings" size={18} className="text-text-muted" />
             Site Settings
@@ -209,7 +209,7 @@ function AdminContent() {
                 value={siteData.config.tagline || ''}
                 onChange={(e) => updateConfig({ tagline: e.target.value || null })}
                 placeholder="Enter a tagline..."
-                className="w-full bg-surface-elevated border border-border rounded-xl px-4 py-3 text-text-primary placeholder:text-text-dim focus:border-primary focus:ring-1 focus:ring-primary/20 outline-none transition-all"
+                className="admin-input"
               />
             </div>
             <label className="flex items-center gap-3 cursor-pointer group py-2">
@@ -220,7 +220,9 @@ function AdminContent() {
                   onChange={(e) => updateConfig({ showFooter: e.target.checked })}
                   className="sr-only peer"
                 />
-                <div className="w-10 h-6 bg-surface-elevated border border-border rounded-full peer-checked:bg-primary/20 peer-checked:border-primary transition-all" />
+                <div className="w-10 h-6 rounded-full transition-all" style={{ backgroundColor: 'rgba(35, 16, 48, 0.7)', border: '1px solid var(--border)' }}>
+                  <div className="peer-checked:translate-x-4 peer-checked:bg-primary" />
+                </div>
                 <div className="absolute left-1 top-1 w-4 h-4 bg-text-muted rounded-full peer-checked:translate-x-4 peer-checked:bg-primary transition-all" />
               </div>
               <span className="text-sm text-text-secondary group-hover:text-text-primary transition-colors">Show footer</span>
@@ -233,11 +235,11 @@ function AdminContent() {
           <h2 className="text-base font-semibold text-text-primary flex items-center gap-2">
             <Icon name="layers" size={18} className="text-text-muted" />
             Sections
-            <span className="text-xs font-normal text-text-dim bg-surface-elevated px-2 py-0.5 rounded-full">
+            <span className="text-xs font-normal text-text-dim px-2 py-0.5 rounded-full" style={{ backgroundColor: 'rgba(35, 16, 48, 0.7)' }}>
               {sortedSections.length}
             </span>
           </h2>
-          <button onClick={handleAddSection} className="btn-primary flex items-center gap-2 text-sm">
+          <button onClick={handleAddSection} className="admin-btn-primary">
             <Icon name="plus" size={16} />
             Add Section
           </button>
@@ -251,22 +253,22 @@ function AdminContent() {
               onDragStart={(e) => handleSectionDragStart(e, section.id)}
               onDragOver={(e) => handleSectionDragOver(e, section.id)}
               onDragEnd={handleSectionDragEnd}
-              className={`bg-surface border border-border rounded-2xl overflow-hidden transition-all ${
+              className={`admin-card overflow-hidden transition-all ${
                 draggedSection === section.id ? 'opacity-50 scale-[0.98]' : ''
               }`}
             >
               {/* Section header */}
-              <div className="flex items-center gap-3 p-4 border-b border-border/50 bg-surface-elevated/50">
+              <div className="flex items-center gap-3 p-4 admin-card-header">
                 <div className="cursor-grab active:cursor-grabbing text-text-dim hover:text-text-secondary p-1.5 -m-1.5 rounded-lg hover:bg-surface transition-colors">
                   <Icon name="drag" size={18} />
                 </div>
                 {section.icon && (
-                  <div className="w-8 h-8 rounded-lg bg-secondary/10 flex items-center justify-center">
+                  <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ backgroundColor: 'rgba(167, 139, 250, 0.15)' }}>
                     <Icon name={section.icon} size={16} className="text-secondary" />
                   </div>
                 )}
                 <span className="text-[15px] font-medium text-text-primary flex-1">{section.title}</span>
-                <span className="text-xs text-text-dim bg-surface px-2 py-1 rounded-md">
+                <span className="text-xs text-text-dim px-2 py-1 rounded-md" style={{ backgroundColor: 'rgba(35, 16, 48, 0.7)' }}>
                   {section.links.length} {section.links.length === 1 ? 'link' : 'links'}
                 </span>
                 <button
@@ -296,15 +298,16 @@ function AdminContent() {
                       onDragStart={(e) => handleLinkDragStart(e, link.id, section.id)}
                       onDragOver={(e) => handleLinkDragOver(e, link.id, section.id)}
                       onDragEnd={handleLinkDragEnd}
-                      className={`flex items-center gap-3 p-3 bg-surface-elevated/60 rounded-xl border border-border/50 hover:border-border transition-all ${
+                      className={`flex items-center gap-3 p-3 rounded-xl border border-border/50 hover:border-border transition-all ${
                         draggedLink?.id === link.id ? 'opacity-50 scale-[0.98]' : ''
                       }`}
+                      style={{ backgroundColor: 'rgba(35, 16, 48, 0.5)' }}
                     >
                       <div className="cursor-grab active:cursor-grabbing text-text-dim hover:text-text-secondary p-1 -m-1 rounded hover:bg-surface transition-colors">
                         <Icon name="drag" size={14} />
                       </div>
                       {link.icon && (
-                        <div className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                        <div className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(100, 200, 255, 0.15)' }}>
                           <Icon name={link.icon} size={14} className="text-primary" />
                         </div>
                       )}
@@ -333,7 +336,8 @@ function AdminContent() {
 
                 <button
                   onClick={() => handleAddLink(section.id)}
-                  className="w-full p-3.5 border-2 border-dashed border-border/60 rounded-xl text-text-muted hover:text-primary hover:border-primary/50 hover:bg-primary/5 transition-all flex items-center justify-center gap-2 text-sm font-medium"
+                  className="w-full p-3.5 border-2 border-dashed border-border/60 rounded-xl text-text-muted hover:text-primary hover:border-primary/50 transition-all flex items-center justify-center gap-2 text-sm font-medium"
+                  style={{ backgroundColor: 'transparent' }}
                 >
                   <Icon name="plus" size={16} />
                   Add Link
@@ -343,16 +347,16 @@ function AdminContent() {
           ))}
 
           {sortedSections.length === 0 && (
-            <div className="text-center py-16 px-6 bg-surface border border-border rounded-2xl">
-              <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-secondary/10 flex items-center justify-center">
+            <div className="text-center py-16 px-6 admin-card">
+              <div className="w-16 h-16 mx-auto mb-4 rounded-2xl flex items-center justify-center" style={{ backgroundColor: 'rgba(167, 139, 250, 0.15)' }}>
                 <Icon name="layers" size={28} className="text-secondary" />
               </div>
               <h3 className="text-lg font-medium text-text-primary mb-2">No sections yet</h3>
               <p className="text-text-muted mb-6 max-w-sm mx-auto">
                 Create your first section to start organizing your links.
               </p>
-              <button onClick={handleAddSection} className="btn-primary">
-                <Icon name="plus" size={16} className="mr-2" />
+              <button onClick={handleAddSection} className="admin-btn-primary">
+                <Icon name="plus" size={16} />
                 Create First Section
               </button>
             </div>

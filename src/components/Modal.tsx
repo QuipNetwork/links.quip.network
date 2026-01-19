@@ -37,16 +37,17 @@ export function Modal({ isOpen, onClose, title, children }: ModalProps) {
         aria-hidden="true"
       />
       <div
-        className="relative bg-surface border border-border rounded-2xl w-full max-w-md shadow-2xl"
+        className="relative admin-card w-full max-w-md shadow-2xl"
         role="dialog"
         aria-modal="true"
         aria-labelledby="modal-title"
       >
-        <div className="flex items-center justify-between p-5 border-b border-border/50">
+        <div className="flex items-center justify-between p-5 admin-card-header">
           <h2 id="modal-title" className="text-lg font-semibold text-text-primary">{title}</h2>
           <button
             onClick={onClose}
-            className="text-text-muted hover:text-text-primary hover:bg-surface-elevated p-2 -m-2 rounded-lg transition-all"
+            className="text-text-muted hover:text-text-primary p-2 -m-2 rounded-lg transition-all"
+            style={{ backgroundColor: 'transparent' }}
             aria-label="Close modal"
           >
             <Icon name="x" size={20} />
