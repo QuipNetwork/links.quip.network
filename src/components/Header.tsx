@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { SiteConfig } from '@/types';
 
 interface HeaderProps {
@@ -17,10 +18,12 @@ export function Header({ config }: HeaderProps) {
       >
         <div className="flex items-center justify-center gap-3">
           {/* Logo icon */}
-          <div className="relative">
-            <img
+          <div className="relative w-10 h-10">
+            <Image
               src="/images/icon.png"
               alt="Quip Network"
+              width={40}
+              height={40}
               className="w-10 h-10"
             />
           </div>

@@ -94,7 +94,7 @@ export const defaultSiteData: SiteData = {
           id: 'blog',
           sectionId: 'resources',
           title: 'Blog',
-          url: 'https://blog.quip.network',
+          url: 'https://quantumdoomclock.com/blog',
           description: 'Articles and updates',
           icon: 'blog',
           order: 2,
