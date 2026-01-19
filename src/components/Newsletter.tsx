@@ -21,7 +21,7 @@ export function Newsletter() {
       formData.append('email-2', email);
       formData.append('form-name', 'Newsletter Form');
 
-      const response = await fetch('https://www.quip.network/', {
+      await fetch('https://www.quip.network/', {
         method: 'POST',
         body: formData,
         mode: 'no-cors', // Webflow forms require this
