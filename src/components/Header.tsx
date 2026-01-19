@@ -9,7 +9,7 @@ interface HeaderProps {
 
 export function Header({ config }: HeaderProps) {
   return (
-    <header className="text-center mb-14 pt-16 pb-6">
+    <header className="text-center mb-8 pt-8 pb-4">
       <a
         href={config.mainWebsiteUrl}
         target="_blank"
@@ -22,9 +22,9 @@ export function Header({ config }: HeaderProps) {
             <Image
               src="/images/Quiplockup.png"
               alt="Quip Network"
-              width={200}
-              height={60}
-              className="h-auto w-auto max-h-[60px]"
+              width={140}
+              height={42}
+              className="h-auto w-auto max-h-[42px]"
               unoptimized
             />
           </div>
@@ -32,7 +32,7 @@ export function Header({ config }: HeaderProps) {
       </a>
 
       {config.tagline && (
-        <p className="text-[14px] text-[#89839c] mt-6 max-w-sm mx-auto leading-relaxed">
+        <p className="text-[14px] text-[#89839c] mt-3 max-w-sm mx-auto leading-relaxed">
           {config.tagline}
         </p>
       )}

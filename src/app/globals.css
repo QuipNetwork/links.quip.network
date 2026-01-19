@@ -63,11 +63,11 @@ main {
 
 /* Section title - quantum inspired */
 .section-title {
-  color: var(--text-muted);
-  font-size: 11px;
+  color: var(--text-primary);
+  font-size: 13px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.12em;
   position: relative;
   display: inline-flex;
   align-items: center;

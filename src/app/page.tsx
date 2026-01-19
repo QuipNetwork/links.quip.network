@@ -8,6 +8,7 @@ import { Header } from '@/components/Header';
 import { Section } from '@/components/Section';
 import { Footer } from '@/components/Footer';
 import { GradientWave } from '@/components/GradientWave';
+import { Newsletter } from '@/components/Newsletter';
 
 function LoadingSkeleton() {
   return (
@@ -63,6 +64,7 @@ export default function HomePage() {
                 <Section key={section.id} section={section} />
               ))}
             </div>
+            <Newsletter />
             {siteData.config.showFooter && <Footer />}
           </>
         )}
