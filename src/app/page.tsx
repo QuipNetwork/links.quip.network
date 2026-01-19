@@ -1,101 +1,72 @@
-import Image from "next/image";
+'use client';
 
-export default function Home() {
+import { useEffect, useState } from 'react';
+import { SiteData } from '@/types';
+import { getSiteData } from '@/lib/storage';
+import { defaultSiteData } from '@/data/siteData';
+import { Header } from '@/components/Header';
+import { Section } from '@/components/Section';
+import { Footer } from '@/components/Footer';
+import { GradientWave } from '@/components/GradientWave';
+
+function LoadingSkeleton() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="animate-pulse">
+      {/* Header skeleton */}
+      <div className="text-center mb-14 pt-16 pb-6">
+        <div className="flex flex-col items-center gap-6">
+          <div className="w-[72px] h-[72px] rounded-full bg-surface-elevated" />
+          <div className="flex flex-col items-center gap-3">
+            <div className="h-7 w-36 rounded-lg bg-surface-elevated" />
+            <div className="h-3 w-16 rounded bg-surface-elevated" />
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        <div className="h-5 w-64 mx-auto mt-8 rounded bg-surface-elevated" />
+      </div>
+      {/* Section skeletons */}
+      {[1, 2, 3].map((i) => (
+        <div key={i} className="mb-10">
+          <div className="h-4 w-28 rounded bg-surface-elevated mb-5" />
+          <div className="space-y-3">
+            {[1, 2].map((j) => (
+              <div key={j} className="h-[72px] rounded-2xl bg-surface-elevated" />
+            ))}
+          </div>
+        </div>
+      ))}
     </div>
+  );
+}
+
+export default function HomePage() {
+  const [siteData, setSiteData] = useState<SiteData>(defaultSiteData);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    setSiteData(getSiteData());
+    setIsLoaded(true);
+  }, []);
+
+  const sortedSections = [...siteData.sections].sort((a, b) => a.order - b.order);
+
+  return (
+    <main className="min-h-screen bg-background">
+      <GradientWave />
+      <div className="max-w-link-page mx-auto px-5 sm:px-4 relative z-10">
+        {!isLoaded ? (
+          <LoadingSkeleton />
+        ) : (
+          <>
+            <Header config={siteData.config} />
+            <div className="transition-opacity duration-300 ease-out">
+              {sortedSections.map((section) => (
+                <Section key={section.id} section={section} />
+              ))}
+            </div>
+            {siteData.config.showFooter && <Footer />}
+          </>
+        )}
+      </div>
+    </main>
   );
 }
