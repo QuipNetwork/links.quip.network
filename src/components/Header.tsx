@@ -16,23 +16,18 @@ export function Header({ config }: HeaderProps) {
         rel="noopener noreferrer"
         className="inline-block group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-4 focus-visible:ring-offset-background rounded-2xl"
       >
-        <div className="flex items-center justify-center gap-3">
-          {/* Logo icon */}
-          <div className="relative w-10 h-10">
+        <div className="flex items-center justify-center">
+          {/* Quip lockup logo */}
+          <div className="relative">
             <Image
-              src="/images/icon.png"
+              src="/images/Quiplockup.png"
               alt="Quip Network"
-              width={40}
-              height={40}
-              className="w-10 h-10"
+              width={200}
+              height={60}
+              className="h-auto w-auto max-h-[60px]"
               unoptimized
             />
           </div>
-
-          {/* Text logo */}
-          <span className="text-[24px] font-medium tracking-tight text-white group-hover:text-[#00e5ff] transition-colors duration-300">
-            quip<span className="text-[#89839c] font-normal">.network</span>
-          </span>
         </div>
       </a>
 
