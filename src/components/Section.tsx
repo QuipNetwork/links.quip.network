@@ -1,5 +1,3 @@
-'use client';
-
 import { useState } from 'react';
 import { Section as SectionType } from '@/types';
 import { Icon } from './Icons';

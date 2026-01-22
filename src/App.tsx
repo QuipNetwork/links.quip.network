@@ -5,7 +5,7 @@ import { Footer } from '@/components/Footer';
 import { GradientWave } from '@/components/GradientWave';
 import { Newsletter } from '@/components/Newsletter';
 
-export default function HomePage() {
+function App() {
   const sortedSections = [...siteData.sections].sort((a, b) => a.order - b.order);
 
   return (
@@ -24,3 +24,5 @@ export default function HomePage() {
     </main>
   );
 }
+
+export default App;

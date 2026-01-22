@@ -1,5 +1,3 @@
-'use client';
-
 export function GradientWave() {
   return (
     <div className="header_background">

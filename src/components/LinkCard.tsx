@@ -1,5 +1,3 @@
-'use client';
-
 import { Link } from '@/types';
 import { Icon } from './Icons';
 
