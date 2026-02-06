@@ -14,18 +14,44 @@ export function Newsletter() {
     setStatus('loading');
 
     try {
-      // Submit to Webflow form endpoint
-      const formData = new FormData();
-      formData.append('email-2', email);
-      formData.append('form-name', 'Newsletter Form');
+      // 1. Submit to Netlify Forms
+      const formData = new URLSearchParams();
+      formData.append('form-name', 'newsletter');
+      formData.append('email', email);
 
-      await fetch('https://www.quip.network/', {
+      await fetch('/', {
         method: 'POST',
-        body: formData,
-        mode: 'no-cors', // Webflow forms require this
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: formData.toString(),
       });
 
-      // Since no-cors doesn't give us response info, assume success
+      // 2. Submit to Listmonk via hidden iframe (avoids CORS)
+      const form = document.createElement('form');
+      form.method = 'POST';
+      form.action = 'https://listmonk.quip.network/subscription/form';
+      form.target = 'listmonk-frame';
+
+      const fields = { email, name: '', l: '7da41db0-e463-4b00-8ce7-71d3c77f3cad' };
+      for (const [key, value] of Object.entries(fields)) {
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = key;
+        input.value = value;
+        form.appendChild(input);
+      }
+
+      document.body.appendChild(form);
+      form.submit();
+      document.body.removeChild(form);
+
+      // Clean up iframe after 5s
+      setTimeout(() => {
+        const iframe = document.getElementById('listmonk-frame') as HTMLIFrameElement;
+        if (iframe) {
+          iframe.srcdoc = '';
+        }
+      }, 5000);
+
       setStatus('success');
       setMessage('Thanks for subscribing!');
       setEmail('');
@@ -54,13 +80,15 @@ export function Newsletter() {
         </h3>
       </div>
 
-      <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
+      <form onSubmit={handleSubmit} name="newsletter" data-netlify="true" className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
+        <input type="hidden" name="form-name" value="newsletter" />
         <div className="relative flex-1">
           <div className="absolute left-4 top-1/2 -translate-y-1/2 text-text-muted">
             <Icon name="email" size={18} />
           </div>
           <input
             type="email"
+            name="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="me@email.com"
@@ -77,6 +105,7 @@ export function Newsletter() {
           {status === 'loading' ? 'Please wait...' : 'Subscribe'}
         </button>
       </form>
+      <iframe id="listmonk-frame" name="listmonk-frame" style={{ display: 'none' }} />
 
       {message && (
         <p className={`text-center mt-3 text-sm ${status === 'success' ? 'text-green-400' : 'text-red-400'}`}>
