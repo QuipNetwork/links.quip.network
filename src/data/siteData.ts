@@ -9,6 +9,25 @@ export const siteData: SiteData = {
   },
   sections: [
     {
+      id: 'vault',
+      title: 'Vault',
+      icon: 'vault',
+      order: 0,
+      isCollapsible: false,
+      defaultExpanded: true,
+      links: [
+        {
+          id: 'vault',
+          sectionId: 'vault',
+          title: 'Deposit and Earn QUIP',
+          url: 'https://vault.quip.network',
+          description: null,
+          icon: 'vault',
+          order: 1,
+        },
+      ],
+    },
+    {
       id: 'community',
       title: 'Community',
       icon: 'users',
