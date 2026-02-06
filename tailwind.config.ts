@@ -55,7 +55,7 @@ const config: Config = {
         'particle': '0 0 8px currentColor',
       },
       maxWidth: {
-        'link-page': '460px',
+        'link-page': '620px',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

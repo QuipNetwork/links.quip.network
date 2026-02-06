@@ -2,12 +2,31 @@ import { SiteData } from '@/types';
 
 export const siteData: SiteData = {
   config: {
-    tagline: "The World's Shared Quantum Computer",
+    tagline: "The worldwide quantum computer",
     showFooter: true,
     logoUrl: '/logo.svg',
     mainWebsiteUrl: 'https://quip.network',
   },
   sections: [
+    {
+      id: 'vault',
+      title: 'Vault',
+      icon: 'vault',
+      order: 0,
+      isCollapsible: false,
+      defaultExpanded: true,
+      links: [
+        {
+          id: 'vault',
+          sectionId: 'vault',
+          title: 'Deposit and Earn QUIP',
+          url: 'https://vault.quip.network',
+          description: 'Deposit into the Quip Vault and protect your assets from quantum computer hackers',
+          icon: 'vault',
+          order: 1,
+        },
+      ],
+    },
     {
       id: 'community',
       title: 'Community',
@@ -29,7 +48,7 @@ export const siteData: SiteData = {
           id: 'discord',
           sectionId: 'community',
           title: 'Join our Discord',
-          url: 'https://discord.gg/BuFPTaMSht',
+          url: 'https://discord.gg/quipnetwork',
           description: 'Connect with the community',
           icon: 'discord',
           order: 2,
@@ -67,7 +86,7 @@ export const siteData: SiteData = {
           sectionId: 'developers',
           title: 'Documentation',
           url: 'https://quip.gitbook.io/docs',
-          description: 'Technical guides and API reference',
+          description: 'Learn how Quip works',
           icon: 'book',
           order: 1,
         },

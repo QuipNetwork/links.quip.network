@@ -60,6 +60,21 @@ export function Icon({ name, className = '', size = 20, style }: IconProps) {
       </svg>
     ),
 
+    // Lucide Icons - Finance
+    vault: (
+      <svg viewBox="0 0 24 24" width={size} height={size} className={className} {...stroke}>
+        <rect width="18" height="18" x="3" y="3" rx="2"/>
+        <circle cx="12" cy="12" r="4"/>
+        <circle cx="12" cy="12" r="1"/>
+        <path d="M12 3v1"/>
+        <path d="M12 20v1"/>
+        <path d="M3 12h1"/>
+        <path d="M20 12h1"/>
+        <path d="M21 17h1v4h-2"/>
+        <path d="M3 17H2v4h2"/>
+      </svg>
+    ),
+
     // Lucide Icons - Resources
     book: (
       <svg viewBox="0 0 24 24" width={size} height={size} className={className} {...stroke}>

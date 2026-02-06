@@ -47,10 +47,10 @@ export function Newsletter() {
   };
 
   return (
-    <div className="mt-12 mb-8">
+    <div>
       <div className="text-center mb-5">
-        <h3 className="text-[13px] font-semibold text-text-primary uppercase tracking-wider">
-          Subscribe to Our Newsletter
+        <h3 className="text-[13px] font-medium text-white/50 tracking-wide">
+          Stay in the loop
         </h3>
       </div>
 

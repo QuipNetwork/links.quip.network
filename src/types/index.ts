@@ -46,6 +46,7 @@ export type IconName =
   | 'roadmap'
   // Actions
   | 'launch'
+  | 'vault'
   | 'wallet'
   | 'download'
   | 'email'
