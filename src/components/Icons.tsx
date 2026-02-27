@@ -75,6 +75,15 @@ export function Icon({ name, className = '', size = 20, style }: IconProps) {
       </svg>
     ),
 
+    token: (
+      <svg viewBox="0 0 24 24" width={size} height={size} className={className} {...stroke}>
+        <ellipse cx="12" cy="5" rx="9" ry="3"/>
+        <path d="M3 5v4c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/>
+        <path d="M3 9v4c0 1.66 4.03 3 9 3s9-1.34 9-3V9"/>
+        <path d="M3 13v4c0 1.66 4.03 3 9 3s9-1.34 9-3v-4"/>
+      </svg>
+    ),
+
     // Lucide Icons - Resources
     book: (
       <svg viewBox="0 0 24 24" width={size} height={size} className={className} {...stroke}>
