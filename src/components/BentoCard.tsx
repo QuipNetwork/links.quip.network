@@ -6,10 +6,11 @@ interface BentoLinkCardProps {
   icon?: string | null;
   description?: string | null;
   featured?: boolean;
+  backgroundImage?: string;
   colSpan?: 1 | 2;
 }
 
-export function BentoLinkCard({ title, url, icon, description, featured, colSpan = 1 }: BentoLinkCardProps) {
+export function BentoLinkCard({ title, url, icon, description, featured, backgroundImage, colSpan = 1 }: BentoLinkCardProps) {
   if (featured) {
     return (
       <a
@@ -25,9 +26,9 @@ export function BentoLinkCard({ title, url, icon, description, featured, colSpan
           ${colSpan === 2 ? 'md:col-span-2' : ''}
         `}
       >
-        {/* Vault background image */}
+        {/* Background image */}
         <img
-          src="/images/safe.png"
+          src={backgroundImage || "/images/safe.png"}
           alt=""
           className="absolute right-0 bottom-0 h-full w-auto max-w-none opacity-40 group-hover:opacity-55 transition-opacity duration-500 pointer-events-none"
         />
@@ -90,8 +91,8 @@ interface BentoSocialCardProps {
 export function BentoSocialCard({ links }: BentoSocialCardProps) {
   return (
     <div className="rounded-2xl p-4 bg-[rgba(28,28,40,0.7)] backdrop-blur-sm border border-[rgba(120,140,180,0.08)]">
-      <p className="text-[10px] font-semibold text-white/30 uppercase tracking-widest mb-3">Community</p>
-      <div className="grid grid-cols-2 gap-2">
+      <p className="text-[14px] font-medium text-white/90 mb-3">Community</p>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
         {links.map((link) => (
           <a
             key={link.id}
@@ -141,3 +142,26 @@ export function BentoNewsletterCard({ children }: BentoNewsletterCardProps) {
     </div>
   );
 }
+
+interface BentoCalendarCardProps {
+  embedUrl: string;
+}
+
+export function BentoCalendarCard({ embedUrl }: BentoCalendarCardProps) {
+  return (
+    <div className="md:col-span-2 rounded-2xl overflow-hidden bg-[rgba(28,28,40,0.7)] backdrop-blur-sm border border-[rgba(120,140,180,0.08)]">
+      <div className="px-5 pt-4 pb-2">
+        <p className="text-[10px] font-semibold text-white/30 uppercase tracking-widest">Events</p>
+      </div>
+      <iframe
+        src={embedUrl}
+        className="w-full border-0"
+        style={{ height: '160px' }}
+        allowFullScreen
+        aria-hidden="false"
+        tabIndex={0}
+      />
+    </div>
+  );
+}
+
