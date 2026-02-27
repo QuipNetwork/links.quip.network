@@ -34,7 +34,7 @@ export function BentoLinkCard({ title, url, icon, description, featured, backgro
         />
 
         <div className="relative z-10">
-          <span className="text-[15px] font-semibold text-white block drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">{title}</span>
+          <span className="text-[14px] font-medium text-white/90 block drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">{title}</span>
           {description && (
             <p className="text-[12px] text-[rgba(150,200,220,0.7)] mt-1 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">{description}</p>
           )}
@@ -91,7 +91,10 @@ interface BentoSocialCardProps {
 export function BentoSocialCard({ links }: BentoSocialCardProps) {
   return (
     <div className="rounded-2xl p-4 bg-[rgba(28,28,40,0.7)] backdrop-blur-sm border border-[rgba(120,140,180,0.08)]">
-      <p className="text-[14px] font-medium text-white/90 mb-3">Community</p>
+      <div className="flex items-center gap-2 mb-3">
+        <span className="text-white/50"><Icon name="users" size={16} /></span>
+        <p className="text-[14px] font-medium text-white/90">Community</p>
+      </div>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
         {links.map((link) => (
           <a

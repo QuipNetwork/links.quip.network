@@ -19,7 +19,7 @@ export const siteData: SiteData = {
         {
           id: 'vault',
           sectionId: 'vault',
-          title: 'Quip Network Vault',
+          title: 'Vault',
           url: 'https://vault.quip.network',
           description: 'Deposit and earn QUIP while protecting your assets from quantum threats',
           icon: 'vault',
@@ -28,7 +28,7 @@ export const siteData: SiteData = {
         {
           id: 'quest',
           sectionId: 'vault',
-          title: 'Quip Network Quests',
+          title: 'Quests',
           url: 'https://quest.quip.network/',
           description: 'Earn points to become eligible for the Quip Network Airdrop',
           icon: 'map',
