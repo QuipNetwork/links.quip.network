@@ -1,24 +1,31 @@
 import { useState, useEffect } from 'react';
 import { siteData } from '@/data/siteData';
-import { BentoLinkCard, BentoSocialCard, BentoNewsletterCard, BentoCalendarCard } from './BentoCard';
+import { BentoLinkCard, BentoSocialCard, BentoNewsletterCard, BentoEventCard } from './BentoCard';
 import { Icon } from './Icons';
 import { Newsletter } from './Newsletter';
 
-const LUMA_CALENDAR_API = 'https://api.lu.ma/calendar/get-items?calendar_api_id=cal-ByIDA5W5e1B4mpO&period=future';
-const LUMA_CALENDAR_EMBED = 'https://lu.ma/embed/calendar/cal-ByIDA5W5e1B4mpO/events';
+const LUMA_API = '/api/luma/calendar/get-items?calendar_api_id=cal-ByIDA5W5e1B4mpO&period=future';
+
+interface LumaEvent {
+  name: string;
+  start_at: string;
+  end_at: string;
+  cover_url: string;
+  url: string;
+  geo_address_info?: { city_state?: string };
+}
 
 export function BentoGrid() {
-  const [hasEvents, setHasEvents] = useState(false);
+  const [events, setEvents] = useState<LumaEvent[] | null>(null);
 
   useEffect(() => {
-    fetch(LUMA_CALENDAR_API)
+    fetch(LUMA_API)
       .then(res => res.json())
       .then(data => {
-        if (data.entries && data.entries.length > 0) {
-          setHasEvents(true);
-        }
+        const entries = data.entries ?? [];
+        setEvents(entries.map((e: { event: LumaEvent }) => e.event));
       })
-      .catch(() => {});
+      .catch(() => setEvents([]));
   }, []);
   const vault = siteData.sections.find(s => s.id === 'vault');
   const community = siteData.sections.find(s => s.id === 'community');
@@ -71,9 +78,7 @@ export function BentoGrid() {
       </div>
 
       {/* Events */}
-      {hasEvents ? (
-        <BentoCalendarCard embedUrl={LUMA_CALENDAR_EMBED} />
-      ) : (
+      {events === null ? null : events.length === 0 ? (
         <BentoLinkCard
           title="Events"
           url="https://lu.ma/quipnetwork"
@@ -81,6 +86,8 @@ export function BentoGrid() {
           description="No upcoming events"
           colSpan={2}
         />
+      ) : (
+        <BentoEventCard events={events} />
       )}
 
       {developers?.links.map(link => (
