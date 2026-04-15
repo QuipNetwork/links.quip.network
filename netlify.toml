@@ -3,6 +3,12 @@
   publish = "dist"
 
 [[redirects]]
+  from = "/api/luma/*"
+  to = "https://api.lu.ma/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
