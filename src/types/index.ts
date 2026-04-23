@@ -1,61 +1,44 @@
-export interface SiteConfig {
-  tagline: string | null;
-  showFooter: boolean;
-  logoUrl: string;
-  mainWebsiteUrl: string;
-}
-
-export interface Link {
+export interface VaultItem {
   id: string;
-  sectionId: string;
   title: string;
   url: string;
-  description: string | null;
-  icon: string | null;
-  order: number;
+  description: string;
+  image: string;
+  cta: string;
 }
 
-export interface Section {
+export interface EventItem {
   id: string;
   title: string;
-  icon: string | null;
-  order: number;
-  isCollapsible: boolean;
-  defaultExpanded: boolean;
-  links: Link[];
+  subtitle?: string;
+  url: string;
+  date: string;
+  time: string;
+  tag: string;
+  cover_url?: string;
+  location?: string;
+}
+
+export interface CommunityLink {
+  id: string;
+  title: string;
+  url: string;
+  icon: 'twitter' | 'discord' | 'telegram' | 'farcaster';
+  handle: string;
+}
+
+export interface LinkItem {
+  id: string;
+  title: string;
+  url: string;
+  description: string;
+  tag: string;
 }
 
 export interface SiteData {
-  config: SiteConfig;
-  sections: Section[];
+  vault: VaultItem[];
+  events: EventItem[];
+  community: CommunityLink[];
+  developers: LinkItem[];
+  resources: LinkItem[];
 }
-
-export type IconName =
-  // Social
-  | 'twitter'
-  | 'discord'
-  | 'telegram'
-  | 'github'
-  | 'youtube'
-  | 'medium'
-  // Resources
-  | 'documentation'
-  | 'whitepaper'
-  | 'blog'
-  | 'faq'
-  | 'roadmap'
-  // Actions
-  | 'launch'
-  | 'vault'
-  | 'wallet'
-  | 'download'
-  | 'email'
-  | 'external'
-  // Categories
-  | 'users'
-  | 'code'
-  | 'news'
-  | 'tools'
-  | 'partners'
-  | 'book'
-  | 'link';

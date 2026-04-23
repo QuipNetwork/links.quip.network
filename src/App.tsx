@@ -1,19 +1,24 @@
+import { Hero } from '@/components/sections/Hero';
+import { EarnSection } from '@/components/sections/EarnSection';
+import { CommunitySection } from '@/components/sections/CommunitySection';
+import { EventsSection } from '@/components/sections/EventsSection';
+import { LinkSectionBlock } from '@/components/sections/LinkSectionBlock';
+import { NewsletterSection } from '@/components/sections/NewsletterSection';
+import { LinksFooter } from '@/components/sections/LinksFooter';
 import { siteData } from '@/data/siteData';
-import { Header } from '@/components/Header';
-import { Footer } from '@/components/Footer';
-import { GradientWave } from '@/components/GradientWave';
-import { BentoGrid } from '@/components/BentoGrid';
 
 function App() {
   return (
-    <main className="min-h-screen">
-      <GradientWave />
-      <div className="max-w-link-page mx-auto px-5 sm:px-4 relative z-10">
-        <Header config={siteData.config} />
-        <BentoGrid />
-        {siteData.config.showFooter && <Footer />}
-      </div>
-    </main>
+    <>
+      <Hero />
+      <EarnSection />
+      <CommunitySection />
+      <EventsSection />
+      <LinkSectionBlock eyebrow="Developers" heading="Build on the" italic="quantum network" links={siteData.developers} />
+      <LinkSectionBlock eyebrow="Resources" heading="Research &" italic="reading" links={siteData.resources} />
+      <NewsletterSection />
+      <LinksFooter />
+    </>
   );
 }
 

@@ -2,466 +2,201 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ============================================================
+   QUIP NETWORK — Design Tokens
+   Colors, type, spacing. Mirrors the brand design system.
+   ============================================================ */
+
+/* ---------- Fonts ---------- */
+@font-face {
+  font-family: 'ABC Favorit';
+  src: url('/fonts/ABCFavorit-Light.otf') format('opentype');
+  font-weight: 300; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'ABC Favorit';
+  src: url('/fonts/ABCFavorit-Book.otf') format('opentype');
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'ABC Favorit';
+  src: url('/fonts/ABCFavorit-Regular.otf') format('opentype');
+  font-weight: 450; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'ABC Favorit';
+  src: url('/fonts/ABCFavorit-Medium.otf') format('opentype');
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'ABC Favorit';
+  src: url('/fonts/ABCFavorit-Bold.otf') format('opentype');
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+
+@font-face {
+  font-family: 'ABC Favorit Mono';
+  src: url('/fonts/ABCFavoritMono-Book.otf') format('opentype');
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'ABC Favorit Mono';
+  src: url('/fonts/ABCFavoritMono-Regular.otf') format('opentype');
+  font-weight: 450; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'ABC Favorit Mono';
+  src: url('/fonts/ABCFavoritMono-Medium.otf') format('opentype');
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'ABC Favorit Mono';
+  src: url('/fonts/ABCFavoritMono-Bold.otf') format('opentype');
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+
+@font-face {
+  font-family: 'ABC Gaisyr';
+  src: url('/fonts/ABCGaisyr-Light.otf') format('opentype');
+  font-weight: 300; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'ABC Gaisyr';
+  src: url('/fonts/ABCGaisyr-Book.otf') format('opentype');
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'ABC Gaisyr';
+  src: url('/fonts/ABCGaisyr-Regular.otf') format('opentype');
+  font-weight: 450; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'ABC Gaisyr';
+  src: url('/fonts/ABCGaisyr-Medium.otf') format('opentype');
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'ABC Gaisyr';
+  src: url('/fonts/ABCGaisyr-Bold.otf') format('opentype');
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'ABC Gaisyr';
+  src: url('/fonts/ABCGaisyr-BookItalic.otf') format('opentype');
+  font-weight: 400; font-style: italic; font-display: swap;
+}
+
 :root {
-  /* Dark charcoal theme - lighter, breathable */
-  --background: #1c1c24;
-  --background-alt: #22222c;
-  --surface: rgba(40, 40, 55, 0.8);
-  --surface-elevated: rgba(50, 50, 68, 0.9);
-  --surface-hover: rgba(60, 60, 80, 0.95);
-  --border: rgba(120, 140, 180, 0.15);
-  --border-hover: rgba(0, 200, 255, 0.35);
-  --border-glow: rgba(0, 255, 255, 0.5);
+  /* ---------- Font families ---------- */
+  --font-body: 'ABC Favorit', system-ui, sans-serif;
+  --font-heading: 'ABC Gaisyr', Georgia, serif;
+  --font-mono: 'ABC Favorit Mono', ui-monospace, monospace;
 
-  /* Quantum accent colors - cyan/blue palette */
-  --primary: #00d4ff;
-  --primary-dim: rgba(0, 212, 255, 0.12);
-  --secondary: #0088cc;
-  --secondary-dim: rgba(0, 136, 204, 0.15);
-  --tertiary: #00ffff;
-  --tertiary-dim: rgba(0, 255, 255, 0.1);
-  --accent-warm: #fbbf24;
-  --accent-coral: #fb7185;
+  /* ---------- Zinc scale ---------- */
+  --zinc-950: #09090b;
+  --zinc-900: #18181b;
+  --zinc-850: #212124;
+  --zinc-800: #27272a;
+  --zinc-750: #343436;
+  --zinc-700: #3f3f46;
+  --zinc-600: #52525c;
+  --zinc-550: #56565c;
+  --zinc-500: #71717b;
+  --zinc-400: #9f9fa9;
+  --zinc-300: #c9c9cb;
+  --zinc-250: #d4d4d8;
+  --zinc-200: #dbdbde;
+  --zinc-150: #e4e4e7;
+  --zinc-100: #f4f4f5;
+  --zinc-50:  #fafafa;
+  --white:    #fff;
+  --black:    #000;
 
-  /* Text colors */
-  --text-primary: #ededf0;
-  --text-secondary: rgba(190, 195, 210, 1);
-  --text-muted: rgba(150, 155, 175, 0.9);
-  --text-dim: rgba(110, 115, 140, 0.7);
+  /* ---------- Accent ---------- */
+  --coral: #ff6467;
 
-  /* Brand colors from quip.network */
-  --_brand---cyan: #00ffff;
-  --_brand---blue: #0088cc;
+  /* ---------- Hero gradient ---------- */
+  --grad-yellow-warm: #FEF278;
+  --grad-yellow:      #FFDE53;
+  --grad-lime:        #EEFF64;
+  --grad-cyan-pale:   #CAFDFB;
+  --grad-cyan:        #BCF4FF;
+  --grad-lilac:       #E6D7FF;
+  --hero-gradient: linear-gradient(
+    to right,
+    var(--grad-yellow-warm) 0%,
+    var(--grad-yellow) 32.69%,
+    var(--grad-lime) 59.9%,
+    var(--grad-cyan-pale) 75.42%,
+    var(--grad-cyan) 86.91%,
+    var(--grad-lilac) 100%
+  );
+
+  /* ---------- Semantic roles ---------- */
+  --bg: var(--zinc-50);
+  --surface-1: var(--zinc-100);
+  --surface-2: var(--zinc-150);
+  --surface-3: var(--zinc-200);
+  --surface-dark: var(--zinc-900);
+  --surface-darker: var(--zinc-800);
+  --border: var(--zinc-250);
+  --border-strong: #a1a1aa;
+  --muted: var(--zinc-500);
+  --fg-subtle: var(--zinc-600);
+  --fg-body: var(--zinc-800);
+  --fg-strong: var(--zinc-950);
+  --fg-dark-on-light: #18181b;
+  --fg-on-dark: var(--zinc-50);
+  --fg-on-dark-muted: var(--zinc-400);
+  --accent: var(--coral);
+
+  /* ---------- Spacing / motion ---------- */
+  --ease: cubic-bezier(.2,.7,.2,1);
+  --dur-fast: 150ms;
+  --dur-base: 300ms;
 }
 
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
+/* ---------- Base ---------- */
+* { box-sizing: border-box; }
+*::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; }
+html { scroll-behavior: smooth; }
 body {
-  color: var(--text-primary);
-  background: var(--background);
-  font-family: 'Inter', system-ui, sans-serif;
-  min-height: 100vh;
-  position: relative;
-  overflow-x: hidden;
+  font-family: var(--font-body);
+  color: var(--fg-body);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: 'case';
+}
+a { color: inherit; }
+::selection { background: #09090b; color: #fafafa; }
+
+/* Cap content width per-section so dark bands stay full-bleed */
+section > div:first-child { max-width: 1280px; margin-left: auto; margin-right: auto; }
+
+/* ---------- Responsive overrides (tablet ≤880px, phone ≤600px) ---------- */
+@media (max-width: 880px) {
+  section [style*="gridColumn"] { grid-column: 1 / -1 !important; }
+  section [style*="grid-template-columns: repeat(4, 1fr)"] { grid-template-columns: repeat(2, 1fr) !important; }
+  [data-hero-aside] { display: none !important; }
+  [data-hero-heading] { font-size: clamp(40px, 7vw, 64px) !important; }
+  [data-newsletter-form] { flex-wrap: wrap !important; }
+  [data-newsletter-form] > * { flex: 1 1 100% !important; }
+  [data-feature-image] { max-width: 45% !important; }
 }
 
-
-main {
-  position: relative;
-  z-index: 1;
+@media (max-width: 600px) {
+  [data-row-tag] { display: none !important; }
+  [data-event-date] { width: 40px !important; padding: 4px 0 !important; }
+  [data-event-date-day] { font-size: 18px !important; }
+  [data-event-cover] { width: 64px !important; height: 64px !important; }
+  [data-event-title] { white-space: normal !important; font-size: 15px !important; line-height: 1.25 !important; }
+  [data-event-subtitle] { white-space: normal !important; font-size: 11px !important; }
+  [data-event-meta] { font-size: 10px !important; }
+  [data-event-row] { gap: 10px !important; padding: 10px 4px !important; }
+  [data-community-cell] { padding: 14px !important; min-height: 120px !important; }
+  [data-footer] { grid-template-columns: 1fr !important; row-gap: 16px !important; text-align: left !important; }
+  [data-footer] > * { text-align: left !important; justify-content: flex-start !important; align-items: flex-start !important; }
+  [data-feature-image] { max-width: 38% !important; right: -10px !important; }
+  section { padding-left: 16px !important; padding-right: 16px !important; }
 }
-
-/* Link cards are now styled inline in the component for maximum flexibility */
-
-/* Section title - quantum inspired */
-.section-title {
-  color: var(--text-primary);
-  font-size: 13px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.section-title::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  min-width: 30px;
-  background: linear-gradient(90deg, var(--border) 0%, transparent 100%);
-}
-
-/* Orbital header animation */
-.orbital-ring {
-  position: absolute;
-  border: 1px solid rgba(100, 200, 255, 0.15);
-  border-radius: 50%;
-  animation: orbit 20s linear infinite;
-}
-
-.orbital-ring.reverse {
-  animation-direction: reverse;
-  animation-duration: 25s;
-}
-
-@keyframes orbit {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-
-/* Quantum gradient text */
-.gradient-text {
-  background: linear-gradient(135deg, var(--tertiary) 0%, var(--primary) 50%, var(--secondary) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Primary button - quantum style */
-.btn-primary {
-  position: relative;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-  color: #020204;
-  font-weight: 600;
-  padding: 0.75rem 1.5rem;
-  border-radius: 12px;
-  border: none;
-  transition: all 200ms ease;
-  overflow: hidden;
-}
-
-.btn-primary::before {
-  content: '';
-  position: absolute;
-  inset: -3px;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-  border-radius: 14px;
-  z-index: -1;
-  opacity: 0.3;
-  filter: blur(12px);
-  transition: opacity 200ms ease;
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(100, 200, 255, 0.25);
-}
-
-.btn-primary:hover::before {
-  opacity: 0.5;
-}
-
-.btn-secondary {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  color: var(--text-secondary);
-  font-weight: 500;
-  padding: 0.75rem 1.5rem;
-  border-radius: 12px;
-  transition: all 200ms ease;
-}
-
-.btn-secondary:hover {
-  background: var(--surface-hover);
-  border-color: var(--border-hover);
-  color: var(--text-primary);
-}
-
-/* Glass card utility */
-.glass-card {
-  background: var(--surface);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-}
-
-/* Connection lines between cards - unique feature */
-.connection-line {
-  position: absolute;
-  left: 50%;
-  width: 1px;
-  height: 16px;
-  background: linear-gradient(180deg, var(--border) 0%, transparent 100%);
-  transform: translateX(-50%);
-  margin-top: -8px;
-}
-
-/* Entanglement indicator */
-.entanglement-dot {
-  position: absolute;
-  width: 6px;
-  height: 6px;
-  background: var(--primary);
-  border-radius: 50%;
-  left: -12px;
-  top: 50%;
-  transform: translateY(-50%);
-  box-shadow: 0 0 8px var(--primary);
-  opacity: 0;
-  transition: opacity 200ms ease;
-}
-
-.link-card:hover .entanglement-dot {
-  opacity: 1;
-}
-
-/* Logo glow effect */
-.logo-glow {
-  position: relative;
-}
-
-.logo-glow::before {
-  content: '';
-  position: absolute;
-  inset: -8px;
-  background: radial-gradient(circle, var(--primary-dim) 0%, transparent 70%);
-  border-radius: 50%;
-  z-index: -1;
-  opacity: 0.6;
-  animation: glow-pulse 3s ease-in-out infinite;
-}
-
-@keyframes glow-pulse {
-  0%, 100% { opacity: 0.4; transform: scale(1); }
-  50% { opacity: 0.7; transform: scale(1.05); }
-}
-
-.logo-glow-pulse {
-  animation: logo-breathe 4s ease-in-out infinite;
-}
-
-@keyframes logo-breathe {
-  0%, 100% { opacity: 0.15; transform: scale(1.05); }
-  50% { opacity: 0.3; transform: scale(1.2); }
-}
-
-
-/* Quantum pulse animation */
-@keyframes quantum-pulse {
-  0%, 100% {
-    box-shadow: 0 0 0 0 rgba(100, 200, 255, 0.4);
-    opacity: 1;
-  }
-  50% {
-    box-shadow: 0 0 0 8px rgba(100, 200, 255, 0);
-    opacity: 0.8;
-  }
-}
-
-.quantum-pulse {
-  animation: quantum-pulse 2s ease-in-out infinite;
-}
-
-/* Scrollbar styling */
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--border);
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--border-hover);
-}
-
-/* Focus styles */
-*:focus-visible {
-  outline: 2px solid var(--primary);
-  outline-offset: 2px;
-}
-
-/* Status indicator */
-.status-indicator {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--tertiary);
-  box-shadow: 0 0 8px var(--tertiary);
-}
-
-/* Stat card for numbers */
-.stat-number {
-  font-family: 'JetBrains Mono', monospace;
-  font-weight: 500;
-  letter-spacing: -0.02em;
-}
-
-/* Interactive hover state */
-.interactive-hover {
-  transition: all 200ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.interactive-hover:hover {
-  transform: translateY(-2px);
-}
-
-/* Selection styling */
-::selection {
-  background: rgba(100, 200, 255, 0.3);
-  color: var(--text-primary);
-}
-
-/* ========================================
-   Button styles from quip.network
-   ======================================== */
-
-/* Button wrapper - contains button and blurs */
-.button_wrapper {
-  position: relative;
-  display: inline-block;
-  width: 100%;
-}
-
-/* Main button style */
-.button {
-  z-index: 1;
-  color: #ffffff;
-  text-align: center;
-  background-color: #2a2a38;
-  border-radius: 3rem;
-  padding: 0.75rem 1.5rem;
-  text-decoration: none;
-  transition: box-shadow 0.2s, background-color 0.2s;
-  position: relative;
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.06), 0 2px 4px rgba(0, 0, 0, 0.2);
-  display: block;
-  font-size: 15px;
-  font-weight: 500;
-}
-
-.button:hover {
-  background-color: #333344;
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1), 0 3px 6px rgba(0, 0, 0, 0.25);
-}
-
-.button.is-icon {
-  gap: 0.75rem;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-}
-
-/* Container for blur effects */
-.button_blurs {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  overflow: visible;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-/* Show blur effects on hover */
-.button_wrapper:hover .button_blurs {
-  opacity: 1;
-}
-
-/* Base blur blob style */
-.button_blur {
-  z-index: 0;
-  background-color: var(--_brand---cyan);
-  opacity: 0.8;
-  filter: blur(12px);
-  pointer-events: none;
-  will-change: transform, opacity;
-  border-radius: 1.5rem;
-  width: 50%;
-  height: 100%;
-  transition-property: filter;
-  transition-duration: 0.2s;
-  transition-timing-function: ease;
-  position: absolute;
-  inset: auto auto 0% 0%;
-  transform: rotate(-8deg);
-}
-
-/* Blur blob variations */
-.button_blur.is-1 {
-  opacity: 0.6;
-  animation: blobFloat1 5s ease-in-out infinite;
-}
-
-.button_blur.is-2 {
-  background-color: var(--_brand---blue);
-  width: 40%;
-  inset: auto 0% 0% auto;
-  animation: blobFloat2 7s ease-in-out infinite;
-}
-
-.button_blur.is-3 {
-  width: 40%;
-  inset: 0% 25% auto auto;
-  animation: blobFloat3 4s ease-in-out infinite;
-}
-
-.button_blur.is-4 {
-  background-color: var(--_brand---blue);
-  width: 40%;
-  inset: auto auto 0% 20%;
-  animation: blobFloat4 6s ease-in-out infinite;
-}
-
-/* Keyframes for animated blur blobs */
-@keyframes blobFloat1 {
-  0%   { transform: translate(-0.75rem, -0.25rem) scale(0.9); opacity: 0.6; }
-  50%  { transform: translate(0rem, 0rem) scale(1.1); opacity: 0.3; }
-  100% { transform: translate(-0.75rem, -0.25rem) scale(0.9); opacity: 0.6; }
-}
-
-@keyframes blobFloat2 {
-  0%   { transform: translate(0.25rem, -0.5rem) scale(0.9); opacity: 0.4; }
-  50%  { transform: translate(0.5rem, 0.25rem) scale(1.1); opacity: 0.7; }
-  100% { transform: translate(0.25rem, -0.5rem) scale(0.9); opacity: 0.4; }
-}
-
-@keyframes blobFloat3 {
-  0%   { transform: translate(1rem, -0.25rem) scale(1); opacity: 0.5; }
-  50%  { transform: translate(0.5rem, -0.25rem) scale(1.25); opacity: 0.2; }
-  100% { transform: translate(1rem, -0.25rem) scale(1); opacity: 0.5; }
-}
-
-@keyframes blobFloat4 {
-  0%   { transform: translate(1rem, 0.5rem) scale(0.95); opacity: 0.3; }
-  50%  { transform: translate(0rem, 0rem) scale(1.15); opacity: 0.6; }
-  100% { transform: translate(1rem, 0.5rem) scale(0.95); opacity: 0.3; }
-}
-
-/* ========================================
-   Background video styles from quip.network
-   ======================================== */
-
-.header_background {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  overflow: hidden;
-  opacity: 0.15;
-}
-
-.header_background-videos {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.header_background-video-1-wrapper {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.header_background-video-1 {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.header_background-video-1 video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  background-size: cover;
-  background-position: 50% 50%;
-}
-
