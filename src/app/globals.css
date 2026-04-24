@@ -1,13 +1,73 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 /* ============================================================
-   QUIP NETWORK — Design Tokens
-   Colors, type, spacing. Mirrors the brand design system.
+   QUIP NETWORK — Theme (Tailwind v4 CSS-first config)
    ============================================================ */
+@theme {
+  /* ---------- Colors ---------- */
+  --color-zinc-50:  #fafafa;
+  --color-zinc-100: #f4f4f5;
+  --color-zinc-150: #e4e4e7;
+  --color-zinc-200: #dbdbde;
+  --color-zinc-250: #d4d4d8;
+  --color-zinc-300: #c9c9cb;
+  --color-zinc-400: #9f9fa9;
+  --color-zinc-500: #71717b;
+  --color-zinc-550: #56565c;
+  --color-zinc-600: #52525c;
+  --color-zinc-700: #3f3f46;
+  --color-zinc-750: #343436;
+  --color-zinc-800: #27272a;
+  --color-zinc-850: #212124;
+  --color-zinc-900: #18181b;
+  --color-zinc-950: #09090b;
 
-/* ---------- Fonts ---------- */
+  --color-coral: #ff6467;
+  --color-accent: #ff6467;
+
+  --color-bg: #fafafa;
+  --color-surface-1: #f4f4f5;
+  --color-surface-2: #e4e4e7;
+  --color-surface-3: #dbdbde;
+  --color-surface-dark: #18181b;
+  --color-surface-darker: #27272a;
+  --color-fg-strong: #09090b;
+  --color-fg-body: #27272a;
+  --color-fg-subtle: #52525c;
+  --color-fg-muted: #71717b;
+  --color-fg-on-dark: #fafafa;
+  --color-fg-on-dark-muted: #9f9fa9;
+  --color-border-default: #d4d4d8;
+
+  /* ---------- Fonts ---------- */
+  --font-sans: "ABC Favorit", system-ui, sans-serif;
+  --font-heading: "ABC Gaisyr", Georgia, serif;
+  --font-mono: "ABC Favorit Mono", ui-monospace, monospace;
+
+  /* ---------- Radius ---------- */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+
+  /* ---------- Easing ---------- */
+  --ease-brand: cubic-bezier(.2, .7, .2, 1);
+}
+
+/* Hero gradient as a reusable utility */
+@utility bg-hero-gradient {
+  background-image: linear-gradient(
+    to right,
+    #FEF278 0%,
+    #FFDE53 32.69%,
+    #EEFF64 59.9%,
+    #CAFDFB 75.42%,
+    #BCF4FF 86.91%,
+    #E6D7FF 100%
+  );
+}
+
+/* ============================================================
+   Fonts
+   ============================================================ */
 @font-face {
   font-family: 'ABC Favorit';
   src: url('/fonts/ABCFavorit-Light.otf') format('opentype');
@@ -86,13 +146,13 @@
   font-weight: 400; font-style: italic; font-display: swap;
 }
 
+/* ============================================================
+   Legacy CSS variables — still referenced by inline styles.
+   These will shrink as later waves migrate JSX to Tailwind utilities.
+   ============================================================ */
 :root {
-  /* ---------- Font families ---------- */
-  --font-body: 'ABC Favorit', system-ui, sans-serif;
-  --font-heading: 'ABC Gaisyr', Georgia, serif;
-  --font-mono: 'ABC Favorit Mono', ui-monospace, monospace;
+  --font-body: var(--font-sans);
 
-  /* ---------- Zinc scale ---------- */
   --zinc-950: #09090b;
   --zinc-900: #18181b;
   --zinc-850: #212124;
@@ -109,13 +169,9 @@
   --zinc-150: #e4e4e7;
   --zinc-100: #f4f4f5;
   --zinc-50:  #fafafa;
-  --white:    #fff;
-  --black:    #000;
 
-  /* ---------- Accent ---------- */
   --coral: #ff6467;
 
-  /* ---------- Hero gradient ---------- */
   --grad-yellow-warm: #FEF278;
   --grad-yellow:      #FFDE53;
   --grad-lime:        #EEFF64;
@@ -132,7 +188,6 @@
     var(--grad-lilac) 100%
   );
 
-  /* ---------- Semantic roles ---------- */
   --bg: var(--zinc-50);
   --surface-1: var(--zinc-100);
   --surface-2: var(--zinc-150);
@@ -150,31 +205,37 @@
   --fg-on-dark-muted: var(--zinc-400);
   --accent: var(--coral);
 
-  /* ---------- Spacing / motion ---------- */
-  --ease: cubic-bezier(.2,.7,.2,1);
+  --ease: cubic-bezier(.2, .7, .2, 1);
   --dur-fast: 150ms;
   --dur-base: 300ms;
 }
 
-/* ---------- Base ---------- */
-* { box-sizing: border-box; }
-*::before, *::after { box-sizing: border-box; }
-html, body { margin: 0; }
-html { scroll-behavior: smooth; }
-body {
-  font-family: var(--font-body);
-  color: var(--fg-body);
-  background: var(--bg);
-  -webkit-font-smoothing: antialiased;
-  font-feature-settings: 'case';
+/* ============================================================
+   Base
+   ============================================================ */
+@layer base {
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-fg-body);
+    background: var(--color-bg);
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: 'case';
+  }
+  a { color: inherit; }
+  ::selection { background: #09090b; color: #fafafa; }
+
+  /* Preserve v3's pointer cursor on buttons (v4 Preflight defaults to `default`) */
+  button:not(:disabled),
+  [role="button"]:not(:disabled) { cursor: pointer; }
 }
-a { color: inherit; }
-::selection { background: #09090b; color: #fafafa; }
 
 /* Cap content width per-section so dark bands stay full-bleed */
 section > div:first-child { max-width: 1280px; margin-left: auto; margin-right: auto; }
 
-/* ---------- Animations ---------- */
+/* ============================================================
+   Animations
+   ============================================================ */
 @keyframes persona-pulse {
   0%, 100% { opacity: 0.9; }
   50%      { opacity: 0.22; }
@@ -183,7 +244,10 @@ section > div:first-child { max-width: 1280px; margin-left: auto; margin-right: 
   [style*="persona-pulse"] { animation: none !important; opacity: 0.55 !important; }
 }
 
-/* ---------- Responsive overrides (tablet ≤880px, phone ≤600px) ---------- */
+/* ============================================================
+   Responsive overrides (tablet ≤880px, phone ≤600px)
+   These target inline-style grid/layout until those are migrated.
+   ============================================================ */
 @media (max-width: 880px) {
   section [style*="grid-column"] { grid-column: 1 / -1 !important; }
   section [style*="repeat(4, 1fr)"] { grid-template-columns: repeat(2, 1fr) !important; }
