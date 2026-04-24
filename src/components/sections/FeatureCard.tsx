@@ -83,8 +83,9 @@ export function FeatureCard({ item, dark }: FeatureCardProps) {
           <span
             style={{
               padding: '6px 10px 4px',
-              background: dark ? (h ? '#fafafa' : '#27272a') : h ? '#09090b' : '#fafafa',
+              background: dark ? (h ? '#fafafa' : 'transparent') : h ? '#09090b' : '#fafafa',
               color: dark ? (h ? '#09090b' : '#fafafa') : h ? '#fafafa' : '#09090b',
+              border: dark ? '1px solid #fafafa' : 'none',
               transition: 'all .2s',
               fontFamily: 'var(--font-body)',
               fontFeatureSettings: "'case'",

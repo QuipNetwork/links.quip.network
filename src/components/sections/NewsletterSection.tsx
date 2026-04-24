@@ -79,7 +79,7 @@ export function NewsletterSection() {
             gap: 24,
           }}
         >
-          <BarBadge variant="dark">Newsletter</BarBadge>
+          <BarBadge variant="light">Newsletter</BarBadge>
           <h2
             style={{
               margin: 0,
