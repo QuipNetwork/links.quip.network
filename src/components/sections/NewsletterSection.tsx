@@ -106,31 +106,20 @@ export function NewsletterSection() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="me@email.com"
-                  style={{
-                    all: "unset",
-                    flex: 1,
-                    boxSizing: "border-box",
-                    width: "100%",
-                    padding: "12px 12px 10px 36px",
-                    borderBottom: "1px solid #3f3f46",
-                    fontSize: 14,
-                    fontFamily: "var(--font-body)",
-                  }}
+                  className="w-full flex-1 appearance-none border-0 border-b border-zinc-700 bg-transparent pt-3 pr-3 pb-2.5 pl-9 text-zinc-50 outline-none"
+                  style={{ fontSize: 14, fontFamily: "var(--font-body)" }}
                 />
               </div>
               <button
                 type="submit"
                 disabled={status === "loading"}
+                className={`cursor-pointer appearance-none border-0 px-4 pt-3 pb-2.5 outline-none transition-colors duration-150 ${
+                  status === "loading" ? "bg-zinc-800 text-zinc-500" : "bg-zinc-50 text-zinc-950"
+                }`}
                 style={{
-                  all: "unset",
-                  cursor: "pointer",
-                  padding: "12px 16px 10px",
-                  background: status === "loading" ? "#27272a" : "#fafafa",
-                  color: status === "loading" ? "#71717b" : "#09090b",
                   fontFamily: "var(--font-body)",
                   fontSize: 14,
                   fontFeatureSettings: "'case'",
-                  transition: "background .15s",
                 }}
               >
                 {status === "loading" ? "Sending…" : "Subscribe"}

@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { ArrowIcon } from '@/components/icons/ArrowIcon';
 import { WipeLink } from '@/components/quip/WipeLink';
 import type { LinkItem } from '@/types';
@@ -10,19 +9,11 @@ interface LinkRowProps {
 }
 
 export function LinkRow({ item, index, total }: LinkRowProps) {
-  const [h, setH] = useState(false);
+  const isLast = index === total - 1;
   return (
     <WipeLink
       href={item.url}
-      wiped={h}
-      onMouseEnter={() => setH(true)}
-      onMouseLeave={() => setH(false)}
-      className="items-center gap-4 px-2 py-5"
-      style={{
-        borderTop: '1px solid #c9c9cb',
-        borderBottom: index === total - 1 ? '1px solid #c9c9cb' : 'none',
-        color: h ? '#fafafa' : '#09090b',
-      }}
+      className={`items-center gap-4 border-t border-zinc-300 px-2 py-5${isLast ? ' border-b' : ''}`}
     >
       <span
         className="w-8 opacity-60"
@@ -50,11 +41,11 @@ export function LinkRow({ item, index, total }: LinkRowProps) {
         </span>
         {item.description && (
           <span
+            className="text-zinc-600 group-hover:text-zinc-300"
             style={{
               fontFamily: 'var(--font-body)',
               fontSize: 13,
               lineHeight: 1.4,
-              color: h ? '#c9c9cb' : '#52525c',
             }}
           >
             {item.description}
@@ -64,15 +55,13 @@ export function LinkRow({ item, index, total }: LinkRowProps) {
       {item.tag && (
         <span
           data-row-tag
-          className="px-2 pt-1 pb-[3px]"
+          className="bg-zinc-150 px-2 pt-1 pb-[3px] text-zinc-950 group-hover:bg-zinc-800 group-hover:text-zinc-50"
           style={{
             fontFamily: 'var(--font-mono)',
             fontSize: 12,
             fontWeight: 500,
             letterSpacing: '0.4px',
             textTransform: 'uppercase',
-            background: h ? '#27272a' : '#e4e4e7',
-            color: h ? '#fafafa' : '#09090b',
           }}
         >
           {item.tag}

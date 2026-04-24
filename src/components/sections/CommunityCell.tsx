@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { ArrowIcon } from '@/components/icons/ArrowIcon';
 import { DiscordIcon } from '@/components/icons/DiscordIcon';
 import { FarcasterIcon } from '@/components/icons/FarcasterIcon';
@@ -20,24 +19,17 @@ interface CommunityCellProps {
 }
 
 export function CommunityCell({ item, dark, index }: CommunityCellProps) {
-  const [h, setH] = useState(false);
   const IconComp = ICONS[item.icon];
+  const cellClass = dark
+    ? 'border-r border-zinc-800 bg-zinc-900 text-zinc-50 group-hover:bg-zinc-800'
+    : 'border-r border-zinc-250 bg-zinc-150 text-zinc-950 group-hover:bg-zinc-250';
   return (
     <a
       href={item.url}
       target="_blank"
       rel="noopener noreferrer"
-      onMouseEnter={() => setH(true)}
-      onMouseLeave={() => setH(false)}
       data-community-cell
-      className="relative flex min-h-[180px] flex-col justify-between p-5 no-underline"
-      style={{
-        background: dark ? (h ? '#27272a' : '#18181b') : h ? '#d4d4d8' : '#e4e4e7',
-        color: dark ? '#fafafa' : '#09090b',
-        transition: 'background .15s',
-        borderRight: '1px solid',
-        borderColor: dark ? '#27272a' : '#d4d4d8',
-      }}
+      className={`group relative flex min-h-[180px] flex-col justify-between p-5 no-underline transition-colors duration-150 ${cellClass}`}
     >
       <div className="flex items-center justify-between">
         <span
@@ -67,12 +59,8 @@ export function CommunityCell({ item, dark, index }: CommunityCellProps) {
           {item.title}
         </div>
         <div
-          className="mt-2 inline-flex items-center gap-1.5"
-          style={{
-            fontSize: 12,
-            opacity: h ? 1 : 0.5,
-            transition: 'opacity .2s',
-          }}
+          className="mt-2 inline-flex items-center gap-1.5 opacity-50 transition-opacity duration-200 group-hover:opacity-100"
+          style={{ fontSize: 12 }}
         >
           <span style={{ fontFamily: 'var(--font-mono)', letterSpacing: '0.4px', textTransform: 'uppercase' }}>
             {item.handle || 'Visit'}
