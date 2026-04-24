@@ -12,13 +12,12 @@ interface LinkSectionBlockProps {
 export function LinkSectionBlock({ eyebrow, heading, italic, links }: LinkSectionBlockProps) {
   return (
     <section className="bg-zinc-50" style={{ padding: '64px clamp(20px,5.45vw,78px)' }}>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(12,1fr)', gap: 16, alignItems: 'stretch' }}>
-        <div style={{ gridColumn: '1 / 4', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 16, flexWrap: 'wrap' }}>
+      <div className="grid grid-cols-12 items-stretch gap-4">
+        <div className="col-start-1 col-end-4 flex flex-col flex-wrap items-start gap-4 max-tab:col-span-full">
           <BarBadge>{eyebrow}</BarBadge>
           <h2
-            className="text-zinc-900"
+            className="m-0 text-zinc-900"
             style={{
-              margin: 0,
               fontFamily: 'var(--font-heading)',
               fontWeight: 500,
               fontSize: 'clamp(28px, 1.5vw + 20px, 40px)',
@@ -35,8 +34,8 @@ export function LinkSectionBlock({ eyebrow, heading, italic, links }: LinkSectio
             )}
           </h2>
         </div>
-        <div style={{ gridColumn: '5 / 13' }}>
-          <ul style={{ listStyle: 'none', margin: 0, padding: 0 }}>
+        <div className="col-start-5 col-end-13 max-tab:col-span-full">
+          <ul className="m-0 list-none p-0">
             {links.map((l, i) => (
               <li key={l.id}>
                 <LinkRow item={l} index={i} total={links.length} />

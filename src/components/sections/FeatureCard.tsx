@@ -16,15 +16,8 @@ export function FeatureCard({ item, dark }: FeatureCardProps) {
       rel="noopener noreferrer"
       onMouseEnter={() => setH(true)}
       onMouseLeave={() => setH(false)}
+      className="relative flex min-h-[280px] flex-col justify-end overflow-hidden p-6 no-underline"
       style={{
-        position: 'relative',
-        overflow: 'hidden',
-        textDecoration: 'none',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'flex-end',
-        minHeight: 280,
-        padding: '24px',
         background: dark ? '#09090b' : '#e4e4e7',
         color: dark ? '#fafafa' : '#09090b',
         transition: 'background .2s',
@@ -36,26 +29,19 @@ export function FeatureCard({ item, dark }: FeatureCardProps) {
         alt=""
         aria-hidden
         data-feature-image
+        className="pointer-events-none absolute -right-5 -bottom-2.5 h-[92%] w-auto max-w-[60%] object-contain"
         style={{
-          position: 'absolute',
-          right: -20,
-          bottom: -10,
-          height: '92%',
-          width: 'auto',
-          maxWidth: '60%',
-          objectFit: 'contain',
           opacity: h ? 0.55 : dark ? 0.35 : 0.4,
           filter: dark ? 'none' : 'saturate(0.7)',
           transition: 'opacity .4s, transform .4s',
           transform: h ? 'translateY(-4px)' : 'none',
-          pointerEvents: 'none',
         }}
       />
 
-      <div style={{ position: 'relative', display: 'flex', flexDirection: 'column', gap: 12, maxWidth: '70%' }}>
+      <div className="relative flex max-w-[70%] flex-col gap-3">
         <h3
+          className="m-0"
           style={{
-            margin: 0,
             fontFamily: 'var(--font-heading)',
             fontWeight: 500,
             fontSize: 'clamp(28px, 1.5vw + 20px, 40px)',
@@ -67,15 +53,15 @@ export function FeatureCard({ item, dark }: FeatureCardProps) {
         >
           {item.title}
         </h3>
-        <p style={{ margin: 0, fontSize: 14, lineHeight: 1.4, color: dark ? '#9f9fa9' : '#52525c', maxWidth: 280 }}>
+        <p
+          className="m-0 max-w-[280px]"
+          style={{ fontSize: 14, lineHeight: 1.4, color: dark ? '#9f9fa9' : '#52525c' }}
+        >
           {item.description}
         </p>
         <div
+          className="mt-2 inline-flex items-center gap-2"
           style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: 8,
-            marginTop: 8,
             fontSize: 14,
             color: dark ? '#fafafa' : '#09090b',
           }}

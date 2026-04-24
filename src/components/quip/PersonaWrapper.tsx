@@ -20,28 +20,16 @@ interface PersonaWrapperProps {
 
 export function PersonaWrapper({ count, children }: PersonaWrapperProps) {
   const indices = Array.from({ length: count }, (_, i) => i);
-  const columnBase = {
-    position: 'relative' as const,
-    display: 'flex' as const,
-    flexDirection: 'column' as const,
-    justifyContent: 'space-between' as const,
-  };
+  const columnBase = 'relative flex flex-col justify-between text-zinc-500';
   return (
-    <div
-      style={{
-        position: 'relative',
-        display: 'grid',
-        gridTemplateColumns: 'repeat(12, 1fr)',
-        gap: 16,
-      }}
-    >
-      <div data-hero-aside className="text-zinc-500" style={{ ...columnBase, gridColumn: '1 / 2' }}>
+    <div className="relative grid grid-cols-12 gap-4">
+      <div data-hero-aside className={`${columnBase} col-start-1 col-end-2`}>
         {indices.map((i) => (
           <PersonaIcon key={i} shape={shapeAt('left', i)} delay={delayAt('left', i)} />
         ))}
       </div>
       {children}
-      <div data-hero-aside className="text-zinc-500" style={{ ...columnBase, gridColumn: '12 / 13', alignItems: 'flex-end' }}>
+      <div data-hero-aside className={`${columnBase} col-start-12 col-end-13 items-end`}>
         {indices.map((i) => (
           <PersonaIcon key={i} shape={shapeAt('right', i)} delay={delayAt('right', i)} />
         ))}

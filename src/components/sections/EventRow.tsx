@@ -20,25 +20,17 @@ export function EventRow({ item, index, total }: EventRowProps) {
       onMouseEnter={() => setH(true)}
       onMouseLeave={() => setH(false)}
       data-event-row=""
+      className="items-center gap-4 px-2 py-3.5"
       style={{
         borderTop: '1px solid #c9c9cb',
         borderBottom: index === total - 1 ? '1px solid #c9c9cb' : 'none',
-        padding: '14px 8px',
-        alignItems: 'center',
-        gap: 16,
         color: h ? '#fafafa' : '#09090b',
       }}
     >
       <div
         data-event-date
+        className="flex w-12 shrink-0 flex-col items-center justify-center py-1.5"
         style={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          width: 48,
-          padding: '6px 0',
-          flexShrink: 0,
           borderRight: '1px solid',
           borderColor: h ? '#3f3f46' : '#c9c9cb',
           fontFamily: 'var(--font-mono)',
@@ -57,20 +49,19 @@ export function EventRow({ item, index, total }: EventRowProps) {
           src={item.cover_url}
           alt=""
           data-event-cover
-          className="bg-zinc-150"
+          className="shrink-0 bg-zinc-150 object-cover"
           style={{
             width: thumb,
             height: thumb,
-            objectFit: 'cover',
-            flexShrink: 0,
             border: '1px solid',
             borderColor: h ? '#27272a' : '#c9c9cb',
           }}
         />
       )}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 3, flex: 1, minWidth: 0 }}>
+      <div className="flex min-w-0 flex-1 flex-col gap-[3px]">
         <span
           data-event-title
+          className="overflow-hidden text-ellipsis whitespace-nowrap"
           style={{
             fontFamily: 'var(--font-heading)',
             fontWeight: 500,
@@ -78,9 +69,6 @@ export function EventRow({ item, index, total }: EventRowProps) {
             lineHeight: 1.2,
             letterSpacing: '-0.01em',
             fontFeatureSettings: "'case'",
-            overflow: 'hidden',
-            textOverflow: 'ellipsis',
-            whiteSpace: 'nowrap',
           }}
         >
           {item.title}
@@ -88,14 +76,12 @@ export function EventRow({ item, index, total }: EventRowProps) {
         {item.subtitle && (
           <span
             data-event-subtitle
+            className="overflow-hidden text-ellipsis whitespace-nowrap"
             style={{
               fontFamily: 'var(--font-body)',
               fontSize: 13,
               lineHeight: 1.3,
               color: h ? '#c9c9cb' : '#71717b',
-              overflow: 'hidden',
-              textOverflow: 'ellipsis',
-              whiteSpace: 'nowrap',
             }}
           >
             {item.subtitle}
@@ -116,6 +102,7 @@ export function EventRow({ item, index, total }: EventRowProps) {
       </div>
       <span
         data-row-tag
+        className="bg-transparent"
         style={{
           fontFamily: 'var(--font-mono)',
           fontSize: 12,
@@ -123,7 +110,6 @@ export function EventRow({ item, index, total }: EventRowProps) {
           letterSpacing: '0.4px',
           textTransform: 'uppercase',
           padding: '4px 8px 3px',
-          background: 'transparent',
           color: h ? '#fafafa' : '#52525c',
           border: '1px solid',
           borderColor: h ? '#fafafa' : '#c9c9cb',
@@ -131,7 +117,7 @@ export function EventRow({ item, index, total }: EventRowProps) {
       >
         {item.tag}
       </span>
-      <span style={{ display: 'inline-flex', opacity: 0.7 }}>
+      <span className="inline-flex opacity-70">
         <ArrowIcon size={18} />
       </span>
     </WipeLink>

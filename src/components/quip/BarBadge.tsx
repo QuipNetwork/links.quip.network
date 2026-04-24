@@ -9,12 +9,10 @@ export function BarBadge({ children, variant = 'dark' }: BarBadgeProps) {
   const tone = variant === 'dark' ? 'bg-zinc-950 text-zinc-50' : 'bg-zinc-50 text-zinc-950';
   const bar = variant === 'dark' ? 'bg-zinc-950' : 'bg-zinc-50';
   return (
-    <div style={{ display: 'inline-flex', alignItems: 'stretch', gap: 4 }}>
+    <div className="inline-flex items-stretch gap-1">
       <span
-        className={tone}
+        className={`inline-flex items-center ${tone}`}
         style={{
-          display: 'inline-flex',
-          alignItems: 'center',
           padding: '5px 8px 4px',
           fontFamily: 'var(--font-mono)',
           fontWeight: 500,
@@ -26,7 +24,7 @@ export function BarBadge({ children, variant = 'dark' }: BarBadgeProps) {
       >
         {children}
       </span>
-      <span className={bar} style={{ width: 4 }} />
+      <span className={`w-1 ${bar}`} />
     </div>
   );
 }

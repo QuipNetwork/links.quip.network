@@ -17,28 +17,25 @@ export function LinkRow({ item, index, total }: LinkRowProps) {
       wiped={h}
       onMouseEnter={() => setH(true)}
       onMouseLeave={() => setH(false)}
+      className="items-center gap-4 px-2 py-5"
       style={{
         borderTop: '1px solid #c9c9cb',
         borderBottom: index === total - 1 ? '1px solid #c9c9cb' : 'none',
-        padding: '20px 8px',
-        alignItems: 'center',
-        gap: 16,
         color: h ? '#fafafa' : '#09090b',
       }}
     >
       <span
+        className="w-8 opacity-60"
         style={{
           fontFamily: 'var(--font-mono)',
           fontSize: 12,
           fontWeight: 500,
           letterSpacing: '0.4px',
-          width: 32,
-          opacity: 0.6,
         }}
       >
         {String(index + 1).padStart(2, '0')}
       </span>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 2, flex: 1, minWidth: 0 }}>
+      <div className="flex min-w-0 flex-1 flex-col gap-0.5">
         <span
           style={{
             fontFamily: 'var(--font-heading)',
@@ -81,7 +78,7 @@ export function LinkRow({ item, index, total }: LinkRowProps) {
           {item.tag}
         </span>
       )}
-      <span style={{ display: 'inline-flex', opacity: 0.7 }}>
+      <span className="inline-flex opacity-70">
         <ArrowIcon size={18} />
       </span>
     </WipeLink>

@@ -50,6 +50,10 @@
 
   /* ---------- Easing ---------- */
   --ease-brand: cubic-bezier(.2, .7, .2, 1);
+
+  /* ---------- Breakpoints ---------- */
+  --breakpoint-tab: 880px;
+  --breakpoint-phone: 600px;
 }
 
 /* Hero gradient as a reusable utility */
@@ -249,8 +253,6 @@ section > div:first-child { max-width: 1280px; margin-left: auto; margin-right: 
    These target inline-style grid/layout until those are migrated.
    ============================================================ */
 @media (max-width: 880px) {
-  section [style*="grid-column"] { grid-column: 1 / -1 !important; }
-  section [style*="repeat(4, 1fr)"] { grid-template-columns: repeat(2, 1fr) !important; }
   [data-hero-aside] { display: none !important; }
   [data-hero-heading] { font-size: clamp(40px, 7vw, 64px) !important; }
   [data-newsletter-form] { flex-wrap: wrap !important; }

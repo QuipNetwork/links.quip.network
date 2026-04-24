@@ -30,14 +30,8 @@ export function CommunityCell({ item, dark, index }: CommunityCellProps) {
       onMouseEnter={() => setH(true)}
       onMouseLeave={() => setH(false)}
       data-community-cell
+      className="relative flex min-h-[180px] flex-col justify-between p-5 no-underline"
       style={{
-        position: 'relative',
-        textDecoration: 'none',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-        padding: '20px',
-        minHeight: 180,
         background: dark ? (h ? '#27272a' : '#18181b') : h ? '#d4d4d8' : '#e4e4e7',
         color: dark ? '#fafafa' : '#09090b',
         transition: 'background .15s',
@@ -45,14 +39,14 @@ export function CommunityCell({ item, dark, index }: CommunityCellProps) {
         borderColor: dark ? '#27272a' : '#d4d4d8',
       }}
     >
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+      <div className="flex items-center justify-between">
         <span
+          className="opacity-60"
           style={{
             fontFamily: 'var(--font-mono)',
             fontSize: 12,
             letterSpacing: '0.4px',
             textTransform: 'uppercase',
-            opacity: 0.6,
           }}
         >
           {String(index + 1).padStart(2, '0')}
@@ -73,11 +67,8 @@ export function CommunityCell({ item, dark, index }: CommunityCellProps) {
           {item.title}
         </div>
         <div
+          className="mt-2 inline-flex items-center gap-1.5"
           style={{
-            marginTop: 8,
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: 6,
             fontSize: 12,
             opacity: h ? 1 : 0.5,
             transition: 'opacity .2s',

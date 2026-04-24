@@ -2,35 +2,31 @@ export function LinksFooter() {
   return (
     <footer
       data-footer
-      className="bg-[#121218] text-zinc-50"
+      className="grid grid-cols-12 items-center gap-4 bg-[#121218] text-zinc-50"
       style={{
         padding: '40px clamp(20px,5.45vw,78px)',
-        display: 'grid',
-        gridTemplateColumns: 'repeat(12,1fr)',
-        gap: 16,
-        alignItems: 'center',
         borderTop: '1px solid #27272a',
       }}
     >
-      <div style={{ gridColumn: '1 / 5', display: 'flex', alignItems: 'center', gap: 12 }}>
+      <div className="col-start-1 col-end-5 flex items-center gap-3">
         <img
           src="/images/logos/quipnetwork-full-A.svg"
           alt="Quip Network"
-          style={{ height: 20, filter: 'invert(1)', opacity: 0.5 }}
+          className="h-5 opacity-50"
+          style={{ filter: 'invert(1)' }}
         />
       </div>
-      <div style={{ gridColumn: '5 / 9', textAlign: 'center' }}>
-        <p className="text-zinc-500" style={{ margin: 0, fontSize: 12 }}>
+      <div className="col-start-5 col-end-9 text-center">
+        <p className="m-0 text-zinc-500" style={{ fontSize: 12 }}>
           © {new Date().getFullYear()} Quantum Unit Interlock Protocol. All rights reserved.
         </p>
       </div>
-      <div style={{ gridColumn: '9 / 13', textAlign: 'right' }}>
+      <div className="col-start-9 col-end-13 text-right">
         <a
           href="https://quip.network"
-          className="text-[#c9fff5]"
+          className="text-[#c9fff5] no-underline"
           style={{
             fontSize: 12,
-            textDecoration: 'none',
             fontFamily: 'var(--font-mono)',
             letterSpacing: '0.4px',
             textTransform: 'uppercase',

@@ -51,13 +51,12 @@ export function EventsSection() {
 
   return (
     <section className="bg-zinc-50" style={{ padding: '56px clamp(20px,5.45vw,78px)' }}>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(12,1fr)', gap: 16, rowGap: 20 }}>
-        <div style={{ gridColumn: '1 / 4', display: 'flex', flexDirection: 'column', gap: 16, alignItems: 'flex-start' }}>
+      <div className="grid grid-cols-12 gap-4 gap-y-5">
+        <div className="col-start-1 col-end-4 flex flex-col items-start gap-4 max-tab:col-span-full">
           <BarBadge>Events</BarBadge>
           <h2
-            className="text-zinc-900"
+            className="m-0 text-zinc-900"
             style={{
-              margin: 0,
               fontFamily: 'var(--font-heading)',
               fontWeight: 500,
               fontSize: 'clamp(28px, 1.5vw + 20px, 40px)',
@@ -73,16 +72,12 @@ export function EventsSection() {
             href="https://lu.ma/quipnetwork"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-zinc-950"
+            className="inline-flex items-center gap-2 text-zinc-950 no-underline"
             style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 8,
               fontSize: 12,
               fontFamily: 'var(--font-mono)',
               letterSpacing: '0.4px',
               textTransform: 'uppercase',
-              textDecoration: 'none',
               padding: '6px 10px 5px',
               border: '1px solid #09090b',
             }}
@@ -91,8 +86,8 @@ export function EventsSection() {
             <span>lu.ma/quipnetwork</span>
           </a>
         </div>
-        <div style={{ gridColumn: '5 / 13' }}>
-          <ul style={{ listStyle: 'none', margin: 0, padding: 0 }}>
+        <div className="col-start-5 col-end-13 max-tab:col-span-full">
+          <ul className="m-0 list-none p-0">
             {events.map((l, i) => (
               <li key={l.id}>
                 <EventRow item={l} index={i} total={events.length} />

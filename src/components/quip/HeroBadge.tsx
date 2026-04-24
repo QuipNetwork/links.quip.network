@@ -6,17 +6,12 @@ interface HeroBadgeProps {
 }
 
 export function HeroBadge({ children, href }: HeroBadgeProps) {
-  const containerStyle: CSSProperties = {
-    position: 'relative',
-    display: 'inline-flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: '5px 12px 4px',
-    textDecoration: 'none',
-  };
+  const containerClass =
+    'relative inline-flex items-center justify-center bg-hero-gradient no-underline';
+  const containerStyle: CSSProperties = { padding: '5px 12px 4px' };
   const text = (
     <span
-      className="text-white"
+      className="whitespace-nowrap text-white"
       style={{
         fontFamily: 'var(--font-mono)',
         fontWeight: 500,
@@ -24,7 +19,6 @@ export function HeroBadge({ children, href }: HeroBadgeProps) {
         letterSpacing: '0.4px',
         textTransform: 'uppercase',
         mixBlendMode: 'difference',
-        whiteSpace: 'nowrap',
       }}
     >
       {children}
@@ -37,7 +31,7 @@ export function HeroBadge({ children, href }: HeroBadgeProps) {
         target="_blank"
         rel="noopener noreferrer"
         data-hero-badge
-        className="bg-hero-gradient"
+        className={containerClass}
         style={containerStyle}
       >
         {text}
@@ -45,7 +39,7 @@ export function HeroBadge({ children, href }: HeroBadgeProps) {
     );
   }
   return (
-    <div data-hero-badge className="bg-hero-gradient" style={containerStyle}>
+    <div data-hero-badge className={containerClass} style={containerStyle}>
       {text}
     </div>
   );

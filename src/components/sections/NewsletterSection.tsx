@@ -46,9 +46,8 @@ export function NewsletterSection() {
   return (
     <section
       id="newsletter"
-      className="bg-[#121218] text-zinc-50"
+      className="relative bg-[#121218] text-zinc-50"
       style={{
-        position: "relative",
         padding: "96px clamp(20px,5.45vw,78px)",
         borderTop: "1px solid #27272a",
       }}
@@ -57,32 +56,14 @@ export function NewsletterSection() {
         src="/images/pattern-dark.svg"
         alt=""
         aria-hidden
-        style={{
-          position: "absolute",
-          inset: 0,
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          opacity: 0.25,
-          pointerEvents: "none",
-        }}
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-25"
       />
       <PersonaWrapper count={7}>
-        <div
-          style={{
-            gridColumn: "4 / 10",
-            textAlign: "center",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            gap: 24,
-          }}
-        >
+        <div className="col-start-4 col-end-10 flex flex-col items-center gap-6 text-center max-tab:col-span-full">
           <BarBadge variant="light">Newsletter</BarBadge>
           <h2
-            className="text-zinc-50"
+            className="m-0 text-zinc-50"
             style={{
-              margin: 0,
               fontFamily: "var(--font-heading)",
               fontWeight: 500,
               fontSize: "clamp(32px, 2.25vw + 20px, 52px)",
@@ -102,9 +83,8 @@ export function NewsletterSection() {
 
           {status === "success" ? (
             <div
-              className="text-zinc-50"
+              className="px-4 py-3 text-zinc-50"
               style={{
-                padding: "12px 16px",
                 border: "1px solid #3f3f46",
                 fontSize: 14,
               }}
@@ -115,32 +95,10 @@ export function NewsletterSection() {
             <form
               onSubmit={submit}
               data-newsletter-form
-              style={{
-                display: "flex",
-                gap: 12,
-                width: "100%",
-                maxWidth: 520,
-                marginTop: 8,
-              }}
+              className="mt-2 flex w-full max-w-[520px] gap-3"
             >
-              <div
-                style={{
-                  position: "relative",
-                  flex: 1,
-                  display: "flex",
-                  alignItems: "center",
-                }}
-              >
-                <div
-                  className="text-zinc-500"
-                  style={{
-                    position: "absolute",
-                    left: 12,
-                    display: "flex",
-                    alignItems: "center",
-                    pointerEvents: "none",
-                  }}
-                >
+              <div className="relative flex flex-1 items-center">
+                <div className="pointer-events-none absolute left-3 flex items-center text-zinc-500">
                   <MailIcon size={16} />
                 </div>
                 <input
@@ -149,7 +107,6 @@ export function NewsletterSection() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="me@email.com"
-                  className="text-zinc-50"
                   style={{
                     all: "unset",
                     flex: 1,
@@ -184,7 +141,7 @@ export function NewsletterSection() {
           <iframe
             id="listmonk-frame"
             name="listmonk-frame"
-            style={{ display: "none" }}
+            className="hidden"
           />
         </div>
       </PersonaWrapper>
