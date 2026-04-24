@@ -174,6 +174,15 @@ a { color: inherit; }
 /* Cap content width per-section so dark bands stay full-bleed */
 section > div:first-child { max-width: 1280px; margin-left: auto; margin-right: auto; }
 
+/* ---------- Animations ---------- */
+@keyframes persona-pulse {
+  0%, 100% { opacity: 0.9; }
+  50%      { opacity: 0.22; }
+}
+@media (prefers-reduced-motion: reduce) {
+  [style*="persona-pulse"] { animation: none !important; opacity: 0.55 !important; }
+}
+
 /* ---------- Responsive overrides (tablet ≤880px, phone ≤600px) ---------- */
 @media (max-width: 880px) {
   section [style*="grid-column"] { grid-column: 1 / -1 !important; }

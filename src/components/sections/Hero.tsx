@@ -1,6 +1,8 @@
 import { PersonaIcon } from '@/components/quip/Primitives';
 
 const SHAPES = ['square', 'plus', 'circle', 'diamond', 'square', 'plus'] as const;
+const LEFT_DELAYS = [2.7, 0.4, 3.9, 1.3, 2.1, 0.8];
+const RIGHT_DELAYS = [1.6, 3.1, 0.2, 2.5, 0.9, 3.7];
 
 export function Hero() {
   return (
@@ -39,11 +41,11 @@ export function Hero() {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between',
-          color: '#3f3f46',
+          color: '#71717b',
         }}
       >
         {SHAPES.map((sh, i) => (
-          <PersonaIcon key={i} shape={sh} />
+          <PersonaIcon key={i} shape={sh} delay={LEFT_DELAYS[i]} />
         ))}
       </div>
 
@@ -134,11 +136,11 @@ export function Hero() {
           flexDirection: 'column',
           justifyContent: 'space-between',
           alignItems: 'flex-end',
-          color: '#3f3f46',
+          color: '#71717b',
         }}
       >
         {SHAPES.map((sh, i) => (
-          <PersonaIcon key={i} shape={sh} />
+          <PersonaIcon key={i} shape={sh} delay={RIGHT_DELAYS[i]} />
         ))}
       </div>
     </section>

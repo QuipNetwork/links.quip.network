@@ -3,6 +3,8 @@ import { BarBadge, Icon, PersonaIcon } from '@/components/quip/Primitives';
 
 const LEFT_SHAPES = ['plus', 'diamond', 'circle', 'square', 'plus', 'diamond', 'circle'] as const;
 const RIGHT_SHAPES = ['circle', 'square', 'plus', 'diamond', 'circle', 'square', 'plus'] as const;
+const LEFT_DELAYS = [3.2, 1.1, 2.8, 0.3, 2.0, 3.8, 0.7];
+const RIGHT_DELAYS = [0.9, 2.4, 3.5, 1.7, 2.9, 0.1, 3.3];
 
 export function NewsletterSection() {
   const [email, setEmail] = useState('');
@@ -71,11 +73,11 @@ export function NewsletterSection() {
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
-            color: '#3f3f46',
+            color: '#71717b',
           }}
         >
           {LEFT_SHAPES.map((s, i) => (
-            <PersonaIcon key={i} shape={s} />
+            <PersonaIcon key={i} shape={s} delay={LEFT_DELAYS[i]} />
           ))}
         </div>
         <div
@@ -176,11 +178,11 @@ export function NewsletterSection() {
             flexDirection: 'column',
             justifyContent: 'space-between',
             alignItems: 'flex-end',
-            color: '#3f3f46',
+            color: '#71717b',
           }}
         >
           {RIGHT_SHAPES.map((s, i) => (
-            <PersonaIcon key={i} shape={s} />
+            <PersonaIcon key={i} shape={s} delay={RIGHT_DELAYS[i]} />
           ))}
         </div>
       </div>

@@ -6,10 +6,18 @@ interface PersonaIconProps {
   shape: Shape;
   size?: number;
   color?: string;
+  delay?: number;
 }
 
-export function PersonaIcon({ shape, size = 10, color = 'currentColor' }: PersonaIconProps) {
-  const s: CSSProperties = { display: 'inline-block', flexShrink: 0, color };
+export function PersonaIcon({ shape, size = 10, color = 'currentColor', delay = 0 }: PersonaIconProps) {
+  const s: CSSProperties = {
+    display: 'inline-block',
+    flexShrink: 0,
+    color,
+    animation: 'persona-pulse 4.2s ease-in-out infinite both',
+    animationDelay: `${delay}s`,
+    willChange: 'opacity',
+  };
   if (shape === 'diamond')
     return (
       <span
