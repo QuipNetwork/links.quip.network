@@ -15,23 +15,38 @@ const delayAt = (side: Side, i: number): number =>
 
 interface PersonaWrapperProps {
   count: number;
+  mobileCount?: number;
   children: ReactNode;
 }
 
-export function PersonaWrapper({ count, children }: PersonaWrapperProps) {
-  const indices = Array.from({ length: count }, (_, i) => i);
-  const columnBase = 'relative flex flex-col justify-between text-zinc-500';
+export function PersonaWrapper({ count, mobileCount = count, children }: PersonaWrapperProps) {
+  const total = Math.max(count, mobileCount);
+  const indices = Array.from({ length: total }, (_, i) => i);
+  const columnBase =
+    'relative flex flex-row justify-between text-zinc-500 tab:flex-col';
+  const visibilityClass = (i: number) =>
+    i >= count ? 'tab:hidden' : i >= mobileCount ? 'max-tab:hidden' : '';
   return (
-    <div className="relative grid grid-cols-12 gap-4">
-      <div data-hero-aside className={`${columnBase} col-start-1 col-end-2`}>
+    <div className="relative flex flex-col gap-10 tab:grid tab:grid-cols-12 tab:gap-4">
+      <div data-hero-aside className={`${columnBase} tab:col-start-1 tab:col-end-2`}>
         {indices.map((i) => (
-          <PersonaIcon key={i} shape={shapeAt('left', i)} delay={delayAt('left', i)} />
+          <PersonaIcon
+            key={i}
+            shape={shapeAt('left', i)}
+            delay={delayAt('left', i)}
+            className={visibilityClass(i)}
+          />
         ))}
       </div>
       {children}
-      <div data-hero-aside className={`${columnBase} col-start-12 col-end-13 items-end`}>
+      <div data-hero-aside className={`${columnBase} tab:col-start-12 tab:col-end-13 tab:items-end`}>
         {indices.map((i) => (
-          <PersonaIcon key={i} shape={shapeAt('right', i)} delay={delayAt('right', i)} />
+          <PersonaIcon
+            key={i}
+            shape={shapeAt('right', i)}
+            delay={delayAt('right', i)}
+            className={visibilityClass(i)}
+          />
         ))}
       </div>
     </div>

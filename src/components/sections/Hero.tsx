@@ -2,7 +2,7 @@ import { PersonaWrapper } from '@/components/quip/PersonaWrapper';
 
 export function Hero() {
   return (
-    <section className="relative border-b border-zinc-800 bg-[#121218] px-gutter pt-14 pb-12 text-zinc-50">
+    <section className="relative border-b border-zinc-800 bg-[#121218] px-gutter py-10 tab:pt-14 tab:pb-12 text-zinc-50">
       <img
         src="/images/pattern-dark.svg"
         alt=""
@@ -10,7 +10,7 @@ export function Hero() {
         className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[.35]"
       />
 
-      <PersonaWrapper count={6}>
+      <PersonaWrapper count={6} mobileCount={11}>
         <div className="relative col-start-3 col-end-11 flex flex-col items-center gap-6 text-center max-tab:col-span-full">
           <a href="https://quip.network" className="inline-flex items-center no-underline">
             <img

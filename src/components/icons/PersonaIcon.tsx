@@ -7,18 +7,19 @@ interface PersonaIconProps {
   size?: number;
   color?: string;
   delay?: number;
+  className?: string;
 }
 
 const PULSE_CLASSES =
   'inline-block shrink-0 will-change-[opacity] animate-persona-pulse motion-reduce:animate-none motion-reduce:opacity-55';
 
-export function PersonaIcon({ shape, size = 10, color = 'currentColor', delay = 0 }: PersonaIconProps) {
+export function PersonaIcon({ shape, size = 10, color = 'currentColor', delay = 0, className = '' }: PersonaIconProps) {
   const base: CSSProperties = { color, animationDelay: `${delay}s` };
   if (shape === 'diamond')
     return (
       <span
         aria-hidden
-        className={`${PULSE_CLASSES} bg-current [clip-path:polygon(50%_0,100%_50%,50%_100%,0_50%)]`}
+        className={`${PULSE_CLASSES} bg-current [clip-path:polygon(50%_0,100%_50%,50%_100%,0_50%)] ${className}`}
         style={{ ...base, width: size * 0.7, height: size * 1.1 }}
       />
     );
@@ -26,7 +27,7 @@ export function PersonaIcon({ shape, size = 10, color = 'currentColor', delay = 
     return (
       <span
         aria-hidden
-        className={`${PULSE_CLASSES} bg-current`}
+        className={`${PULSE_CLASSES} bg-current ${className}`}
         style={{ ...base, width: size, height: size }}
       />
     );
@@ -34,14 +35,14 @@ export function PersonaIcon({ shape, size = 10, color = 'currentColor', delay = 
     return (
       <span
         aria-hidden
-        className={`${PULSE_CLASSES} rounded-full bg-current`}
+        className={`${PULSE_CLASSES} rounded-full bg-current ${className}`}
         style={{ ...base, width: size, height: size }}
       />
     );
   return (
     <span
       aria-hidden
-      className={`${PULSE_CLASSES} relative`}
+      className={`${PULSE_CLASSES} relative ${className}`}
       style={{ ...base, width: size, height: size }}
     >
       <span

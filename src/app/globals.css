@@ -192,7 +192,6 @@ section > div:first-child { max-width: 1280px; margin-left: auto; margin-right: 
    These target inline-style grid/layout until those are migrated.
    ============================================================ */
 @media (max-width: 880px) {
-  [data-hero-aside] { display: none !important; }
   [data-hero-heading] { font-size: clamp(40px, 7vw, 64px) !important; }
   [data-newsletter-form] { flex-wrap: wrap !important; }
   [data-newsletter-form] > * { flex: 1 1 100% !important; }

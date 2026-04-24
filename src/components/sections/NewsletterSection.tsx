@@ -46,7 +46,7 @@ export function NewsletterSection() {
   return (
     <section
       id="newsletter"
-      className="relative border-t border-zinc-800 bg-[#121218] px-gutter py-24 text-zinc-50"
+      className="relative border-t border-zinc-800 bg-[#121218] px-gutter py-10 tab:py-24 text-zinc-50"
     >
       <img
         src="/images/pattern-dark.svg"
@@ -54,7 +54,7 @@ export function NewsletterSection() {
         aria-hidden
         className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-25"
       />
-      <PersonaWrapper count={7}>
+      <PersonaWrapper count={7} mobileCount={11}>
         <div className="col-start-4 col-end-10 flex flex-col items-center gap-6 text-center max-tab:col-span-full">
           <BarBadge variant="light">Newsletter</BarBadge>
           <h2 className="m-0 font-heading text-[clamp(32px,2.25vw+20px,52px)] leading-[1.1] font-medium tracking-[-.02em] text-zinc-50">
