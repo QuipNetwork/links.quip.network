@@ -122,8 +122,11 @@ export function EarnSection() {
             your assets
           </h2>
         </div>
-        <div style={{ gridColumn: '8 / 13', display: 'flex', alignItems: 'flex-end', justifyContent: 'flex-end' }}>
-          <HeroBadge>Airdrop Eligible · Participate to Qualify</HeroBadge>
+        <div
+          data-airdrop-wrap
+          style={{ gridColumn: '8 / 13', display: 'flex', alignItems: 'flex-end', justifyContent: 'flex-end' }}
+        >
+          <HeroBadge href="https://quest.quip.network/airdrop">Airdrop Eligible · Participate to Qualify</HeroBadge>
         </div>
 
         <div style={{ gridColumn: '1 / 7' }}>
