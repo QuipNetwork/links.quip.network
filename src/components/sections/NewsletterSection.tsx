@@ -1,5 +1,7 @@
 import { useState, type FormEvent } from 'react';
-import { BarBadge, Icon, PersonaIcon } from '@/components/quip/Primitives';
+import { MailIcon } from '@/components/icons/MailIcon';
+import { PersonaIcon } from '@/components/icons/PersonaIcon';
+import { BarBadge } from '@/components/quip/BarBadge';
 
 const LEFT_SHAPES = ['plus', 'diamond', 'circle', 'square', 'plus', 'diamond', 'circle'] as const;
 const RIGHT_SHAPES = ['circle', 'square', 'plus', 'diamond', 'circle', 'square', 'plus'] as const;
@@ -128,7 +130,7 @@ export function NewsletterSection() {
                     pointerEvents: 'none',
                   }}
                 >
-                  <Icon name="mail" size={16} />
+                  <MailIcon size={16} />
                 </div>
                 <input
                   type="email"

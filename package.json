@@ -10,7 +10,8 @@
     "prerender": "node prerender.mjs",
     "build": "tsc && bun run build:client && bun run build:server && bun run prerender",
     "preview": "vite preview",
-    "lint": "eslint . --ext ts,tsx"
+    "lint": "eslint . --ext ts,tsx",
+    "check": "tsc -b"
   },
   "dependencies": {
     "react": "^18.3.1",

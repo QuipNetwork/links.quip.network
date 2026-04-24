@@ -1,4 +1,4 @@
-import { PersonaIcon } from '@/components/quip/Primitives';
+import { PersonaIcon } from '@/components/icons/PersonaIcon';
 
 const SHAPES = ['square', 'plus', 'circle', 'diamond', 'square', 'plus'] as const;
 const LEFT_DELAYS = [2.7, 0.4, 3.9, 1.3, 2.1, 0.8];
