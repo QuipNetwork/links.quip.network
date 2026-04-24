@@ -5,7 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0 --port 8888",
-    "build": "tsc && vite build",
+    "build:client": "vite build",
+    "build:server": "vite build --ssr src/entry-server.tsx --outDir build-ssr",
+    "prerender": "node prerender.mjs",
+    "build": "tsc && bun run build:client && bun run build:server && bun run prerender",
     "preview": "vite preview",
     "lint": "eslint . --ext ts,tsx"
   },
