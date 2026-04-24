@@ -9,17 +9,8 @@ export function EarnSection() {
       <div className="grid grid-cols-12 gap-4 gap-y-6">
         <div className="col-start-1 col-end-7 flex flex-col items-start gap-3 max-tab:col-span-full">
           <BarBadge>Earn</BarBadge>
-          <h2
-            className="m-0 max-w-[580px] text-zinc-900"
-            style={{
-              fontFamily: 'var(--font-heading)',
-              fontWeight: 500,
-              fontSize: 'clamp(28px, 1.5vw + 20px, 40px)',
-              lineHeight: 1.1,
-              letterSpacing: '-0.02em',
-            }}
-          >
-            Earn <span style={{ fontStyle: 'italic', fontWeight: 400 }}>QUIP</span> by staking, questing, and protecting
+          <h2 className="m-0 max-w-[580px] font-heading text-[clamp(28px,1.5vw+20px,40px)] leading-[1.1] font-medium tracking-[-.02em] text-zinc-900">
+            Earn <span className="font-normal italic">QUIP</span> by staking, questing, and protecting
             your assets
           </h2>
         </div>

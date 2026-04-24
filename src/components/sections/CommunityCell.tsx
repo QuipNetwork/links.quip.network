@@ -32,37 +32,17 @@ export function CommunityCell({ item, dark, index }: CommunityCellProps) {
       className={`group relative flex min-h-[180px] flex-col justify-between p-5 no-underline transition-colors duration-150 ${cellClass}`}
     >
       <div className="flex items-center justify-between">
-        <span
-          className="opacity-60"
-          style={{
-            fontFamily: 'var(--font-mono)',
-            fontSize: 12,
-            letterSpacing: '0.4px',
-            textTransform: 'uppercase',
-          }}
-        >
+        <span className="font-mono text-xs tracking-[.4px] uppercase opacity-60">
           {String(index + 1).padStart(2, '0')}
         </span>
         <IconComp size={20} />
       </div>
       <div>
-        <div
-          style={{
-            fontFamily: 'var(--font-heading)',
-            fontWeight: 500,
-            fontSize: 24,
-            lineHeight: 1.05,
-            letterSpacing: '-0.02em',
-            fontFeatureSettings: "'case'",
-          }}
-        >
+        <div className="font-heading text-2xl leading-[1.05] font-medium tracking-[-.02em]">
           {item.title}
         </div>
-        <div
-          className="mt-2 inline-flex items-center gap-1.5 opacity-50 transition-opacity duration-200 group-hover:opacity-100"
-          style={{ fontSize: 12 }}
-        >
-          <span style={{ fontFamily: 'var(--font-mono)', letterSpacing: '0.4px', textTransform: 'uppercase' }}>
+        <div className="mt-2 inline-flex items-center gap-1.5 text-xs opacity-50 transition-opacity duration-200 group-hover:opacity-100">
+          <span className="font-mono tracking-[.4px] uppercase">
             {item.handle || 'Visit'}
           </span>
           <ArrowIcon size={12} />

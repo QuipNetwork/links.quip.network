@@ -10,15 +10,7 @@ export function HeroBadge({ children, href }: HeroBadgeProps) {
     'relative inline-flex items-center justify-center bg-hero-gradient px-3 pt-[5px] pb-1 no-underline';
   const text = (
     <span
-      className="whitespace-nowrap text-white"
-      style={{
-        fontFamily: 'var(--font-mono)',
-        fontWeight: 500,
-        fontSize: 13,
-        letterSpacing: '0.4px',
-        textTransform: 'uppercase',
-        mixBlendMode: 'difference',
-      }}
+      className="font-mono text-[13px] font-medium tracking-[.4px] whitespace-nowrap text-white uppercase mix-blend-difference"
     >
       {children}
     </span>

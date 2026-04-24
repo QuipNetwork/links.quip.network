@@ -46,10 +46,7 @@ export function NewsletterSection() {
   return (
     <section
       id="newsletter"
-      className="relative bg-[#121218] px-gutter py-24 text-zinc-50"
-      style={{
-        borderTop: "1px solid #27272a",
-      }}
+      className="relative border-t border-zinc-800 bg-[#121218] px-gutter py-24 text-zinc-50"
     >
       <img
         src="/images/pattern-dark.svg"
@@ -60,34 +57,16 @@ export function NewsletterSection() {
       <PersonaWrapper count={7}>
         <div className="col-start-4 col-end-10 flex flex-col items-center gap-6 text-center max-tab:col-span-full">
           <BarBadge variant="light">Newsletter</BarBadge>
-          <h2
-            className="m-0 text-zinc-50"
-            style={{
-              fontFamily: "var(--font-heading)",
-              fontWeight: 500,
-              fontSize: "clamp(32px, 2.25vw + 20px, 52px)",
-              lineHeight: 1.1,
-              letterSpacing: "-0.02em",
-            }}
-          >
+          <h2 className="m-0 font-heading text-[clamp(32px,2.25vw+20px,52px)] leading-[1.1] font-medium tracking-[-.02em] text-zinc-50">
             Stay in the loop
             <br />
-            <span
-              className="text-zinc-400"
-              style={{ fontStyle: "italic", fontWeight: 400 }}
-            >
+            <span className="font-normal text-zinc-400 italic">
               ahead of Q‑Day
             </span>
           </h2>
 
           {status === "success" ? (
-            <div
-              className="px-4 py-3 text-zinc-50"
-              style={{
-                border: "1px solid #3f3f46",
-                fontSize: 14,
-              }}
-            >
+            <div className="border border-zinc-700 px-4 py-3 text-sm text-zinc-50">
               Thank you — check your inbox to confirm.
             </div>
           ) : (
@@ -106,21 +85,15 @@ export function NewsletterSection() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="me@email.com"
-                  className="w-full flex-1 appearance-none border-0 border-b border-zinc-700 bg-transparent pt-3 pr-3 pb-2.5 pl-9 text-zinc-50 outline-none"
-                  style={{ fontSize: 14, fontFamily: "var(--font-body)" }}
+                  className="w-full flex-1 appearance-none border-0 border-b border-zinc-700 bg-transparent pt-3 pr-3 pb-2.5 pl-9 text-sm text-zinc-50 outline-none"
                 />
               </div>
               <button
                 type="submit"
                 disabled={status === "loading"}
-                className={`cursor-pointer appearance-none border-0 px-4 pt-3 pb-2.5 outline-none transition-colors duration-150 ${
+                className={`cursor-pointer appearance-none border-0 px-4 pt-3 pb-2.5 text-sm outline-none transition-colors duration-150 ${
                   status === "loading" ? "bg-zinc-800 text-zinc-500" : "bg-zinc-50 text-zinc-950"
                 }`}
-                style={{
-                  fontFamily: "var(--font-body)",
-                  fontSize: 14,
-                  fontFeatureSettings: "'case'",
-                }}
               >
                 {status === "loading" ? "Sending…" : "Subscribe"}
               </button>

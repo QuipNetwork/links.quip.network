@@ -15,39 +15,15 @@ export function LinkRow({ item, index, total }: LinkRowProps) {
       href={item.url}
       className={`items-center gap-4 border-t border-zinc-300 px-2 py-5${isLast ? ' border-b' : ''}`}
     >
-      <span
-        className="w-8 opacity-60"
-        style={{
-          fontFamily: 'var(--font-mono)',
-          fontSize: 12,
-          fontWeight: 500,
-          letterSpacing: '0.4px',
-        }}
-      >
+      <span className="w-8 font-mono text-xs font-medium tracking-[.4px] opacity-60">
         {String(index + 1).padStart(2, '0')}
       </span>
       <div className="flex min-w-0 flex-1 flex-col gap-0.5">
-        <span
-          style={{
-            fontFamily: 'var(--font-heading)',
-            fontWeight: 500,
-            fontSize: 20,
-            lineHeight: 1.2,
-            letterSpacing: '-0.01em',
-            fontFeatureSettings: "'case'",
-          }}
-        >
+        <span className="font-heading text-xl leading-[1.2] font-medium tracking-[-.01em]">
           {item.title}
         </span>
         {item.description && (
-          <span
-            className="text-zinc-600 group-hover:text-zinc-300"
-            style={{
-              fontFamily: 'var(--font-body)',
-              fontSize: 13,
-              lineHeight: 1.4,
-            }}
-          >
+          <span className="text-[13px] leading-[1.4] text-zinc-600 group-hover:text-zinc-300">
             {item.description}
           </span>
         )}
@@ -55,14 +31,7 @@ export function LinkRow({ item, index, total }: LinkRowProps) {
       {item.tag && (
         <span
           data-row-tag
-          className="bg-zinc-150 px-2 pt-1 pb-[3px] text-zinc-950 group-hover:bg-zinc-800 group-hover:text-zinc-50"
-          style={{
-            fontFamily: 'var(--font-mono)',
-            fontSize: 12,
-            fontWeight: 500,
-            letterSpacing: '0.4px',
-            textTransform: 'uppercase',
-          }}
+          className="bg-zinc-150 px-2 pt-1 pb-[3px] font-mono text-xs font-medium tracking-[.4px] text-zinc-950 uppercase group-hover:bg-zinc-800 group-hover:text-zinc-50"
         >
           {item.tag}
         </span>

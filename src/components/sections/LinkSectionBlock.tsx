@@ -15,21 +15,12 @@ export function LinkSectionBlock({ eyebrow, heading, italic, links }: LinkSectio
       <div className="grid grid-cols-12 items-stretch gap-4">
         <div className="col-start-1 col-end-4 flex flex-col flex-wrap items-start gap-4 max-tab:col-span-full">
           <BarBadge>{eyebrow}</BarBadge>
-          <h2
-            className="m-0 text-zinc-900"
-            style={{
-              fontFamily: 'var(--font-heading)',
-              fontWeight: 500,
-              fontSize: 'clamp(28px, 1.5vw + 20px, 40px)',
-              lineHeight: 1.1,
-              letterSpacing: '-0.02em',
-            }}
-          >
+          <h2 className="m-0 font-heading text-[clamp(28px,1.5vw+20px,40px)] leading-[1.1] font-medium tracking-[-.02em] text-zinc-900">
             {heading}
             {italic && (
               <>
                 <br />
-                <span className="text-zinc-600" style={{ fontStyle: 'italic', fontWeight: 400 }}>{italic}</span>
+                <span className="font-normal text-zinc-600 italic">{italic}</span>
               </>
             )}
           </h2>

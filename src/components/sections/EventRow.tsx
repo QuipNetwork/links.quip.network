@@ -19,15 +19,10 @@ export function EventRow({ item, index, total }: EventRowProps) {
     >
       <div
         data-event-date
-        className="flex w-12 shrink-0 flex-col items-center justify-center border-r border-zinc-300 py-1.5 group-hover:border-zinc-700"
-        style={{
-          fontFamily: 'var(--font-mono)',
-          letterSpacing: '0.4px',
-          textTransform: 'uppercase',
-        }}
+        className="flex w-12 shrink-0 flex-col items-center justify-center border-r border-zinc-300 py-1.5 font-mono tracking-[.4px] uppercase group-hover:border-zinc-700"
       >
-        <span style={{ fontSize: 10, opacity: 0.55, lineHeight: 1.2 }}>{parts[0]}</span>
-        <span data-event-date-day style={{ fontSize: 22, fontWeight: 500, lineHeight: 1 }}>
+        <span className="text-[10px] leading-[1.2] opacity-55">{parts[0]}</span>
+        <span data-event-date-day className="text-[22px] leading-none font-medium">
           {(parts[1] || '').replace(',', '')}
         </span>
       </div>
@@ -36,61 +31,34 @@ export function EventRow({ item, index, total }: EventRowProps) {
           src={item.cover_url}
           alt=""
           data-event-cover
-          className="shrink-0 border border-zinc-300 bg-zinc-150 object-cover group-hover:border-zinc-800"
-          style={{ width: 80, height: 80 }}
+          className="h-20 w-20 shrink-0 border border-zinc-300 bg-zinc-150 object-cover group-hover:border-zinc-800"
         />
       )}
       <div className="flex min-w-0 flex-1 flex-col gap-[3px]">
         <span
           data-event-title
-          className="overflow-hidden text-ellipsis whitespace-nowrap"
-          style={{
-            fontFamily: 'var(--font-heading)',
-            fontWeight: 500,
-            fontSize: 19,
-            lineHeight: 1.2,
-            letterSpacing: '-0.01em',
-            fontFeatureSettings: "'case'",
-          }}
+          className="overflow-hidden font-heading text-[19px] leading-[1.2] font-medium tracking-[-.01em] text-ellipsis whitespace-nowrap"
         >
           {item.title}
         </span>
         {item.subtitle && (
           <span
             data-event-subtitle
-            className="overflow-hidden text-ellipsis whitespace-nowrap text-zinc-500 group-hover:text-zinc-300"
-            style={{
-              fontFamily: 'var(--font-body)',
-              fontSize: 13,
-              lineHeight: 1.3,
-            }}
+            className="overflow-hidden text-[13px] leading-[1.3] text-ellipsis whitespace-nowrap text-zinc-500 group-hover:text-zinc-300"
           >
             {item.subtitle}
           </span>
         )}
         <span
           data-event-meta
-          className="text-zinc-600 group-hover:text-zinc-300"
-          style={{
-            fontFamily: 'var(--font-mono)',
-            fontSize: 11,
-            letterSpacing: '0.4px',
-            textTransform: 'uppercase',
-          }}
+          className="font-mono text-[11px] tracking-[.4px] text-zinc-600 uppercase group-hover:text-zinc-300"
         >
           {item.location ? `${item.time} · ${item.location}` : item.time}
         </span>
       </div>
       <span
         data-row-tag
-        className="border border-zinc-300 bg-transparent px-2 pt-1 pb-[3px] text-zinc-600 group-hover:border-zinc-50 group-hover:text-zinc-50"
-        style={{
-          fontFamily: 'var(--font-mono)',
-          fontSize: 12,
-          fontWeight: 500,
-          letterSpacing: '0.4px',
-          textTransform: 'uppercase',
-        }}
+        className="border border-zinc-300 bg-transparent px-2 pt-1 pb-[3px] font-mono text-xs font-medium tracking-[.4px] text-zinc-600 uppercase group-hover:border-zinc-50 group-hover:text-zinc-50"
       >
         {item.tag}
       </span>

@@ -9,55 +9,48 @@ interface PersonaIconProps {
   delay?: number;
 }
 
+const PULSE_CLASSES =
+  'inline-block shrink-0 will-change-[opacity] animate-persona-pulse motion-reduce:animate-none motion-reduce:opacity-55';
+
 export function PersonaIcon({ shape, size = 10, color = 'currentColor', delay = 0 }: PersonaIconProps) {
-  const s: CSSProperties = {
-    display: 'inline-block',
-    flexShrink: 0,
-    color,
-    animation: 'persona-pulse 4.2s ease-in-out infinite both',
-    animationDelay: `${delay}s`,
-    willChange: 'opacity',
-  };
+  const base: CSSProperties = { color, animationDelay: `${delay}s` };
   if (shape === 'diamond')
     return (
       <span
-        style={{
-          ...s,
-          width: size * 0.7,
-          height: size * 1.1,
-          background: 'currentColor',
-          clipPath: 'polygon(50% 0,100% 50%,50% 100%,0 50%)',
-        }}
         aria-hidden
+        className={`${PULSE_CLASSES} bg-current [clip-path:polygon(50%_0,100%_50%,50%_100%,0_50%)]`}
+        style={{ ...base, width: size * 0.7, height: size * 1.1 }}
       />
     );
   if (shape === 'square')
-    return <span style={{ ...s, width: size, height: size, background: 'currentColor' }} aria-hidden />;
+    return (
+      <span
+        aria-hidden
+        className={`${PULSE_CLASSES} bg-current`}
+        style={{ ...base, width: size, height: size }}
+      />
+    );
   if (shape === 'circle')
     return (
-      <span style={{ ...s, width: size, height: size, background: 'currentColor', borderRadius: '50%' }} aria-hidden />
+      <span
+        aria-hidden
+        className={`${PULSE_CLASSES} rounded-full bg-current`}
+        style={{ ...base, width: size, height: size }}
+      />
     );
   return (
-    <span style={{ ...s, position: 'relative', width: size, height: size }} aria-hidden>
+    <span
+      aria-hidden
+      className={`${PULSE_CLASSES} relative`}
+      style={{ ...base, width: size, height: size }}
+    >
       <span
-        style={{
-          position: 'absolute',
-          left: 0,
-          right: 0,
-          top: size * 0.45,
-          height: size * 0.18,
-          background: 'currentColor',
-        }}
+        className="absolute right-0 left-0 bg-current"
+        style={{ top: size * 0.45, height: size * 0.18 }}
       />
       <span
-        style={{
-          position: 'absolute',
-          top: 0,
-          bottom: 0,
-          left: size * 0.41,
-          width: size * 0.18,
-          background: 'currentColor',
-        }}
+        className="absolute top-0 bottom-0 bg-current"
+        style={{ left: size * 0.41, width: size * 0.18 }}
       />
     </span>
   );

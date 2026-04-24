@@ -11,15 +11,7 @@ export function BarBadge({ children, variant = 'dark' }: BarBadgeProps) {
   return (
     <div className="inline-flex items-stretch gap-1">
       <span
-        className={`inline-flex items-center px-2 pt-[5px] pb-1 ${tone}`}
-        style={{
-          fontFamily: 'var(--font-mono)',
-          fontWeight: 500,
-          fontSize: 13,
-          letterSpacing: '0.4px',
-          textTransform: 'uppercase',
-          lineHeight: 1.15,
-        }}
+        className={`inline-flex items-center px-2 pt-[5px] pb-1 font-mono text-[13px] leading-[1.15] font-medium tracking-[.4px] uppercase ${tone}`}
       >
         {children}
       </span>

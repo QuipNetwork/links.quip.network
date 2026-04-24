@@ -33,30 +33,14 @@ export function FeatureCard({ item, dark }: FeatureCardProps) {
       />
 
       <div className="relative flex max-w-[70%] flex-col gap-3">
-        <h3
-          className="m-0"
-          style={{
-            fontFamily: 'var(--font-heading)',
-            fontWeight: 500,
-            fontSize: 'clamp(28px, 1.5vw + 20px, 40px)',
-            lineHeight: 1.05,
-            letterSpacing: '-0.02em',
-            fontFeatureSettings: "'case'",
-          }}
-        >
+        <h3 className="m-0 font-heading text-[clamp(28px,1.5vw+20px,40px)] leading-[1.05] font-medium tracking-[-.02em]">
           {item.title}
         </h3>
-        <p className={`m-0 max-w-[280px] ${pColor}`} style={{ fontSize: 14, lineHeight: 1.4 }}>
+        <p className={`m-0 max-w-[280px] text-sm leading-[1.4] ${pColor}`}>
           {item.description}
         </p>
-        <div className="mt-2 inline-flex items-center gap-2" style={{ fontSize: 14 }}>
-          <span
-            className={`px-2.5 pt-1.5 pb-1 transition-all duration-200 ${ctaClass}`}
-            style={{
-              fontFamily: 'var(--font-body)',
-              fontFeatureSettings: "'case'",
-            }}
-          >
+        <div className="mt-2 inline-flex items-center gap-2 text-sm">
+          <span className={`px-2.5 pt-1.5 pb-1 transition-all duration-200 ${ctaClass}`}>
             {item.cta}
           </span>
           <ArrowIcon size={16} />

@@ -54,32 +54,16 @@ export function EventsSection() {
       <div className="grid grid-cols-12 gap-4 gap-y-5">
         <div className="col-start-1 col-end-4 flex flex-col items-start gap-4 max-tab:col-span-full">
           <BarBadge>Events</BarBadge>
-          <h2
-            className="m-0 text-zinc-900"
-            style={{
-              fontFamily: 'var(--font-heading)',
-              fontWeight: 500,
-              fontSize: 'clamp(28px, 1.5vw + 20px, 40px)',
-              lineHeight: 1.1,
-              letterSpacing: '-0.02em',
-            }}
-          >
+          <h2 className="m-0 font-heading text-[clamp(28px,1.5vw+20px,40px)] leading-[1.1] font-medium tracking-[-.02em] text-zinc-900">
             Meet us
             <br />
-            <span className="text-zinc-600" style={{ fontStyle: 'italic', fontWeight: 400 }}>in person</span>
+            <span className="font-normal text-zinc-600 italic">in person</span>
           </h2>
           <a
             href="https://lu.ma/quipnetwork"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-2.5 pt-1.5 pb-[5px] text-zinc-950 no-underline"
-            style={{
-              fontSize: 12,
-              fontFamily: 'var(--font-mono)',
-              letterSpacing: '0.4px',
-              textTransform: 'uppercase',
-              border: '1px solid #09090b',
-            }}
+            className="inline-flex items-center gap-2 border border-zinc-950 px-2.5 pt-1.5 pb-[5px] font-mono text-xs tracking-[.4px] text-zinc-950 uppercase no-underline"
           >
             <CalendarIcon size={14} />
             <span>lu.ma/quipnetwork</span>
