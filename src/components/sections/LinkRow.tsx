@@ -13,7 +13,7 @@ export function LinkRow({ item, index, total }: LinkRowProps) {
   return (
     <WipeLink
       href={item.url}
-      className={`items-center gap-4 border-t border-zinc-300 px-2 py-5${isLast ? ' border-b' : ''}`}
+      className={`items-center gap-4 border-t border-zinc-300 px-2 py-5 ${isLast ? 'border-b' : ''}`}
     >
       <span className="w-8 font-mono text-xs font-medium tracking-[.4px] opacity-60">
         {String(index + 1).padStart(2, '0')}

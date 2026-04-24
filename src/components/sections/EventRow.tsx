@@ -15,7 +15,7 @@ export function EventRow({ item, index, total }: EventRowProps) {
     <WipeLink
       href={item.url}
       data-event-row=""
-      className={`items-center gap-4 border-t border-zinc-300 px-2 py-3.5${isLast ? ' border-b' : ''}`}
+      className={`items-center gap-4 border-t border-zinc-300 px-2 py-3.5 ${isLast ? 'border-b' : ''}`}
     >
       <div
         data-event-date
