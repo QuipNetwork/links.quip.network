@@ -5,9 +5,9 @@ import { siteData } from '@/data/siteData';
 export function CommunitySection() {
   return (
     <section
+      className="bg-zinc-100"
       style={{
         padding: '64px clamp(20px,5.45vw,78px)',
-        background: '#f4f4f5',
         borderTop: '1px solid #e4e4e7',
         borderBottom: '1px solid #e4e4e7',
       }}
@@ -16,6 +16,7 @@ export function CommunitySection() {
         <div style={{ gridColumn: '1 / 4', display: 'flex', flexDirection: 'column', gap: 16, alignItems: 'flex-start' }}>
           <BarBadge>Community</BarBadge>
           <h2
+            className="text-zinc-900"
             style={{
               margin: 0,
               fontFamily: 'var(--font-heading)',
@@ -23,12 +24,11 @@ export function CommunitySection() {
               fontSize: 'clamp(28px, 1.5vw + 20px, 40px)',
               lineHeight: 1.1,
               letterSpacing: '-0.02em',
-              color: '#18181b',
             }}
           >
             Follow us on
             <br />
-            <span style={{ fontStyle: 'italic', fontWeight: 400, color: '#52525c' }}>every channel</span>
+            <span className="text-zinc-600" style={{ fontStyle: 'italic', fontWeight: 400 }}>every channel</span>
           </h2>
         </div>
         <div style={{ gridColumn: '5 / 13' }}>

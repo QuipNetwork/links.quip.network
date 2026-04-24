@@ -6,16 +6,16 @@ interface BarBadgeProps {
 }
 
 export function BarBadge({ children, variant = 'dark' }: BarBadgeProps) {
-  const isDark = variant === 'dark';
+  const tone = variant === 'dark' ? 'bg-zinc-950 text-zinc-50' : 'bg-zinc-50 text-zinc-950';
+  const bar = variant === 'dark' ? 'bg-zinc-950' : 'bg-zinc-50';
   return (
     <div style={{ display: 'inline-flex', alignItems: 'stretch', gap: 4 }}>
       <span
+        className={tone}
         style={{
           display: 'inline-flex',
           alignItems: 'center',
           padding: '5px 8px 4px',
-          background: isDark ? '#09090b' : '#fafafa',
-          color: isDark ? '#fafafa' : '#09090b',
           fontFamily: 'var(--font-mono)',
           fontWeight: 500,
           fontSize: 13,
@@ -26,7 +26,7 @@ export function BarBadge({ children, variant = 'dark' }: BarBadgeProps) {
       >
         {children}
       </span>
-      <span style={{ width: 4, background: isDark ? '#09090b' : '#fafafa' }} />
+      <span className={bar} style={{ width: 4 }} />
     </div>
   );
 }

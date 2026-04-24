@@ -3,10 +3,9 @@ import { PersonaWrapper } from '@/components/quip/PersonaWrapper';
 export function Hero() {
   return (
     <section
+      className="bg-[#121218] text-zinc-50"
       style={{
         position: 'relative',
-        background: '#121218',
-        color: '#fafafa',
         padding: '56px clamp(20px,5.45vw,78px) 48px',
         borderBottom: '1px solid #27272a',
       }}
@@ -48,6 +47,7 @@ export function Hero() {
 
           <h1
             data-hero-heading
+            className="text-zinc-50"
             style={{
               margin: 0,
               maxWidth: 720,
@@ -56,12 +56,11 @@ export function Hero() {
               fontSize: 'clamp(28px, 2vw + 18px, 44px)',
               lineHeight: 1.05,
               letterSpacing: '-0.02em',
-              color: '#fafafa',
               fontFeatureSettings: "'case'",
             }}
           >
             The worldwide{' '}
-            <span style={{ fontStyle: 'italic', fontWeight: 400, color: '#dbdbde' }}>quantum</span> computer
+            <span className="text-zinc-200" style={{ fontStyle: 'italic', fontWeight: 400 }}>quantum</span> computer
           </h1>
 
           <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', justifyContent: 'center', marginTop: 8 }}>
@@ -69,6 +68,7 @@ export function Hero() {
               href="https://quip.network"
               target="_blank"
               rel="noopener noreferrer"
+              className="bg-zinc-50 text-zinc-950"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -76,8 +76,6 @@ export function Hero() {
                 fontFamily: 'var(--font-body)',
                 fontSize: 13,
                 lineHeight: 1.35,
-                background: '#fafafa',
-                color: '#09090b',
                 textDecoration: 'none',
                 fontFeatureSettings: "'case'",
               }}
@@ -86,6 +84,7 @@ export function Hero() {
             </a>
             <a
               href="#newsletter"
+              className="bg-transparent text-zinc-50"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -93,8 +92,6 @@ export function Hero() {
                 fontFamily: 'var(--font-body)',
                 fontSize: 13,
                 lineHeight: 1.35,
-                background: 'transparent',
-                color: '#fafafa',
                 textDecoration: 'none',
                 border: '1px solid #3f3f46',
                 fontFeatureSettings: "'case'",

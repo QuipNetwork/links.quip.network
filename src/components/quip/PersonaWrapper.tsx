@@ -25,7 +25,6 @@ export function PersonaWrapper({ count, children }: PersonaWrapperProps) {
     display: 'flex' as const,
     flexDirection: 'column' as const,
     justifyContent: 'space-between' as const,
-    color: '#71717b',
   };
   return (
     <div
@@ -36,13 +35,13 @@ export function PersonaWrapper({ count, children }: PersonaWrapperProps) {
         gap: 16,
       }}
     >
-      <div data-hero-aside style={{ ...columnBase, gridColumn: '1 / 2' }}>
+      <div data-hero-aside className="text-zinc-500" style={{ ...columnBase, gridColumn: '1 / 2' }}>
         {indices.map((i) => (
           <PersonaIcon key={i} shape={shapeAt('left', i)} delay={delayAt('left', i)} />
         ))}
       </div>
       {children}
-      <div data-hero-aside style={{ ...columnBase, gridColumn: '12 / 13', alignItems: 'flex-end' }}>
+      <div data-hero-aside className="text-zinc-500" style={{ ...columnBase, gridColumn: '12 / 13', alignItems: 'flex-end' }}>
         {indices.map((i) => (
           <PersonaIcon key={i} shape={shapeAt('right', i)} delay={delayAt('right', i)} />
         ))}

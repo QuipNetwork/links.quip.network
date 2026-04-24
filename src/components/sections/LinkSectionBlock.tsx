@@ -11,11 +11,12 @@ interface LinkSectionBlockProps {
 
 export function LinkSectionBlock({ eyebrow, heading, italic, links }: LinkSectionBlockProps) {
   return (
-    <section style={{ padding: '64px clamp(20px,5.45vw,78px)', background: '#fafafa' }}>
+    <section className="bg-zinc-50" style={{ padding: '64px clamp(20px,5.45vw,78px)' }}>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(12,1fr)', gap: 16, alignItems: 'stretch' }}>
         <div style={{ gridColumn: '1 / 4', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 16, flexWrap: 'wrap' }}>
           <BarBadge>{eyebrow}</BarBadge>
           <h2
+            className="text-zinc-900"
             style={{
               margin: 0,
               fontFamily: 'var(--font-heading)',
@@ -23,14 +24,13 @@ export function LinkSectionBlock({ eyebrow, heading, italic, links }: LinkSectio
               fontSize: 'clamp(28px, 1.5vw + 20px, 40px)',
               lineHeight: 1.1,
               letterSpacing: '-0.02em',
-              color: '#18181b',
             }}
           >
             {heading}
             {italic && (
               <>
                 <br />
-                <span style={{ fontStyle: 'italic', fontWeight: 400, color: '#52525c' }}>{italic}</span>
+                <span className="text-zinc-600" style={{ fontStyle: 'italic', fontWeight: 400 }}>{italic}</span>
               </>
             )}
           </h2>

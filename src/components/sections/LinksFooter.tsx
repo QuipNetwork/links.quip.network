@@ -2,9 +2,8 @@ export function LinksFooter() {
   return (
     <footer
       data-footer
+      className="bg-[#121218] text-zinc-50"
       style={{
-        background: '#121218',
-        color: '#fafafa',
         padding: '40px clamp(20px,5.45vw,78px)',
         display: 'grid',
         gridTemplateColumns: 'repeat(12,1fr)',
@@ -21,16 +20,16 @@ export function LinksFooter() {
         />
       </div>
       <div style={{ gridColumn: '5 / 9', textAlign: 'center' }}>
-        <p style={{ margin: 0, fontSize: 12, color: '#71717b' }}>
+        <p className="text-zinc-500" style={{ margin: 0, fontSize: 12 }}>
           © {new Date().getFullYear()} Quantum Unit Interlock Protocol. All rights reserved.
         </p>
       </div>
       <div style={{ gridColumn: '9 / 13', textAlign: 'right' }}>
         <a
           href="https://quip.network"
+          className="text-[#c9fff5]"
           style={{
             fontSize: 12,
-            color: '#c9fff5',
             textDecoration: 'none',
             fontFamily: 'var(--font-mono)',
             letterSpacing: '0.4px',

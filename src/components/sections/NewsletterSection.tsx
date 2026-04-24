@@ -46,10 +46,9 @@ export function NewsletterSection() {
   return (
     <section
       id="newsletter"
+      className="bg-[#121218] text-zinc-50"
       style={{
         position: "relative",
-        background: "#121218",
-        color: "#fafafa",
         padding: "96px clamp(20px,5.45vw,78px)",
         borderTop: "1px solid #27272a",
       }}
@@ -81,6 +80,7 @@ export function NewsletterSection() {
         >
           <BarBadge variant="light">Newsletter</BarBadge>
           <h2
+            className="text-zinc-50"
             style={{
               margin: 0,
               fontFamily: "var(--font-heading)",
@@ -88,13 +88,13 @@ export function NewsletterSection() {
               fontSize: "clamp(32px, 2.25vw + 20px, 52px)",
               lineHeight: 1.1,
               letterSpacing: "-0.02em",
-              color: "#fafafa",
             }}
           >
             Stay in the loop
             <br />
             <span
-              style={{ fontStyle: "italic", fontWeight: 400, color: "#9f9fa9" }}
+              className="text-zinc-400"
+              style={{ fontStyle: "italic", fontWeight: 400 }}
             >
               ahead of Q‑Day
             </span>
@@ -102,10 +102,10 @@ export function NewsletterSection() {
 
           {status === "success" ? (
             <div
+              className="text-zinc-50"
               style={{
                 padding: "12px 16px",
                 border: "1px solid #3f3f46",
-                color: "#fafafa",
                 fontSize: 14,
               }}
             >
@@ -132,10 +132,10 @@ export function NewsletterSection() {
                 }}
               >
                 <div
+                  className="text-zinc-500"
                   style={{
                     position: "absolute",
                     left: 12,
-                    color: "#71717b",
                     display: "flex",
                     alignItems: "center",
                     pointerEvents: "none",
@@ -149,6 +149,7 @@ export function NewsletterSection() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="me@email.com"
+                  className="text-zinc-50"
                   style={{
                     all: "unset",
                     flex: 1,
@@ -156,7 +157,6 @@ export function NewsletterSection() {
                     width: "100%",
                     padding: "12px 12px 10px 36px",
                     borderBottom: "1px solid #3f3f46",
-                    color: "#fafafa",
                     fontSize: 14,
                     fontFamily: "var(--font-body)",
                   }}

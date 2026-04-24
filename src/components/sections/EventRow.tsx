@@ -57,6 +57,7 @@ export function EventRow({ item, index, total }: EventRowProps) {
           src={item.cover_url}
           alt=""
           data-event-cover
+          className="bg-zinc-150"
           style={{
             width: thumb,
             height: thumb,
@@ -64,7 +65,6 @@ export function EventRow({ item, index, total }: EventRowProps) {
             flexShrink: 0,
             border: '1px solid',
             borderColor: h ? '#27272a' : '#c9c9cb',
-            background: '#e4e4e7',
           }}
         />
       )}

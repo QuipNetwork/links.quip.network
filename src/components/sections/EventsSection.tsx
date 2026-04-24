@@ -50,11 +50,12 @@ export function EventsSection() {
   if (!events.length) return null;
 
   return (
-    <section style={{ padding: '56px clamp(20px,5.45vw,78px)', background: '#fafafa' }}>
+    <section className="bg-zinc-50" style={{ padding: '56px clamp(20px,5.45vw,78px)' }}>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(12,1fr)', gap: 16, rowGap: 20 }}>
         <div style={{ gridColumn: '1 / 4', display: 'flex', flexDirection: 'column', gap: 16, alignItems: 'flex-start' }}>
           <BarBadge>Events</BarBadge>
           <h2
+            className="text-zinc-900"
             style={{
               margin: 0,
               fontFamily: 'var(--font-heading)',
@@ -62,17 +63,17 @@ export function EventsSection() {
               fontSize: 'clamp(28px, 1.5vw + 20px, 40px)',
               lineHeight: 1.1,
               letterSpacing: '-0.02em',
-              color: '#18181b',
             }}
           >
             Meet us
             <br />
-            <span style={{ fontStyle: 'italic', fontWeight: 400, color: '#52525c' }}>in person</span>
+            <span className="text-zinc-600" style={{ fontStyle: 'italic', fontWeight: 400 }}>in person</span>
           </h2>
           <a
             href="https://lu.ma/quipnetwork"
             target="_blank"
             rel="noopener noreferrer"
+            className="text-zinc-950"
             style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -81,7 +82,6 @@ export function EventsSection() {
               fontFamily: 'var(--font-mono)',
               letterSpacing: '0.4px',
               textTransform: 'uppercase',
-              color: '#09090b',
               textDecoration: 'none',
               padding: '6px 10px 5px',
               border: '1px solid #09090b',
