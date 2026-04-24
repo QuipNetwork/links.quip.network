@@ -43,5 +43,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+vite.config.js
+vite.config.d.ts
 
 /build-ssr
