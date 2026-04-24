@@ -54,6 +54,9 @@
   /* ---------- Breakpoints ---------- */
   --breakpoint-tab: 880px;
   --breakpoint-phone: 600px;
+
+  /* ---------- Spacing tokens ---------- */
+  --spacing-gutter: clamp(20px, 5.45vw, 78px);
 }
 
 /* Hero gradient as a reusable utility */

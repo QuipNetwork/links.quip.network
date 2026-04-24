@@ -64,13 +64,13 @@ export function LinkRow({ item, index, total }: LinkRowProps) {
       {item.tag && (
         <span
           data-row-tag
+          className="px-2 pt-1 pb-[3px]"
           style={{
             fontFamily: 'var(--font-mono)',
             fontSize: 12,
             fontWeight: 500,
             letterSpacing: '0.4px',
             textTransform: 'uppercase',
-            padding: '4px 8px 3px',
             background: h ? '#27272a' : '#e4e4e7',
             color: h ? '#fafafa' : '#09090b',
           }}

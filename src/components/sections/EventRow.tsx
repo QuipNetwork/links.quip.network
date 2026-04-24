@@ -102,14 +102,13 @@ export function EventRow({ item, index, total }: EventRowProps) {
       </div>
       <span
         data-row-tag
-        className="bg-transparent"
+        className="bg-transparent px-2 pt-1 pb-[3px]"
         style={{
           fontFamily: 'var(--font-mono)',
           fontSize: 12,
           fontWeight: 500,
           letterSpacing: '0.4px',
           textTransform: 'uppercase',
-          padding: '4px 8px 3px',
           color: h ? '#fafafa' : '#52525c',
           border: '1px solid',
           borderColor: h ? '#fafafa' : '#c9c9cb',

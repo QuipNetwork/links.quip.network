@@ -3,9 +3,8 @@ import { PersonaWrapper } from '@/components/quip/PersonaWrapper';
 export function Hero() {
   return (
     <section
-      className="relative bg-[#121218] text-zinc-50"
+      className="relative bg-[#121218] px-gutter pt-14 pb-12 text-zinc-50"
       style={{
-        padding: '56px clamp(20px,5.45vw,78px) 48px',
         borderBottom: '1px solid #27272a',
       }}
     >
@@ -48,9 +47,8 @@ export function Hero() {
               href="https://quip.network"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center bg-zinc-50 text-zinc-950 no-underline"
+              className="inline-flex items-center bg-zinc-50 px-3.5 pt-2.5 pb-2 text-zinc-950 no-underline"
               style={{
-                padding: '10px 14px 8px',
                 fontFamily: 'var(--font-body)',
                 fontSize: 13,
                 lineHeight: 1.35,
@@ -61,9 +59,8 @@ export function Hero() {
             </a>
             <a
               href="#newsletter"
-              className="inline-flex items-center bg-transparent text-zinc-50 no-underline"
+              className="inline-flex items-center bg-transparent px-3.5 pt-2.5 pb-2 text-zinc-50 no-underline"
               style={{
-                padding: '10px 14px 8px',
                 fontFamily: 'var(--font-body)',
                 fontSize: 13,
                 lineHeight: 1.35,

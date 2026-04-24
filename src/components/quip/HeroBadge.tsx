@@ -1,4 +1,4 @@
-import type { CSSProperties, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 interface HeroBadgeProps {
   children: ReactNode;
@@ -7,8 +7,7 @@ interface HeroBadgeProps {
 
 export function HeroBadge({ children, href }: HeroBadgeProps) {
   const containerClass =
-    'relative inline-flex items-center justify-center bg-hero-gradient no-underline';
-  const containerStyle: CSSProperties = { padding: '5px 12px 4px' };
+    'relative inline-flex items-center justify-center bg-hero-gradient px-3 pt-[5px] pb-1 no-underline';
   const text = (
     <span
       className="whitespace-nowrap text-white"
@@ -32,14 +31,13 @@ export function HeroBadge({ children, href }: HeroBadgeProps) {
         rel="noopener noreferrer"
         data-hero-badge
         className={containerClass}
-        style={containerStyle}
       >
         {text}
       </a>
     );
   }
   return (
-    <div data-hero-badge className={containerClass} style={containerStyle}>
+    <div data-hero-badge className={containerClass}>
       {text}
     </div>
   );

@@ -5,7 +5,7 @@ import { siteData } from '@/data/siteData';
 
 export function EarnSection() {
   return (
-    <section className="bg-zinc-50" style={{ padding: '80px clamp(20px,5.45vw,78px) 48px' }}>
+    <section className="bg-zinc-50 px-gutter pt-20 pb-12">
       <div className="grid grid-cols-12 gap-4 gap-y-6">
         <div className="col-start-1 col-end-7 flex flex-col items-start gap-3 max-tab:col-span-full">
           <BarBadge>Earn</BarBadge>

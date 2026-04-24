@@ -67,8 +67,8 @@ export function FeatureCard({ item, dark }: FeatureCardProps) {
           }}
         >
           <span
+            className="px-2.5 pt-1.5 pb-1"
             style={{
-              padding: '6px 10px 4px',
               background: dark ? (h ? '#fafafa' : 'transparent') : h ? '#09090b' : '#fafafa',
               color: dark ? (h ? '#09090b' : '#fafafa') : h ? '#fafafa' : '#09090b',
               border: dark ? '1px solid #fafafa' : 'none',

@@ -11,7 +11,7 @@ interface LinkSectionBlockProps {
 
 export function LinkSectionBlock({ eyebrow, heading, italic, links }: LinkSectionBlockProps) {
   return (
-    <section className="bg-zinc-50" style={{ padding: '64px clamp(20px,5.45vw,78px)' }}>
+    <section className="bg-zinc-50 px-gutter py-16">
       <div className="grid grid-cols-12 items-stretch gap-4">
         <div className="col-start-1 col-end-4 flex flex-col flex-wrap items-start gap-4 max-tab:col-span-full">
           <BarBadge>{eyebrow}</BarBadge>

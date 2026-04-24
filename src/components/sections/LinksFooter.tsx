@@ -2,9 +2,8 @@ export function LinksFooter() {
   return (
     <footer
       data-footer
-      className="grid grid-cols-12 items-center gap-4 bg-[#121218] text-zinc-50"
+      className="grid grid-cols-12 items-center gap-4 bg-[#121218] px-gutter py-10 text-zinc-50"
       style={{
-        padding: '40px clamp(20px,5.45vw,78px)',
         borderTop: '1px solid #27272a',
       }}
     >

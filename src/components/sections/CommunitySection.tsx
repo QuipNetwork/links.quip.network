@@ -5,9 +5,8 @@ import { siteData } from '@/data/siteData';
 export function CommunitySection() {
   return (
     <section
-      className="bg-zinc-100"
+      className="bg-zinc-100 px-gutter py-16"
       style={{
-        padding: '64px clamp(20px,5.45vw,78px)',
         borderTop: '1px solid #e4e4e7',
         borderBottom: '1px solid #e4e4e7',
       }}

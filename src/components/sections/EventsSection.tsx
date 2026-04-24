@@ -50,7 +50,7 @@ export function EventsSection() {
   if (!events.length) return null;
 
   return (
-    <section className="bg-zinc-50" style={{ padding: '56px clamp(20px,5.45vw,78px)' }}>
+    <section className="bg-zinc-50 px-gutter py-14">
       <div className="grid grid-cols-12 gap-4 gap-y-5">
         <div className="col-start-1 col-end-4 flex flex-col items-start gap-4 max-tab:col-span-full">
           <BarBadge>Events</BarBadge>
@@ -72,13 +72,12 @@ export function EventsSection() {
             href="https://lu.ma/quipnetwork"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-zinc-950 no-underline"
+            className="inline-flex items-center gap-2 px-2.5 pt-1.5 pb-[5px] text-zinc-950 no-underline"
             style={{
               fontSize: 12,
               fontFamily: 'var(--font-mono)',
               letterSpacing: '0.4px',
               textTransform: 'uppercase',
-              padding: '6px 10px 5px',
               border: '1px solid #09090b',
             }}
           >

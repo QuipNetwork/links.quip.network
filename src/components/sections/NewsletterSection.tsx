@@ -46,9 +46,8 @@ export function NewsletterSection() {
   return (
     <section
       id="newsletter"
-      className="relative bg-[#121218] text-zinc-50"
+      className="relative bg-[#121218] px-gutter py-24 text-zinc-50"
       style={{
-        padding: "96px clamp(20px,5.45vw,78px)",
         borderTop: "1px solid #27272a",
       }}
     >
