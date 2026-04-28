@@ -14,15 +14,20 @@ const ICONS = {
 
 interface CommunityCellProps {
   item: CommunityLink;
-  dark: boolean;
   index: number;
 }
 
-export function CommunityCell({ item, dark, index }: CommunityCellProps) {
+export function CommunityCell({ item, index }: CommunityCellProps) {
   const IconComp = ICONS[item.icon];
-  const cellClass = dark
-    ? 'border-r border-zinc-800 bg-zinc-900 text-zinc-50 group-hover:bg-zinc-800'
-    : 'border-r border-zinc-250 bg-zinc-150 text-zinc-950 group-hover:bg-zinc-250';
+  const cellClass = [
+    // base = light
+    'border-r border-zinc-250 bg-zinc-150 text-zinc-950 group-hover:bg-zinc-250',
+    // mobile (≤ tab, 2-col grid): checkerboard — items 1 & 4 (4n+1, 4n) go dark
+    'max-tab:nth-[4n+1]:border-zinc-800 max-tab:nth-[4n+1]:bg-zinc-900 max-tab:nth-[4n+1]:text-zinc-50 max-tab:nth-[4n+1]:group-hover:bg-zinc-800',
+    'max-tab:nth-[4n]:border-zinc-800 max-tab:nth-[4n]:bg-zinc-900 max-tab:nth-[4n]:text-zinc-50 max-tab:nth-[4n]:group-hover:bg-zinc-800',
+    // desktop (≥ tab, 4-col grid): odd children go dark
+    'tab:odd:border-zinc-800 tab:odd:bg-zinc-900 tab:odd:text-zinc-50 tab:odd:group-hover:bg-zinc-800',
+  ].join(' ');
   return (
     <a
       href={item.url}

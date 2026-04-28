@@ -1,8 +1,9 @@
 interface IconProps {
   size?: number;
+  strokeWidth?: number;
 }
 
-export function ArrowIcon({ size = 18 }: IconProps) {
+export function ArrowIcon({ size = 18, strokeWidth = 1.5 }: IconProps) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -10,7 +11,7 @@ export function ArrowIcon({ size = 18 }: IconProps) {
       height={size}
       fill="none"
       stroke="currentColor"
-      strokeWidth={1.5}
+      strokeWidth={strokeWidth}
       strokeLinecap="round"
       strokeLinejoin="round"
     >

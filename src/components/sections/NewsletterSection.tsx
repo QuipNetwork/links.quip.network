@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from "react";
 import { MailIcon } from "@/components/icons/MailIcon";
 import { BarBadge } from "@/components/quip/BarBadge";
+import { Button } from "@/components/quip/Button";
 import { PersonaWrapper } from "@/components/quip/PersonaWrapper";
 
 export function NewsletterSection() {
@@ -88,15 +89,13 @@ export function NewsletterSection() {
                   className="w-full flex-1 appearance-none border-0 border-b border-zinc-700 bg-transparent pt-3 pr-3 pb-2.5 pl-9 text-sm text-zinc-50 outline-none"
                 />
               </div>
-              <button
+              <Button
                 type="submit"
                 disabled={status === "loading"}
-                className={`cursor-pointer appearance-none border-0 px-4 pt-3 pb-2.5 text-sm outline-none transition-colors duration-150 ${
-                  status === "loading" ? "bg-zinc-800 text-zinc-500" : "bg-zinc-50 text-zinc-950"
-                }`}
+                className="px-4 pt-3 pb-2.5 text-sm"
               >
                 {status === "loading" ? "Sending…" : "Subscribe"}
-              </button>
+              </Button>
             </form>
           )}
           <iframe

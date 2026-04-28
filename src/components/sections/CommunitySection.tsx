@@ -17,7 +17,7 @@ export function CommunitySection() {
         <div className="col-start-5 col-end-13 max-tab:col-span-full">
           <div className="grid grid-cols-4 gap-0 max-tab:grid-cols-2">
             {siteData.community.map((it, i) => (
-              <CommunityCell key={it.id} item={it} dark={i % 2 === 0} index={i} />
+              <CommunityCell key={it.id} item={it} index={i} />
             ))}
           </div>
         </div>

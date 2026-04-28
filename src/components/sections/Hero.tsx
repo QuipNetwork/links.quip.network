@@ -1,3 +1,4 @@
+import { Button } from '@/components/quip/Button';
 import { PersonaWrapper } from '@/components/quip/PersonaWrapper';
 
 export function Hero() {
@@ -29,20 +30,21 @@ export function Hero() {
           </h1>
 
           <div className="mt-2 flex flex-wrap justify-center gap-3">
-            <a
+            <Button
               href="https://quip.network"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center bg-zinc-50 px-3.5 pt-2.5 pb-2 text-[13px] leading-[1.35] text-zinc-950 no-underline"
+              className="px-3.5 pt-2.5 pb-2 text-[13px] leading-[1.35]"
             >
               Visit quip.network
-            </a>
-            <a
+            </Button>
+            <Button
               href="#newsletter"
-              className="inline-flex items-center border border-zinc-700 bg-transparent px-3.5 pt-2.5 pb-2 text-[13px] leading-[1.35] text-zinc-50 no-underline"
+              variant="outline"
+              className="px-3.5 pt-2.5 pb-2 text-[13px] leading-[1.35]"
             >
               Stay in the loop
-            </a>
+            </Button>
           </div>
         </div>
       </PersonaWrapper>
