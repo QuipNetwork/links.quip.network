@@ -19,22 +19,17 @@ interface CommunityCellProps {
 
 export function CommunityCell({ item, index }: CommunityCellProps) {
   const IconComp = ICONS[item.icon];
-  const cellClass = [
-    // base = light
-    'border-r border-zinc-250 bg-zinc-150 text-zinc-950 group-hover:bg-zinc-250',
-    // mobile (≤ tab, 2-col grid): checkerboard — items 1 & 4 (4n+1, 4n) go dark
-    'max-tab:nth-[4n+1]:border-zinc-800 max-tab:nth-[4n+1]:bg-zinc-900 max-tab:nth-[4n+1]:text-zinc-50 max-tab:nth-[4n+1]:group-hover:bg-zinc-800',
-    'max-tab:nth-[4n]:border-zinc-800 max-tab:nth-[4n]:bg-zinc-900 max-tab:nth-[4n]:text-zinc-50 max-tab:nth-[4n]:group-hover:bg-zinc-800',
-    // desktop (≥ tab, 4-col grid): odd children go dark
-    'tab:odd:border-zinc-800 tab:odd:bg-zinc-900 tab:odd:text-zinc-50 tab:odd:group-hover:bg-zinc-800',
-  ].join(' ');
+  const isDark = index % 2 === 0;
+  const cellClass = isDark
+    ? 'bg-zinc-900 text-zinc-50 group-hover:bg-zinc-800'
+    : 'bg-zinc-150 text-zinc-950 group-hover:bg-zinc-250';
   return (
     <a
       href={item.url}
       target="_blank"
       rel="noopener noreferrer"
       data-community-cell
-      className={`group relative flex min-h-[180px] flex-col justify-between p-5 no-underline transition-colors duration-150 ${cellClass}`}
+      className={`group relative flex min-h-[180px] flex-col justify-between p-5 no-underline transition-[transform,background-color,color] duration-200 ease-brand hover:-translate-x-px hover:-translate-y-px tab:border-r tab:border-zinc-300 ${cellClass}`}
     >
       <div className="flex items-center justify-between">
         <span className="font-mono text-xs tracking-[.4px] uppercase opacity-60">
@@ -50,7 +45,9 @@ export function CommunityCell({ item, index }: CommunityCellProps) {
           <span className="font-mono tracking-[.4px] uppercase">
             {item.handle || 'Visit'}
           </span>
-          <ArrowIcon size={12} />
+          <span className="inline-flex transition-transform duration-200 ease-brand group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+            <ArrowIcon size={12} />
+          </span>
         </div>
       </div>
     </a>

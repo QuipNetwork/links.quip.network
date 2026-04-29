@@ -18,7 +18,7 @@ export function EarnSection() {
           data-airdrop-wrap
           className="col-start-8 col-end-13 flex items-end justify-end max-tab:col-span-full"
         >
-          <HeroBadge href="https://quest.quip.network/airdrop">Airdrop Eligible · Participate to Qualify</HeroBadge>
+          <HeroBadge>Airdrop Eligible · Participate to Qualify</HeroBadge>
         </div>
 
         <div className="col-start-1 col-end-7 max-tab:col-span-full">
