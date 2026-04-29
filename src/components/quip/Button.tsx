@@ -29,9 +29,8 @@ type ButtonProps = AnchorButtonProps | NativeButtonProps;
 
 const SHARED =
   'inline-flex items-center no-underline ' +
-  'shadow-[3px_3px_0_rgb(250_250_250/0.55)] hover:shadow-[5px_5px_0_rgb(250_250_250/0.85)] ' +
   'hover:-translate-x-px hover:-translate-y-px ' +
-  'transition-[box-shadow,transform,color,background-color] duration-200 ease-brand';
+  'transition-[transform,color,background-color] duration-200 ease-brand';
 
 function fillClass(variant: Variant, disabled: boolean): string {
   if (variant === 'solid') {
