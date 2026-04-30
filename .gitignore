@@ -15,6 +15,15 @@
 
 # production
 /build
+/dist
+
+# design-system reference + research folders (not shipped)
+/01-quiplinksreference
+/02-quipdesignsystem
+
+# local agent state
+/.quadclaude
+CLAUDE.md
 
 # misc
 .DS_Store
@@ -34,3 +43,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+vite.config.js
+vite.config.d.ts
+
+/build-ssr

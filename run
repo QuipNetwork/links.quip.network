@@ -1,0 +1,24 @@
+#!/bin/sh
+tag=quip-links
+
+if   which podman
+then cmd=podman
+elif which docker
+then cmd=docker
+else
+  echo 'Warning: could not find container runtime'
+  exit 1
+fi
+
+inContainer() {
+  $cmd run -i -v ./:/app -t $tag "$@"
+}
+
+case $1 in
+  build) $cmd build -t $tag -f Containerfile.dev . ;;
+  shell) inContainer /bin/sh ;;
+  npm)   shift 1 ; inContainer npm "$@" ;;
+  bun)   shift 1 ; inContainer bun "$@" ;;
+  npx)   shift 1 ; inContainer npx "$@" ;;
+  dev)   shift 1 ; $cmd run -i -v ./:/app -p 8888:8888 -t $tag bun run dev ;;
+esac
