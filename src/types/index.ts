@@ -17,6 +17,7 @@ export interface EventItem {
   tag: string;
   cover_url?: string;
   location?: string;
+  badge?: string;
 }
 
 export interface CommunityLink {
@@ -38,6 +39,7 @@ export interface LinkItem {
 export interface SiteData {
   vault: VaultItem[];
   events: EventItem[];
+  featuredEvents: EventItem[];
   community: CommunityLink[];
   developers: LinkItem[];
   resources: LinkItem[];

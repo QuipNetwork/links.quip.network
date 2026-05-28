@@ -19,36 +19,22 @@ export const siteData: SiteData = {
       cta: 'Start Earning',
     },
   ],
-  events: [
+  // Hosted events are sourced live from the Luma API (see EventsSection). No static
+  // fallback — on fetch failure we fall through to the empty-state acknowledgment.
+  events: [],
+  // Events we're attending/sponsoring but not hosting. Rendered alongside hosted
+  // events; the `badge` highlights our role (e.g. "Official Sponsor") next to the title.
+  featuredEvents: [
     {
-      id: 'ev1',
-      title: 'Superposition: Yoga at Sunrise',
-      subtitle: 'Consensus Miami 2026',
-      url: 'https://luma.com/lhs39op2',
-      date: 'May 5',
-      time: 'Tue · 7:30 AM ET',
+      id: 'quantum-tech-world-2026',
+      title: 'Quantum Tech World 2026',
+      subtitle: 'Encore Boston Harbor',
+      url: 'https://www.alphaevents.com/events-quantumtechus',
+      date: 'Jun 25',
+      time: 'Jun 25–26, 2026',
+      location: 'Boston',
       tag: 'IRL',
-      cover_url: '/images/events/yoga-may5.png',
-    },
-    {
-      id: 'ev2',
-      title: 'Superposition: Yoga at Sunrise',
-      subtitle: 'Consensus Miami 2026',
-      url: 'https://luma.com/b6k0clv3',
-      date: 'May 6',
-      time: 'Wed · 7:30 AM ET',
-      tag: 'IRL',
-      cover_url: '/images/events/yoga-may6.png',
-    },
-    {
-      id: 'ev3',
-      title: 'Quipicnic: Touch Grass',
-      subtitle: 'Consensus Miami 2026',
-      url: 'https://luma.com/ikn18tjc',
-      date: 'May 6',
-      time: 'Wed · 4:00 PM ET',
-      tag: 'IRL',
-      cover_url: '/images/events/quipicnic.png',
+      badge: 'Official Sponsor',
     },
   ],
   community: [

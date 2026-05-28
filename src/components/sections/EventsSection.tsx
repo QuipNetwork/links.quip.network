@@ -25,8 +25,8 @@ export function EventsSection() {
     fetch(LUMA_API)
       .then((r) => (r.ok ? r.json() : null))
       .then((data: { entries?: LumaEntry[] } | null) => {
-        if (!data || !data.entries) return;
-        const mapped: EventItem[] = data.entries.map((e) => {
+        const entries = data?.entries ?? [];
+        const mapped: EventItem[] = entries.map((e) => {
           const ev = e.event;
           const d = new Date(ev.start_at);
           return {
@@ -42,12 +42,12 @@ export function EventsSection() {
         });
         setLiveEvents(mapped);
       })
-      .catch(() => {});
+      .catch(() => setLiveEvents([]));
   }, []);
 
-  const source = liveEvents && liveEvents.length ? liveEvents : siteData.events;
-  const events = source.slice(0, 3);
-  if (!events.length) return null;
+  const loaded = liveEvents !== null;
+  // Hosted (live Luma) events lead; events we're sponsoring/attending follow.
+  const events = [...(liveEvents ?? []), ...siteData.featuredEvents].slice(0, 4);
 
   return (
     <section className="bg-zinc-50 px-gutter py-14">
@@ -70,13 +70,33 @@ export function EventsSection() {
           </a>
         </div>
         <div className="col-start-5 col-end-13 max-tab:col-span-full">
-          <ul className="m-0 list-none p-0">
-            {events.map((l, i) => (
-              <li key={l.id}>
-                <EventRow item={l} index={i} total={events.length} />
-              </li>
-            ))}
-          </ul>
+          {events.length ? (
+            <ul className="m-0 list-none p-0">
+              {events.map((l, i) => (
+                <li key={l.id}>
+                  <EventRow item={l} index={i} total={events.length} />
+                </li>
+              ))}
+            </ul>
+          ) : loaded ? (
+            <div className="flex min-h-[120px] flex-col items-start justify-center gap-2 border-y border-zinc-300 px-2 py-7">
+              <p className="m-0 font-heading text-[19px] leading-[1.2] font-medium tracking-[-.01em] text-zinc-900">
+                No upcoming events right now.
+              </p>
+              <p className="m-0 font-mono text-[11px] tracking-[.4px] text-zinc-600 uppercase">
+                Follow{' '}
+                <a
+                  href="https://lu.ma/quipnetwork"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-zinc-950 underline underline-offset-2 hover:text-zinc-600"
+                >
+                  lu.ma/quipnetwork
+                </a>{' '}
+                to catch the next one.
+              </p>
+            </div>
+          ) : null}
         </div>
       </div>
     </section>
