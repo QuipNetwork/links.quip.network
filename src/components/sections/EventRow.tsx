@@ -35,12 +35,22 @@ export function EventRow({ item, index, total }: EventRowProps) {
         />
       )}
       <div className="flex min-w-0 flex-1 flex-col gap-[3px]">
-        <span
-          data-event-title
-          className="overflow-hidden font-heading text-[19px] leading-[1.2] font-medium tracking-[-.01em] text-ellipsis whitespace-nowrap"
-        >
-          {item.title}
-        </span>
+        <div className="flex min-w-0 items-center gap-2">
+          <span
+            data-event-title
+            className="overflow-hidden font-heading text-[19px] leading-[1.2] font-medium tracking-[-.01em] text-ellipsis whitespace-nowrap"
+          >
+            {item.title}
+          </span>
+          {item.badge && (
+            <span
+              data-event-badge
+              className="shrink-0 bg-accent px-1.5 pt-[3px] pb-[2px] font-mono text-[10px] leading-none font-medium tracking-[.4px] text-white uppercase"
+            >
+              {item.badge}
+            </span>
+          )}
+        </div>
         {item.subtitle && (
           <span
             data-event-subtitle
