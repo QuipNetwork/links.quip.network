@@ -8,6 +8,22 @@
   status = 200
   force = true
 
+# The contact form posts into quip.network's funnel, not a second one on this
+# site: /__contact proxies to the main site's root so its Netlify Forms handler
+# records the submission against the "contact" form there, and the Listmonk hop
+# reuses the main site's edge function.
+[[redirects]]
+  from = "/__contact"
+  to = "https://www.quip.network/"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/contact-subscribe"
+  to = "https://www.quip.network/api/contact-subscribe"
+  status = 200
+  force = true
+
 [[redirects]]
   from = "/*"
   to = "/index.html"

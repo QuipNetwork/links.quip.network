@@ -39,11 +39,11 @@ export function Hero() {
               Visit quip.network
             </Button>
             <Button
-              href="#newsletter"
+              href="#contact"
               variant="outline"
               className="px-3.5 pt-2.5 pb-2 text-[13px] leading-[1.35]"
             >
-              Stay in the loop
+              Get in touch
             </Button>
           </div>
         </div>

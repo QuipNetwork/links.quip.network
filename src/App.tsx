@@ -1,9 +1,9 @@
 import { Hero } from '@/components/sections/Hero';
-import { EarnSection } from '@/components/sections/EarnSection';
+import { ProductsSection } from '@/components/sections/ProductsSection';
 import { CommunitySection } from '@/components/sections/CommunitySection';
 import { EventsSection } from '@/components/sections/EventsSection';
 import { LinkSectionBlock } from '@/components/sections/LinkSectionBlock';
-import { NewsletterSection } from '@/components/sections/NewsletterSection';
+import { ContactSection } from '@/components/sections/ContactSection';
 import { LinksFooter } from '@/components/sections/LinksFooter';
 import { siteData } from '@/data/siteData';
 
@@ -11,12 +11,18 @@ function App() {
   return (
     <>
       <Hero />
-      <EarnSection />
-      <CommunitySection />
-      <EventsSection />
-      <LinkSectionBlock eyebrow="Developers" heading="Build on the" italic="quantum network" links={siteData.developers} />
+      <ProductsSection />
+      <LinkSectionBlock eyebrow="Build" heading="Build on the" italic="quantum network" links={siteData.developers} />
       <LinkSectionBlock eyebrow="Resources" heading="Research &" italic="reading" links={siteData.resources} />
-      <NewsletterSection />
+      <EventsSection />
+      <CommunitySection />
+      <LinkSectionBlock
+        eyebrow="Earn"
+        heading="Points toward"
+        italic="the airdrop"
+        links={siteData.earn}
+      />
+      <ContactSection />
       <LinksFooter />
     </>
   );

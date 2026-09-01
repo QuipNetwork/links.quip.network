@@ -15,9 +15,12 @@ export function LinkRow({ item, index, total }: LinkRowProps) {
       href={item.url}
       className={`items-center gap-4 border-t border-zinc-300 px-2 py-5 ${isLast ? 'border-b' : ''}`}
     >
-      <span className="w-8 font-mono text-xs font-medium tracking-[.4px] opacity-60">
-        {String(index + 1).padStart(2, '0')}
-      </span>
+      {/* A one-item list is not a numbered list. */}
+      {total > 1 && (
+        <span className="w-8 font-mono text-xs font-medium tracking-[.4px] opacity-60">
+          {String(index + 1).padStart(2, '0')}
+        </span>
+      )}
       <div className="flex min-w-0 flex-1 flex-col gap-0.5">
         <span className="font-heading text-xl leading-[1.2] font-medium tracking-[-.01em]">
           {item.title}

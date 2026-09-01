@@ -8,9 +8,34 @@ interface EventRowProps {
   total: number;
 }
 
+interface DateCell {
+  month?: string;
+  day: string;
+}
+
+function buildDateCell(item: EventItem, month: string, day: string): DateCell {
+  const { startsAt, endsAt } = item;
+  if (startsAt && endsAt && endsAt !== startsAt) {
+    const start = new Date(`${startsAt}T00:00:00`);
+    const end = new Date(`${endsAt}T00:00:00`);
+    const fmt = (d: Date) => d.toLocaleDateString('en-US', { month: 'short' });
+    const startMonth = fmt(start);
+    const endMonth = fmt(end);
+    const month =
+      startMonth === endMonth ? startMonth : `${startMonth}-${endMonth}`;
+    return { month, day: `${start.getDate()}-${end.getDate()}` };
+  }
+  return day ? { month, day: day.replace(',', '') } : { day: month };
+}
+
 export function EventRow({ item, index, total }: EventRowProps) {
-  const parts = item.date.split(' ');
+  // The date cell shows the whole run of an event, not just its first day:
+  // "OCT / 7-8" inside a month, "SEP-OCT / 29-1" across one. Single-day events
+  // (and live Luma entries, which carry no ISO dates) keep month over day.
   const isLast = index === total - 1;
+  const [month, day] = item.date.split(' ');
+  const cell = buildDateCell(item, month, day);
+  const meta = [item.startsAt ? null : item.time, item.location].filter(Boolean).join(' · ');
   return (
     <WipeLink
       href={item.url}
@@ -19,11 +44,14 @@ export function EventRow({ item, index, total }: EventRowProps) {
     >
       <div
         data-event-date
-        className="flex w-12 shrink-0 flex-col items-center justify-center border-r border-zinc-300 py-1.5 font-mono tracking-[.4px] uppercase group-hover:border-zinc-700"
+        className="flex w-16 shrink-0 flex-col items-center justify-center border-r border-zinc-300 py-1.5 font-mono tracking-[.4px] uppercase group-hover:border-zinc-700"
       >
-        <span className="text-[10px] leading-[1.2] opacity-55">{parts[0]}</span>
-        <span data-event-date-day className="text-[22px] leading-none font-medium">
-          {(parts[1] || '').replace(',', '')}
+        {cell.month && <span className="text-[10px] leading-[1.2] opacity-55">{cell.month}</span>}
+        <span
+          data-event-date-day
+          className={`${cell.day.length > 2 ? 'text-[17px]' : 'text-[22px]'} leading-none font-medium`}
+        >
+          {cell.day}
         </span>
       </div>
       {item.cover_url && (
@@ -59,16 +87,18 @@ export function EventRow({ item, index, total }: EventRowProps) {
             {item.subtitle}
           </span>
         )}
-        <span
-          data-event-meta
-          className="font-mono text-[11px] tracking-[.4px] text-zinc-600 uppercase group-hover:text-zinc-300"
-        >
-          {item.location ? `${item.time} · ${item.location}` : item.time}
-        </span>
+        {meta && (
+          <span
+            data-event-meta
+            className="font-mono text-[11px] tracking-[.4px] text-zinc-600 uppercase group-hover:text-zinc-300"
+          >
+            {meta}
+          </span>
+        )}
       </div>
       <span
         data-row-tag
-        className="border border-zinc-300 bg-transparent px-2 pt-1 pb-[3px] font-mono text-xs font-medium tracking-[.4px] text-zinc-600 uppercase group-hover:border-zinc-50 group-hover:text-zinc-50"
+        className="bg-zinc-150 px-2 pt-1 pb-[3px] font-mono text-xs font-medium tracking-[.4px] text-zinc-950 uppercase group-hover:bg-zinc-800 group-hover:text-zinc-50"
       >
         {item.tag}
       </span>
