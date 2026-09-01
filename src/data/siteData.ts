@@ -1,8 +1,25 @@
 import { SiteData } from '@/types';
 
 export const siteData: SiteData = {
-  // The three surfaces we want people to land on, in order of emphasis.
+  // The three surfaces we want people to land on, in the order you meet them:
+  // an account is the prerequisite for swapping, and running a node comes later.
   products: [
+    {
+      id: 'account',
+      title: 'Account',
+      url: 'https://account.quip.network/',
+      description: 'Deposit and earn QUIP while protecting your assets from quantum threats',
+      // "wrap": a core asset held inside nested, counter-rotating shells. The
+      // locking-up counterpart to the swap backdrop next to it.
+      pattern: {
+        mode: 'wrap',
+        colorScheme: 'BrandCyan',
+        pixelShape: 'diamond',
+        pixelSize: 3,
+        opacity: 1,
+      },
+      cta: 'Open an Account',
+    },
     {
       id: 'quipswap',
       title: 'QuipSwap',
@@ -23,22 +40,6 @@ export const siteData: SiteData = {
         insetX: 14,
       },
       cta: 'Explore QuipSwap',
-    },
-    {
-      id: 'account',
-      title: 'Account',
-      url: 'https://account.quip.network/',
-      description: 'Deposit and earn QUIP while protecting your assets from quantum threats',
-      // "wrap": a core asset held inside nested, counter-rotating shells. The
-      // locking-up counterpart to the swap backdrop next to it.
-      pattern: {
-        mode: 'wrap',
-        colorScheme: 'BrandCyan',
-        pixelShape: 'diamond',
-        pixelSize: 3,
-        opacity: 1,
-      },
-      cta: 'Open an Account',
     },
     {
       id: 'node',
