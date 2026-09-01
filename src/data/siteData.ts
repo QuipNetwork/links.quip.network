@@ -7,7 +7,7 @@ export const siteData: SiteData = {
       id: 'quipswap',
       title: 'QuipSwap',
       url: 'https://www.quip.network/quipswap/',
-      description: 'Post-quantum swaps anywhere to anywhere. No bridge, no oracle.',
+      description: 'Post-quantum swaps anywhere to anywhere',
       // The same backdrop the QuipSwap hero on quip.network runs: two colour
       // families trading places across the grid.
       pattern: {
@@ -44,8 +44,7 @@ export const siteData: SiteData = {
       id: 'node',
       title: 'Run a node',
       url: 'https://quip.gitbook.io/docs/nodes/run-a-node-testnet',
-      description:
-        'Put CPUs, GPUs, ASICs or QPUs to work executing jobs for the network and earn QUIP',
+      description: 'Put CPUs, GPUs, ASICs or QPUs to work and earn QUIP',
       // "lattice": blocks filling a grid, for compute coming online.
       pattern: {
         mode: 'lattice',
