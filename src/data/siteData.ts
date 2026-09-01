@@ -42,7 +42,7 @@ export const siteData: SiteData = {
     },
     {
       id: 'node',
-      title: 'Run a node',
+      title: 'Nodes',
       url: 'https://quip.gitbook.io/docs/nodes/run-a-node-testnet',
       description: 'Put CPUs, GPUs, ASICs or QPUs to work and earn QUIP',
       // "lattice": blocks filling a grid, for compute coming online.

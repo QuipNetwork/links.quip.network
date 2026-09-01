@@ -3,6 +3,7 @@ import { FeatureCard } from '@/components/sections/FeatureCard';
 import { siteData } from '@/data/siteData';
 
 export function ProductsSection() {
+  // Titles are nouns naming the surface; the CTA on each card carries the verb.
   const [swap, account, node] = siteData.products;
 
   return (
