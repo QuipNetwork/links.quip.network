@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!--
+  Source for public/images/social-preview.png (the og:image), matching the card
+  quip.network serves at /images/social-preview.png: zinc-50 ground, lockup top
+  left, domain in Favorit Mono top right, Gaisyr headline in roman + italic, and
+  the hero gradient as the bottom rule.
+
+  Regenerate after editing (run from the repo root):
+
+    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+      --headless=new --disable-gpu --hide-scrollbars --allow-file-access-from-files \
+      --force-device-scale-factor=2 --window-size=1200,630 \
+      --screenshot=/tmp/og.png "file://$PWD/scripts/social-preview.html"
+    python3 -c "from PIL import Image; \
+      Image.open('/tmp/og.png').resize((1200,630),Image.LANCZOS).save('public/images/social-preview.png')"
+
+  Rendering at 2x and downsampling is what keeps the type crisp.
+-->
+<html><head><meta charset="utf-8"><style>
+@font-face{font-family:'ABC Gaisyr';src:url('../fonts/ABCGaisyr-Medium.otf') format('opentype');font-weight:500;font-style:normal}
+@font-face{font-family:'ABC Gaisyr';src:url('../fonts/ABCGaisyr-BookItalic.otf') format('opentype');font-weight:400;font-style:italic}
+@font-face{font-family:'ABC Favorit Mono';src:url('../fonts/ABCFavoritMono-Regular.otf') format('opentype');font-weight:450;font-style:normal}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1200px;height:630px}
+body{position:relative;background:#fafafa;overflow:hidden}
+.logo{position:absolute;top:62px;left:64px;height:46px}
+.domain{position:absolute;top:70px;right:64px;font-family:'ABC Favorit Mono';font-weight:450;font-size:19px;letter-spacing:.4px;color:#3f3f46}
+.headline{position:absolute;left:64px;right:64px;bottom:158px;font-family:'ABC Gaisyr';font-weight:500;font-size:62px;line-height:1.05;letter-spacing:-1.5px;white-space:nowrap;color:#09090b;text-align:center}
+.headline em{font-weight:400;font-style:italic}
+.bar{position:absolute;left:0;right:0;bottom:0;height:14px;background:linear-gradient(to right,#FEF278 0%,#FFDE53 32.69%,#EEFF64 59.9%,#CAFDFB 75.42%,#BCF4FF 86.91%,#E6D7FF 100%)}
+</style></head><body>
+<img class="logo" src="../images/quip-lockup-full-alt.png">
+<div class="domain">links.quip.network</div>
+<div class="headline">The worldwide <em>quantum computer</em></div>
+<div class="bar"></div>
+</body></html>
