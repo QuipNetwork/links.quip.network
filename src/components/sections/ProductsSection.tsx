@@ -13,7 +13,7 @@ export function ProductsSection() {
           <BarBadge>Start here</BarBadge>
           <h2 className="m-0 max-w-[620px] font-heading text-[clamp(28px,1.5vw+20px,40px)] leading-[1.1] font-medium tracking-[-.02em] text-zinc-900">
             Protect, swap and earn on the{' '}
-            <span className="font-normal italic">worldwide quantum computer</span>
+            <span className="font-normal text-zinc-600 italic">worldwide quantum computer</span>
           </h2>
         </div>
 
