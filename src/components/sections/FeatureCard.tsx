@@ -74,7 +74,11 @@ export function FeatureCard({ item, dark }: FeatureCardProps) {
       )}
 
       <div className="relative flex max-w-[78%] flex-col gap-3">
-        <h3 className="m-0 font-heading text-[clamp(28px,1.5vw+20px,40px)] leading-[1.05] font-medium tracking-[-.02em]">
+        {/* Two lines of title height on every card, with the text sitting at the
+            bottom of that box, so a one-line title ("Nodes") shares a baseline
+            with the second line of a two-line one ("Post-quantum Accounts").
+            min-h in em tracks the clamped font size. */}
+        <h3 className="m-0 flex min-h-[2.1em] items-end font-heading text-[clamp(28px,1.5vw+20px,40px)] leading-[1.05] font-medium tracking-[-.02em]">
           {item.title}
         </h3>
         <p className={`m-0 max-w-[280px] text-sm leading-[1.4] ${pColor}`}>
