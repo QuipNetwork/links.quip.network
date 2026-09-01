@@ -6,7 +6,7 @@ export const siteData: SiteData = {
   products: [
     {
       id: 'account',
-      title: 'Account',
+      title: 'Post-quantum Accounts',
       url: 'https://account.quip.network/',
       description: 'Deposit and earn QUIP while protecting your assets from quantum threats',
       // "wrap": a core asset held inside nested, counter-rotating shells. The
@@ -144,6 +144,13 @@ export const siteData: SiteData = {
       url: 'https://research.quip.network',
       description: 'A community for developers, researchers and node operators',
       tag: 'Join',
+    },
+    {
+      id: 'feedback',
+      title: 'Feature Requests',
+      url: 'https://feedback.quip.network',
+      description: 'Guide community development',
+      tag: 'Post',
     },
   ],
   resources: [
