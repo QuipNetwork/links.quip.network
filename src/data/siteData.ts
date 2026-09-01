@@ -1,29 +1,9 @@
 import { SiteData } from '@/types';
 
 export const siteData: SiteData = {
-  // The three surfaces we want people to land on, in order of emphasis.
+  // The three surfaces we want people to land on, in the order you meet them:
+  // an account is the prerequisite for swapping, and running a node comes later.
   products: [
-    {
-      id: 'quipswap',
-      title: 'QuipSwap',
-      url: 'https://www.quip.network/quipswap/',
-      description: 'Post-quantum swaps anywhere to anywhere. No bridge, no oracle.',
-      // The same backdrop the QuipSwap hero on quip.network runs: two colour
-      // families trading places across the grid.
-      pattern: {
-        mode: 'swap',
-        colorScheme: 'Violet',
-        pixelShape: 'square',
-        pixelSize: 3,
-        p1: 0.85,
-        p2: 0.4,
-        p3: 0.5,
-        p4: 0.5,
-        opacity: 1,
-        insetX: 14,
-      },
-      cta: 'Explore QuipSwap',
-    },
     {
       id: 'account',
       title: 'Account',
@@ -41,11 +21,31 @@ export const siteData: SiteData = {
       cta: 'Open an Account',
     },
     {
+      id: 'quipswap',
+      title: 'QuipSwap',
+      url: 'https://www.quip.network/quipswap/',
+      description: 'Post-quantum swaps anywhere to anywhere',
+      // The same backdrop the QuipSwap hero on quip.network runs: two colour
+      // families trading places across the grid.
+      pattern: {
+        mode: 'swap',
+        colorScheme: 'Violet',
+        pixelShape: 'square',
+        pixelSize: 3,
+        p1: 0.85,
+        p2: 0.4,
+        p3: 0.5,
+        p4: 0.5,
+        opacity: 1,
+        insetX: 14,
+      },
+      cta: 'Explore QuipSwap',
+    },
+    {
       id: 'node',
-      title: 'Run a node',
+      title: 'Nodes',
       url: 'https://quip.gitbook.io/docs/nodes/run-a-node-testnet',
-      description:
-        'Put CPUs, GPUs, ASICs or QPUs to work executing jobs for the network and earn QUIP',
+      description: 'Put CPUs, GPUs, ASICs or QPUs to work and earn QUIP',
       // "lattice": blocks filling a grid, for compute coming online.
       pattern: {
         mode: 'lattice',
