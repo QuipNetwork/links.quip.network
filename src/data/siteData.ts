@@ -150,7 +150,7 @@ export const siteData: SiteData = {
       title: 'Feature Requests',
       url: 'https://feedback.quip.network',
       description: 'Guide community development',
-      tag: 'Vote',
+      tag: 'Post',
     },
   ],
   resources: [
