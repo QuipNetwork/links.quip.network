@@ -84,6 +84,8 @@ export interface SpotlightItem {
   mark?: string;
   primary: { label: string; url: string };
   secondary?: { label: string; url: string };
+  /** ISO date of the last day to show it. Gone the day after, like events. */
+  endsAt?: string;
 }
 
 export interface SiteData {

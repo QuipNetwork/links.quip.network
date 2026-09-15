@@ -9,10 +9,15 @@ import { LinksFooter } from '@/components/sections/LinksFooter';
 import { siteData } from '@/data/siteData';
 
 function App() {
+  // Same rule as the events schedule: shown through `endsAt`, gone the day after.
+  const today = new Date().toISOString().slice(0, 10);
+  const spotlight = siteData.spotlight;
+  const showSpotlight = spotlight && (!spotlight.endsAt || spotlight.endsAt >= today);
+
   return (
     <>
       <Hero />
-      {siteData.spotlight && <SpotlightSection item={siteData.spotlight} />}
+      {showSpotlight && <SpotlightSection item={spotlight} />}
       <ProductsSection />
       <LinkSectionBlock eyebrow="Build" heading="Build on the" italic="quantum network" links={siteData.developers} />
       <LinkSectionBlock eyebrow="Resources" heading="Research &" italic="reading" links={siteData.resources} />
