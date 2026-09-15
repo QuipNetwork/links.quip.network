@@ -1,8 +1,24 @@
 import { SiteData } from '@/types';
 
 export const siteData: SiteData = {
-  // The three surfaces we want people to land on, in the order you meet them:
-  // an account is the prerequisite for swapping, and running a node comes later.
+  // Front and centre while the mint is live. Not a permanent fixture: delete
+  // this entry and the section disappears. The backdrop is the same loop that
+  // runs on the OpenSea collection page, re-encoded for the web.
+  spotlight: {
+    id: 'quantum-echoes',
+    eyebrow: 'Now minting',
+    title: 'Quantum Echoes',
+    subtitle: 'the first quantum forged token',
+    facts: ['Free open edition on Ethereum', 'Fully onchain', 'Seeded by QVRF'],
+    video: '/images/quantum-echoes/quantum-echoes-banner.mp4',
+    poster: '/images/quantum-echoes/quantum-echoes-banner.jpg',
+    mark: '/images/quantum-echoes/logo.png',
+    primary: { label: 'Mint on OpenSea', url: 'https://opensea.io/collection/qft-quantum-echoes' },
+    secondary: { label: 'Mint & reveal guide', url: 'https://x.com/quipnetwork/status/2099407872836968884' },
+  },
+  // The four surfaces we want people to land on, in the order you meet them:
+  // an account is the prerequisite for swapping, running a node comes later,
+  // and QVRF is the newest, for builders who need randomness they can prove.
   products: [
     {
       id: 'account',
@@ -58,16 +74,33 @@ export const siteData: SiteData = {
       },
       cta: 'Run a Node',
     },
+    {
+      id: 'qvrf',
+      title: 'QVRF',
+      url: 'https://quip.network/qvrf/',
+      description: 'The only true randomness is quantum. Certified, and verifiable',
+      // "interference": overlapping wavefronts, for a number that comes from a
+      // quantum measurement rather than a seed.
+      pattern: {
+        mode: 'interference',
+        colorScheme: 'Teal',
+        pixelShape: 'square',
+        pixelSize: 3,
+        opacity: 0.9,
+      },
+      cta: 'Explore QVRF',
+    },
   ],
-  // Quests sits below Community as a single row. Points and the airdrop matter,
-  // but they are not what a first-time visitor should land on.
+  // Points sits below Community as a single row. points.quip.network is the
+  // canonical program and lists every campaign (Quest, Mindshare, ...), so it
+  // is the one link here rather than one row per campaign.
   earn: [
     {
-      id: 'quest',
-      title: 'Quests',
-      url: 'https://quest.quip.network/',
-      description: 'Earn points to become eligible for the Quip Network Airdrop',
-      tag: 'Points',
+      id: 'points',
+      title: 'Quip Points',
+      url: 'https://points.quip.network/',
+      description: 'Earn points toward the Quip airdrop, paid out in $QUIP at TGE',
+      tag: 'Earn',
     },
   ],
   // Hosted events are sourced live from the Luma API (see EventsSection). No static

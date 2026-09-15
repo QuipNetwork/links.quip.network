@@ -66,7 +66,28 @@ export interface LinkItem {
   tag: string;
 }
 
+/** A time-boxed feature placed above the products: a drop, a launch, a
+ *  campaign. One at a time, and removed by deleting the entry. */
+export interface SpotlightItem {
+  id: string;
+  /** Eyebrow label, e.g. "Now minting". */
+  eyebrow: string;
+  title: string;
+  /** Second, italic half of the heading. */
+  subtitle: string;
+  /** Short facts rendered as a mono strip, e.g. "Free open edition". */
+  facts: string[];
+  /** Looping backdrop. `poster` doubles as the reduced-motion still. */
+  video: string;
+  poster: string;
+  /** Small square mark shown beside the eyebrow. */
+  mark?: string;
+  primary: { label: string; url: string };
+  secondary?: { label: string; url: string };
+}
+
 export interface SiteData {
+  spotlight?: SpotlightItem;
   products: ProductItem[];
   earn: LinkItem[];
   events: EventItem[];
