@@ -4,7 +4,7 @@ import { siteData } from '@/data/siteData';
 
 export function ProductsSection() {
   // Titles are nouns naming the surface; the CTA on each card carries the verb.
-  const [account, swap, node] = siteData.products;
+  const [account, swap, node, qvrf] = siteData.products;
 
   return (
     <section className="bg-zinc-50 px-gutter pt-20 pb-12">
@@ -17,14 +17,20 @@ export function ProductsSection() {
           </h2>
         </div>
 
-        <div className="col-start-1 col-end-5 max-tab:col-span-full">
+        {/* Two by two down to phone width: four cards across the twelve
+            columns would squeeze "Post-quantum Accounts" onto three lines,
+            and four stacked cards on a tablet is a long scroll. */}
+        <div className="col-span-6 max-phone:col-span-full">
           <FeatureCard item={account} dark />
         </div>
-        <div className="col-start-5 col-end-9 max-tab:col-span-full">
+        <div className="col-span-6 max-phone:col-span-full">
           <FeatureCard item={swap} dark />
         </div>
-        <div className="col-start-9 col-end-13 max-tab:col-span-full">
+        <div className="col-span-6 max-phone:col-span-full">
           <FeatureCard item={node} dark />
+        </div>
+        <div className="col-span-6 max-phone:col-span-full">
+          <FeatureCard item={qvrf} dark />
         </div>
       </div>
     </section>

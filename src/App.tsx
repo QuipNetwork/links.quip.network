@@ -1,4 +1,5 @@
 import { Hero } from '@/components/sections/Hero';
+import { SpotlightSection } from '@/components/sections/SpotlightSection';
 import { ProductsSection } from '@/components/sections/ProductsSection';
 import { CommunitySection } from '@/components/sections/CommunitySection';
 import { EventsSection } from '@/components/sections/EventsSection';
@@ -11,6 +12,7 @@ function App() {
   return (
     <>
       <Hero />
+      {siteData.spotlight && <SpotlightSection item={siteData.spotlight} />}
       <ProductsSection />
       <LinkSectionBlock eyebrow="Build" heading="Build on the" italic="quantum network" links={siteData.developers} />
       <LinkSectionBlock eyebrow="Resources" heading="Research &" italic="reading" links={siteData.resources} />
