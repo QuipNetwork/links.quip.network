@@ -1,8 +1,8 @@
 import { SiteData } from '@/types';
 
 export const siteData: SiteData = {
-  // Front and centre while the mint is live, and gone by itself the day after
-  // `endsAt` (the last day of the mint). Delete the entry once it has expired.
+  // Front and centre while the mint is live, and gone by itself once `endsAt`
+  // (the moment the mint closes) has passed. Delete the entry after that.
   // The backdrop is the same loop that runs on the OpenSea collection page,
   // re-encoded for the web.
   spotlight: {
@@ -16,7 +16,8 @@ export const siteData: SiteData = {
     mark: '/images/quantum-echoes/logo.png',
     primary: { label: 'Mint on OpenSea', url: 'https://opensea.io/collection/qft-quantum-echoes' },
     secondary: { label: 'Mint & reveal guide', url: 'https://x.com/quipnetwork/status/2099407872836968884' },
-    endsAt: '2026-09-21',
+    // "Closes Monday 21 September, 15:00 UTC."
+    endsAt: '2026-09-21T15:00:00Z',
   },
   // The four surfaces we want people to land on, in the order you meet them:
   // an account is the prerequisite for swapping, running a node comes later,

@@ -9,10 +9,9 @@ import { LinksFooter } from '@/components/sections/LinksFooter';
 import { siteData } from '@/data/siteData';
 
 function App() {
-  // Same rule as the events schedule: shown through `endsAt`, gone the day after.
-  const today = new Date().toISOString().slice(0, 10);
+  // Shown until the moment the mint closes, then gone.
   const spotlight = siteData.spotlight;
-  const showSpotlight = spotlight && (!spotlight.endsAt || spotlight.endsAt >= today);
+  const showSpotlight = spotlight && (!spotlight.endsAt || Date.now() < Date.parse(spotlight.endsAt));
 
   return (
     <>
