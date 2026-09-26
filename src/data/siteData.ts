@@ -148,7 +148,7 @@ export const siteData: SiteData = {
       // curl and headless Chrome alike, so this was not read from source.
       location: 'Rome, Italy',
       tag: 'IRL',
-      badge: 'Attending',
+      badge: 'Sponsoring',
       startsAt: '2026-11-02',
       endsAt: '2026-11-05',
     },

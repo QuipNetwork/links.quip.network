@@ -102,8 +102,8 @@ export function EventsSection() {
                   Where we'll be
                 </span>
                 <p className="m-0 max-w-[520px] text-[13px] leading-[1.35] text-zinc-500">
-                  Conferences we're attending. We haven't confirmed a Quip event at any of them
-                  yet, and anything we host will show up on Luma.
+                  Conferences we're attending or sponsoring. We haven't confirmed a Quip event
+                  at any of them yet, and anything we host will show up on Luma.
                 </p>
                 <a
                   href="#contact"
