@@ -8,7 +8,10 @@ export function LinksFooter() {
         <img
           src="/images/logos/quipnetwork-full-A.svg"
           alt="Quip Network"
-          className="h-5 opacity-50 invert"
+          width={684}
+          height={212}
+          loading="lazy"
+          className="h-5 w-auto opacity-50 invert"
         />
       </div>
       <div className="col-start-5 col-end-9 text-center">
