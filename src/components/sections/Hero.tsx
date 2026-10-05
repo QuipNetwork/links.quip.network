@@ -7,6 +7,8 @@ export function Hero() {
       <img
         src="/images/pattern-dark.svg"
         alt=""
+        width={1612}
+        height={809}
         aria-hidden
         className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[.35]"
       />
@@ -14,11 +16,16 @@ export function Hero() {
       <PersonaWrapper count={6} mobileCount={11}>
         <div className="relative col-start-3 col-end-11 flex flex-col items-center gap-6 text-center max-tab:col-span-full">
           <a href="https://quip.network" className="inline-flex items-center no-underline">
-            <img
-              src="/images/quip-lockup-full-alt.png"
-              alt="Quip Network"
-              className="h-8 w-auto invert"
-            />
+            <picture>
+              <source srcSet="/images/quip-lockup-full-alt.webp" type="image/webp" />
+              <img
+                src="/images/quip-lockup-full-alt.png"
+                alt="Quip Network"
+                width={705}
+                height={105}
+                className="h-8 w-auto invert"
+              />
+            </picture>
           </a>
 
           <h1
@@ -28,6 +35,10 @@ export function Hero() {
             The worldwide{' '}
             <span className="font-normal text-zinc-200 italic">quantum</span> computer
           </h1>
+
+          <p className="m-0 max-w-[540px] text-sm leading-[1.4] text-zinc-300">
+            Find Quip Network products, developer tools, research, events, and community links.
+          </p>
 
           <div className="mt-2 flex flex-wrap justify-center gap-3">
             <Button
