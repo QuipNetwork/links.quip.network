@@ -161,17 +161,10 @@ export const siteData: SiteData = {
   ],
   developers: [
     {
-      id: 'github',
-      title: 'GitHub',
-      url: 'https://github.com/quipnetwork',
-      description: 'Explore our open source repos',
-      tag: 'View',
-    },
-    {
       id: 'docs',
-      title: 'Documentation',
-      url: 'https://quip.gitbook.io/docs',
-      description: 'Learn how Quip Network works',
+      title: 'Developer Portal',
+      url: 'https://developers.quip.network',
+      description: 'Docs, SDKs and quickstarts for building on Quip',
       tag: 'Read',
     },
     {
