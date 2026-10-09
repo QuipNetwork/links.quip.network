@@ -139,6 +139,18 @@ export const siteData: SiteData = {
       endsAt: '2026-10-08',
     },
     {
+      id: 'money2020-usa-2026',
+      title: 'Money20/20 USA',
+      url: 'https://www.money2020.com/',
+      date: 'Oct 18',
+      time: 'Oct 18–21, 2026',
+      location: 'Las Vegas, USA',
+      tag: 'IRL',
+      badge: 'Attending',
+      startsAt: '2026-10-18',
+      endsAt: '2026-10-21',
+    },
+    {
       id: 'sigma-world-2026',
       title: 'SiGMA World',
       url: 'https://sigma.world/summits/world/',
