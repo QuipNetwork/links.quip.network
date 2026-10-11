@@ -1,3 +1,15 @@
+# links.quip.network
+
+## Where to contribute
+
+Open issues and pull requests on GitHub, at
+<https://github.com/QuipNetwork/links.quip.network>. That repository is the
+source for the site.
+
+The copy at <https://gitlab.com/quip.network/links.quip.network> is a
+read-only mirror. A sync job copies every branch from GitHub to the mirror
+and replaces any change made there. Merge requests on the mirror are off.
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
