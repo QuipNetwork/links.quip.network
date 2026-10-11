@@ -68,6 +68,8 @@ export function ContactSection() {
       <img
         src="/images/pattern-dark.svg"
         alt=""
+        width={1612}
+        height={809}
         aria-hidden
         className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-25"
       />

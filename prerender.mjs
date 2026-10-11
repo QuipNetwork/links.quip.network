@@ -13,11 +13,27 @@ if (!template.includes(placeholder)) {
   throw new Error(`Expected ${placeholder} in dist/index.html`);
 }
 
+const canonicalUrl = template.match(/<link rel="canonical" href="([^"]+)"/)?.[1];
+if (!canonicalUrl) {
+  throw new Error('Expected an absolute canonical URL in dist/index.html');
+}
+const sitemapUrl = new URL('sitemap.xml', canonicalUrl).href;
+
 writeFileSync(
   'dist/index.html',
   template.replace(placeholder, `<div id="root">${appHtml}</div>`),
 );
 
+writeFileSync(
+  'dist/sitemap.xml',
+  `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>${canonicalUrl}</loc></url>
+</urlset>
+`,
+);
+writeFileSync('dist/robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${sitemapUrl}\n`);
+
 rmSync('build-ssr', { recursive: true, force: true });
 
-console.log(`Prerendered dist/index.html (${appHtml.length} bytes of app HTML)`);
+console.log(`Prerendered dist/index.html (${appHtml.length} bytes of app HTML), sitemap.xml, and robots.txt`);
