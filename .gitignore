@@ -24,6 +24,10 @@
 # local agent state
 /.quadclaude
 CLAUDE.md
+.beads/
+.beads-*/
+.beads-credential-key
+.dolt/
 
 # misc
 .DS_Store
