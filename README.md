@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# links.quip.network
 
-## Getting Started
+The link page for Quip Network, served at <https://links.quip.network>. The
+site uses React and TypeScript. Vite builds it and prerenders it to static
+HTML.
 
-First, run the development server:
+## Where to contribute
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Open issues and pull requests on GitHub, at
+<https://github.com/QuipNetwork/links.quip.network>. That repository is the
+source for the site.
+
+The copy at <https://gitlab.com/quip.network/links.quip.network> is a
+read-only mirror. A sync job copies every branch from GitHub to the mirror
+and replaces any change made there. Issues and merge requests on the mirror
+are off.
+
+## Edit the content
+
+Most changes edit one file, `src/data/siteData.ts`. It holds the sections of
+the page:
+
+| key | contents |
+| -- | -- |
+| `spotlight` | the banner at the top, hidden after its `endsAt` time |
+| `products` | product cards |
+| `earn` | ways to earn, such as Quip Points |
+| `featuredEvents` | the conference schedule, hidden after each `endsAt` date |
+| `community` | social accounts |
+| `developers` | developer links |
+| `resources` | other links |
+
+The events section shows the hosted events from
+[Luma](https://lu.ma/quipnetwork) first, then `featuredEvents`. No component
+reads the `events` list, so a change there does not show on the page.
+
+Put images under `public/images/`. The section components live in
+`src/components/sections/`.
+
+## Run it locally
+
+Install [Bun](https://bun.sh), then run:
+
+```sh
+bun install
+bun run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The development server listens on <http://localhost:8888>.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+To run inside a container instead, use the `run` script. It uses Podman, or
+Docker when Podman is absent:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```sh
+./run build   # build the development image from Containerfile.dev
+./run dev     # start the development server on port 8888
+./run bun install
+```
 
-## Learn More
+## Check and build
 
-To learn more about Next.js, take a look at the following resources:
+```sh
+bun run check   # type check
+bun run lint    # ESLint
+bun run build   # type check, build, and prerender into dist/
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+`bun run build` runs the client build, then a server build of
+`src/entry-server.tsx`, then `prerender.mjs`, which writes static HTML into
+`dist/`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deploy
 
-## Deploy on Vercel
+Netlify builds the site with `bun run build` and publishes `dist/`. Every pull
+request gets a deploy preview.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+`netlify.toml` also holds the redirects. `/api/luma/*` proxies to the Luma
+API, and `/__contact` sends the contact form to the form handler on
+<https://www.quip.network>.
